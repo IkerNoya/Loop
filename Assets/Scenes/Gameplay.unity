@@ -328,8 +328,8 @@ GameObject:
   m_Component:
   - component: {fileID: 145414379}
   m_Layer: 0
-  m_Name: Level03
-  m_TagString: Untagged
+  m_Name: Level3
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -553,8 +553,8 @@ GameObject:
   m_Component:
   - component: {fileID: 601071499}
   m_Layer: 0
-  m_Name: Level02
-  m_TagString: Untagged
+  m_Name: Level2
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -899,8 +899,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1477696489}
   m_Layer: 0
-  m_Name: Level01
-  m_TagString: Untagged
+  m_Name: Level1
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1261,6 +1261,11 @@ PrefabInstance:
         type: 3}
       propertyPath: hp
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959907081112616838, guid: 37d406ebe2342cf419c1d85181ba4753,
+        type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8959907081112616839, guid: 37d406ebe2342cf419c1d85181ba4753,
         type: 3}

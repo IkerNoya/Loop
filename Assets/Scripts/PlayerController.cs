@@ -9,6 +9,7 @@ public class PlayerController : Character
     [SerializeField] float speed;
     [SerializeField] GameObject bullet;
     [SerializeField] CameraShake screenShake;
+    [SerializeField] GameObject hitCollider;
     [HideInInspector] public Vector3 lastMousePosition;
     float shakeMagnitude = 0.05f;
     float shakeDuration = 0.2f;
@@ -22,7 +23,7 @@ public class PlayerController : Character
     #region BASE_FUNCTIONS
     void Start()
     {
-        
+
     }
     void Update()
     {
@@ -48,9 +49,36 @@ public class PlayerController : Character
                 StartCoroutine(screenShake.Shake(shakeDuration, shakeMagnitude));
             }
         }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            GetComponent<SpriteRenderer>().color = Color.green;
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            GetComponent<SpriteRenderer>().color = Color.blue;
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            GetComponent<SpriteRenderer>().color = Color.yellow;
+        }
+        if(Input.GetMouseButton(1))
+        {
+            StartCoroutine(StartCollider(hitCollider));
+        }
     }
     #endregion
-
+    #region COROUTINES
+    IEnumerator StartCollider(GameObject collider)
+    {
+        collider.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        collider.SetActive(false);
+    }
+    #endregion
     #region COLLISION
     private void OnTriggerEnter2D(Collider2D collision) {
         Debug.Log("XD");
