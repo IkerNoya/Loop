@@ -8,8 +8,8 @@ public class PlayerController : Character
 {
     #region VARIABLES
     [SerializeField] float speed;
-    [SerializeField] GameObject bullet;
     [SerializeField] CameraShake screenShake;
+    [SerializeField] Weapons weapons;
     [SerializeField] GameObject hitCollider;
     [HideInInspector] public Vector3 lastMousePosition;
     float shakeMagnitude = 0.05f;
@@ -29,6 +29,7 @@ public class PlayerController : Character
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        weapons = GetComponent<Weapons>();
     }
     void Update()
     {
@@ -46,8 +47,6 @@ public class PlayerController : Character
             ActivateDash = false;
             StartCoroutine(DashCooldown());
         }
-        Debug.Log("can A...." + canActivateDash);
-        Debug.Log("can A...." + ActivateDash);
     }
     #endregion
 
@@ -61,9 +60,9 @@ public class PlayerController : Character
             if (hit.collider != null)
             {
                 lastMousePosition = hit.point;
-                if(bullet!=null)
-                    Instantiate(bullet, transform.position, Quaternion.identity);
-                if(screenShake!=null)
+                if (weapons != null)
+                    weapons.ShootSubmachineGun();
+                if (screenShake != null)
                     StartCoroutine(screenShake.Shake(shakeDuration, shakeMagnitude));
             }
         }
