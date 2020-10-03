@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SecurityGuard : Enemy
 {
-
     public enum EstadosGuardia
     {
         Idle,
@@ -41,17 +40,21 @@ public class SecurityGuard : Enemy
         fsm.SetRelations((int)EstadosGuardia.Perseguir, (int)EstadosGuardia.Morir, (int)EventosGuardia.SinVida);
         fsm.SetRelations((int)EstadosGuardia.Atacar, (int)EstadosGuardia.Morir, (int)EventosGuardia.SinVida);
     }
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         switch (fsm.GetCurrentState())
         {
             case (int)EstadosGuardia.Idle:
+                
+                break;
+            case (int)EstadosGuardia.Patrullar:
+                break;
+            case (int)EstadosGuardia.Perseguir:
+                break;
+            case (int)EstadosGuardia.Atacar:
+                break;
+            case (int)EstadosGuardia.Morir:
                 break;
         }
     }
