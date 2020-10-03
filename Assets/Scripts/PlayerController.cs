@@ -14,6 +14,7 @@ public class PlayerController : Character {
     [HideInInspector] public Vector3 lastMousePosition;
     Vector3 mousePosition;
     Vector3 movement;
+
     SpriteRenderer spriteRenderer;
     Weapons weapons;
 
@@ -72,6 +73,19 @@ public class PlayerController : Character {
                     }
                     break;
                 case Weapons.WeaponType.Shotgun:
+                    if (Input.GetMouseButtonDown(0) && !ActivateDash)
+                    {
+                        if (hit.collider != null)
+                        {
+                            if (weapons.GetCanShoot())
+                            {
+                                lastMousePosition = hit.point;
+                                weapons.ShootShotgun();
+                                if (screenShake != null)
+                                    StartCoroutine(screenShake.Shake(shakeDuration, shakeMagnitude));
+                            }
+                        }
+                    }
                     break;
                 case Weapons.WeaponType.Pistol:
                     break;

@@ -12,13 +12,17 @@ public class Bullet : MonoBehaviour
     Vector3 mousePos;
     Vector3 movement;
     Vector3 direction;
-    Vector3 randomDirRecoil;
+    Vector3 randomDir;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         direction = playerController.lastMousePosition - transform.position;
         weaponType = player.GetComponent<Weapons>();
+        if(weaponType.type == Weapons.WeaponType.Shotgun)
+        {
+           randomDir = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0) + direction;
+        }
     }
 
     private void Update()
@@ -31,6 +35,9 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject, lifeTime);
                 break;
             case Weapons.WeaponType.Shotgun:
+                movement = randomDir.normalized * (speed+2f);
+                transform.position += movement * Time.deltaTime;
+                Destroy(gameObject, lifeTime-0.5f);
                 break;
             case Weapons.WeaponType.Pistol:
                 break;

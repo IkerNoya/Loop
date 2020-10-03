@@ -6,6 +6,7 @@ public class Weapons : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
     [SerializeField] float timeToShoot;
+    float shotgunShellsAmmount = 7;
     public enum WeaponType
     {
         subMachineGun, Shotgun, Pistol
@@ -21,14 +22,27 @@ public class Weapons : MonoBehaviour
                 Instantiate(bullet, transform.position, Quaternion.identity);
 
             canShoot = false;
-            StartCoroutine(Cooldown());
+            StartCoroutine(Cooldown(timeToShoot));
         }
     }
-    IEnumerator Cooldown() {
+    public void ShootShotgun()
+    {
+        if (canShoot)
+        {
+            if(bullet!=null)
+            {
+                for(int i=0;i<shotgunShellsAmmount;i++)
+                    Instantiate(bullet, transform.position, Quaternion.identity);
+            }
+            canShoot = false;
+            StartCoroutine(Cooldown(timeToShoot + 1f));
+        }
+    }
+    IEnumerator Cooldown(float rateOfFire) {
         canShoot = false;
-        yield return new WaitForSeconds(timeToShoot);
+        yield return new WaitForSeconds(rateOfFire);
         canShoot = true;
-        StopCoroutine(Cooldown());
+        StopCoroutine(Cooldown(rateOfFire));
         yield return null;
     }
     public bool GetCanShoot() {
