@@ -4,15 +4,20 @@ using UnityEngine;
 using Pathfinding;
 public class Enemy : Character
 {
-    [SerializeField] protected bool usePatrullaje;
-    [SerializeField] Transform waypointsPatrullaje;
     private AIDestinationSetter aiPathDestination;
-    private AIPath aiPath;
+    protected AIPath aiPath;
     protected FSM fsm;
+
+    [SerializeField] protected bool enableCallAlies = true;
+    protected bool callAlies;
+    [SerializeField]
+    protected int layerEnvarioment = 9;
+
+    [SerializeField] protected float distancePlayerInRange;
     private Vector3 currentDistanceWhitPlayer;
     private Vector3 auxCurrentDistanceWhitPlayer;
-    private Transform currentTarget;
-    private PlayerController[] targets; 
+    protected Transform currentTarget;
+    protected PlayerController[] targets;
     protected virtual void Awake()
     {
         aiPathDestination = GetComponent<AIDestinationSetter>();
@@ -23,10 +28,8 @@ public class Enemy : Character
         currentDistanceWhitPlayer = transform.position - targets[0].transform.position;
         aiPathDestination.target = targets[0].transform;
     }
-    protected virtual void Update()
-    {
-        CheckCurrentTarget();
-    }
+    protected virtual void Start(){}
+    protected virtual void Update(){ CheckCurrentTarget(); }
     public void CheckCurrentTarget()
     {
         for (int i = 0; i < targets.Length; i++)
@@ -43,10 +46,13 @@ public class Enemy : Character
     public void StopAIPathDestination()
     {
         aiPath.maxSpeed = 0;
+        //aiPath.enabled = false;
     }
     public void StartAIPathDestination()
     {
         aiPath.maxSpeed = speed;
+        //aiPath.enabled = true;
     }
+
     protected virtual void Attack() { }
 }

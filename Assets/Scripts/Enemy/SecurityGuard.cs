@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class SecurityGuard : Enemy
 {
+    public static event Action<Enemy, int> OnDetectedPlayer;
+    [SerializeField] protected float speedAttack;
+
+
     public enum EstadosGuardia
     {
         Idle,
-        Patrullar,
         Perseguir,
         Atacar,
         Morir,
@@ -16,7 +19,7 @@ public class SecurityGuard : Enemy
     //HAGO UN ENUM DE Eventos
     public enum EventosGuardia
     {
-        EmpezarPatrullaje,
+        Quieto,
         EnRangoDePersecucion,
         EnRangoDeAtaque,
         FueraDeRangoDePersecucion,
@@ -25,21 +28,36 @@ public class SecurityGuard : Enemy
         Count
     }
 
+    public EstadosGuardia test;
+
+    private void OnEnable()
+    {
+        SecurityGuard.OnDetectedPlayer += LisentCallAlies;
+    }
+    private void OnDisable()
+    {
+        SecurityGuard.OnDetectedPlayer -= LisentCallAlies;
+    }
+    protected override void Start()
+    {
+        base.Start();
+    }
     protected override void Awake()
     {
         base.Awake();
         // Aca defino las relaciones de estado y le hago el new al objeto FSM
         fsm = new FSM((int)EstadosGuardia.Count, (int)EventosGuardia.Count, (int)EstadosGuardia.Idle);
-        fsm.SetRelations((int)EstadosGuardia.Idle, (int)EstadosGuardia.Patrullar, (int)EventosGuardia.EmpezarPatrullaje);
-        fsm.SetRelations((int)EstadosGuardia.Patrullar, (int)EstadosGuardia.Perseguir, (int)EventosGuardia.EnRangoDePersecucion);
+        fsm.SetRelations((int)EstadosGuardia.Idle, (int)EstadosGuardia.Perseguir, (int)EventosGuardia.EnRangoDePersecucion);
         fsm.SetRelations((int)EstadosGuardia.Perseguir, (int)EstadosGuardia.Atacar, (int)EventosGuardia.EnRangoDeAtaque);
         fsm.SetRelations((int)EstadosGuardia.Atacar, (int)EstadosGuardia.Perseguir, (int)EventosGuardia.FueraDeRangoDeAtaque);
-        fsm.SetRelations((int)EstadosGuardia.Perseguir, (int)EstadosGuardia.Patrullar, (int)EventosGuardia.FueraDeRangoDePersecucion);
+        fsm.SetRelations((int)EstadosGuardia.Perseguir, (int)EstadosGuardia.Idle, (int)EventosGuardia.FueraDeRangoDePersecucion);
 
         fsm.SetRelations((int)EstadosGuardia.Idle, (int)EstadosGuardia.Morir, (int)EventosGuardia.SinVida);
-        fsm.SetRelations((int)EstadosGuardia.Patrullar, (int)EstadosGuardia.Morir, (int)EventosGuardia.SinVida);
         fsm.SetRelations((int)EstadosGuardia.Perseguir, (int)EstadosGuardia.Morir, (int)EventosGuardia.SinVida);
         fsm.SetRelations((int)EstadosGuardia.Atacar, (int)EstadosGuardia.Morir, (int)EventosGuardia.SinVida);
+
+        fsm.SetRelations((int)EstadosGuardia.Perseguir, (int)EstadosGuardia.Idle, (int)EventosGuardia.Quieto);
+        fsm.SetRelations((int)EstadosGuardia.Atacar, (int)EstadosGuardia.Idle, (int)EventosGuardia.Quieto);
     }
     // Update is called once per frame
     protected override void Update()
@@ -48,15 +66,46 @@ public class SecurityGuard : Enemy
         switch (fsm.GetCurrentState())
         {
             case (int)EstadosGuardia.Idle:
-                break;
-            case (int)EstadosGuardia.Patrullar:
+                StopAIPathDestination();
+                callAlies = true;
                 break;
             case (int)EstadosGuardia.Perseguir:
+                StartAIPathDestination();
+                if (callAlies && enableCallAlies)
+                {
+                    if(OnDetectedPlayer != null)
+                        OnDetectedPlayer(this, (int)EstadosGuardia.Perseguir);
+                    callAlies = false;
+                }
                 break;
             case (int)EstadosGuardia.Atacar:
+                callAlies = true;
+                aiPath.maxSpeed = speedAttack;
                 break;
             case (int)EstadosGuardia.Morir:
+                callAlies = false;
                 break;
         }
+        CheckPlayerInRange();
+        test = (EstadosGuardia)fsm.GetCurrentState();
+    }
+    public void CheckPlayerInRange()
+    {
+        Vector3 currentDistance = Vector3.zero;
+        if (currentTarget != null)
+        {
+            //Debug.Log("A BUSCAR UWU");
+            currentDistance = transform.position - currentTarget.position;
+            if (currentDistance.magnitude <= distancePlayerInRange)
+            {
+                fsm.SendEvent((int)EventosGuardia.EnRangoDePersecucion);
+            }
+        }
+    }
+    public void LisentCallAlies(Enemy e, int state)
+    {
+        if (e == null || e == this) return;
+
+        fsm.SendEvent(state);
     }
 }
