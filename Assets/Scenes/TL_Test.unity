@@ -1359,6 +1359,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
+  stamina: 0
+  damageAmmount: 0
   speed: 10
   usePatrullaje: 1
   waypointsPatrullaje: {fileID: 0}
@@ -1471,7 +1473,7 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 1.28
+  slowdownDistance: 0
   pickNextWaypointDist: 2
   endReachedDistance: 0.62
   alwaysDrawGizmos: 0

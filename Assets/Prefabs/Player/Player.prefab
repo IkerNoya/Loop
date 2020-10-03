@@ -105,12 +105,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
+  stamina: 0
+  damageAmmount: 0
   speed: 5
+  dashSpeed: 0
   screenShake: {fileID: 0}
-  weapons: {fileID: 0}
   hitCollider: {fileID: 7569629956179511541}
+  shakeMagnitude: 0.05
+  shakeDuration: 0.2
+  playerInputHorizontal: Horizontal
+  playerInputVertical: Vertical
   lastMousePosition: {x: 0, y: 0, z: 0}
-  spriteRenderer: {fileID: 0}
 --- !u!114 &651937285197008495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 9033116984022976241, guid: 1585d4fcbd133d84d9504352fe3991d2, type: 3}
   timeToShoot: 0.2
+  type: 0
 --- !u!50 &2716311324300843499
 Rigidbody2D:
   serializedVersion: 4
