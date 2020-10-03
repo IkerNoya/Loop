@@ -30,6 +30,7 @@ public class PlayerController : Character
         movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
         transform.position += movement * Time.deltaTime;
         Inputs();
+        transform.LookAt(mousePosition, Vector3.back);
     }
     #endregion
 
