@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] float hp;
     [SerializeField] GameObject bullet;
     [SerializeField] CameraShake screenShake;
     [HideInInspector] public Vector3 lastMousePosition;
@@ -43,7 +44,14 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
+    public void SetHP(float healthPoints)
+    {
+        hp = healthPoints;
+    }
+    public float GetHP()
+    {
+        return hp;
+    }
     private void OnTriggerEnter2D(Collider2D collision) {
         Debug.Log("XD");
         if (collision.gameObject.CompareTag("Door")) {
