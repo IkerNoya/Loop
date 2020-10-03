@@ -42,10 +42,12 @@ public class PlayerController : Character
         }
         else
         {
-            movement = new Vector3(movement.x, 10.0f) * Time.deltaTime;
+            transform.position += transform.up * 50 * Time.deltaTime;
             ActivateDash = false;
             StartCoroutine(DashCooldown());
         }
+        Debug.Log("can A...." + canActivateDash);
+        Debug.Log("can A...." + ActivateDash);
     }
     #endregion
 
