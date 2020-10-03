@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : Character
@@ -15,6 +16,10 @@ public class PlayerController : Character
     float shakeDuration = 0.2f;
     Vector3 mousePosition;
     Vector3 movement;
+    Rigidbody2D rb;
+
+    bool ActivateDash = false;
+    bool canActivateDash = true;
 
     public delegate void EnterDoor(GameObject door);
     public static event EnterDoor DoorEnter;
@@ -23,15 +28,24 @@ public class PlayerController : Character
     #region BASE_FUNCTIONS
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
-        transform.position += movement * Time.deltaTime;
-        Inputs();
-        transform.LookAt(mousePosition, Vector3.back);
+        if (!ActivateDash)
+        {
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
+            transform.position += movement * Time.deltaTime;
+            transform.LookAt(mousePosition, Vector3.forward);
+            Inputs();
+        }
+        else
+        {
+            movement = new Vector3(movement.x, 10.0f) * Time.deltaTime;
+            ActivateDash = false;
+            StartCoroutine(DashCooldown());
+        }
     }
     #endregion
 
@@ -45,8 +59,10 @@ public class PlayerController : Character
             if (hit.collider != null)
             {
                 lastMousePosition = hit.point;
-                Instantiate(bullet, transform.position, Quaternion.identity);
-                StartCoroutine(screenShake.Shake(shakeDuration, shakeMagnitude));
+                if(bullet!=null)
+                    Instantiate(bullet, transform.position, Quaternion.identity);
+                if(screenShake!=null)
+                    StartCoroutine(screenShake.Shake(shakeDuration, shakeMagnitude));
             }
         }
         if (Input.GetKeyDown(KeyCode.A))
@@ -67,7 +83,13 @@ public class PlayerController : Character
         }
         if(Input.GetMouseButton(1))
         {
-            StartCoroutine(StartCollider(hitCollider));
+            if(hitCollider!=null)
+                StartCoroutine(StartCollider(hitCollider));
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canActivateDash)
+        {
+            ActivateDash = true;
+            canActivateDash = false;
         }
     }
     #endregion
@@ -77,6 +99,12 @@ public class PlayerController : Character
         collider.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         collider.SetActive(false);
+    }
+
+    IEnumerator DashCooldown()
+    {
+        yield return new WaitForSeconds(2f);
+        canActivateDash = true;
     }
     #endregion
     #region COLLISION
