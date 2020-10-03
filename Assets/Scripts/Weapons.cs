@@ -12,7 +12,7 @@ public class Weapons : MonoBehaviour
     float shotgunShellsAmmount = 7;
     public enum WeaponType
     {
-        subMachineGun, Shotgun, Pistol
+        subMachineGun, Shotgun, Revolver
     }
     public WeaponType type;
     float timer = 0;
@@ -41,6 +41,17 @@ public class Weapons : MonoBehaviour
             StartCoroutine(Cooldown(timeToShoot + 1f));
         }
     }
+    public void ShootRevolver()
+    {
+        if (canShoot)
+        {
+            if (bullet != null)
+                Instantiate(bullet, transform.position, Quaternion.identity);
+
+            canShoot = false;
+            StartCoroutine(Cooldown(timeToShoot + 0.3f));
+        }
+    }
     IEnumerator Cooldown(float rateOfFire) {
         canShoot = false;
         yield return new WaitForSeconds(rateOfFire);
@@ -65,7 +76,7 @@ public class Weapons : MonoBehaviour
             case WeaponType.Shotgun:
                 return shakeMagnitudeShotgun;
                 break;
-            case WeaponType.Pistol:
+            case WeaponType.Revolver:
                 return shakeMagnitudeSMG;
                 break;
         }

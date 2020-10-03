@@ -33,7 +33,9 @@ public class Bullet : MonoBehaviour
                 movement = randomDir.normalized * (speed + 2f);
                 Destroy(gameObject, lifeTime - 0.5f);
                 break;
-            case Weapons.WeaponType.Pistol:
+            case Weapons.WeaponType.Revolver:
+                movement = direction.normalized * speed;
+                Destroy(gameObject, lifeTime + 0.5f);
                 break;
         }
     }

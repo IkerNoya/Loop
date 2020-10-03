@@ -86,7 +86,20 @@ public class PlayerController : Character {
                         }
                     }
                     break;
-                case Weapons.WeaponType.Pistol:
+                case Weapons.WeaponType.Revolver:
+                    if (Input.GetMouseButton(0) && !ActivateDash)
+                    {
+                        if (hit.collider != null)
+                        {
+                            if (weapons.GetCanShoot())
+                            {
+                                lastMousePosition = new Vector3(hit.point.x, hit.point.y, 0f) + new Vector3((float)Random.Range(-0.5f, 0.5f), (float)Random.Range(-0.5f, 0.5f), 0f);
+                                weapons.ShootRevolver();
+                                if (screenShake != null)
+                                    StartCoroutine(screenShake.Shake(weapons.GetShakeDuration(), weapons.GetShakeMagnitude(Weapons.WeaponType.Shotgun)));
+                            }
+                        }
+                    }
                     break;
             }
         }
@@ -114,6 +127,10 @@ public class PlayerController : Character {
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             weapons.type = Weapons.WeaponType.Shotgun;
+        }
+        if(Input.GetKey(KeyCode.Alpha3))
+        {
+            weapons.type = Weapons.WeaponType.Revolver;
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && canActivateDash) {
             ActivateDash = true;
