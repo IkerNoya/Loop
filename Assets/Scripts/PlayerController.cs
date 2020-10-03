@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] float speed;
+    [SerializeField] GameObject bullet;
+    Vector3 mousePosition;
+    Vector3 movement;
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        mousePosition = Input.mousePosition;
+        movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f) * speed;
+        transform.position += movement * Time.deltaTime;
+        Inputs();
+        Debug.Log(mousePosition);
+    }
+    void Inputs() 
+    { 
+        Ray castPoint = Camera.main.ScreenPointToRay(mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+        {
+            Instantiate(bullet, transform.position, Quaternion.identity);
+        }
     }
 }
