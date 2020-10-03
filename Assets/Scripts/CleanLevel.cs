@@ -36,8 +36,9 @@ public class CleanLevel : MonoBehaviour
     }
     public void SettingDestroyObjects()
     {
-        //if (objectsClean == null) return;
-        //if (objectsClean.Count <= 0) return;
+        if (objectsClean == null) return;
+        if (objectsClean.Count <= 0) return;
+
         for (int i = 0; i < objectsClean.Count; i++)
         {
             //Debug.Log("DESTRUI AL " + i);

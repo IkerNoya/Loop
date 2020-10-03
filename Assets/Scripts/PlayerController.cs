@@ -12,6 +12,7 @@ public class PlayerController : Character
     [SerializeField] Weapons weapons;
     [SerializeField] GameObject hitCollider;
     [HideInInspector] public Vector3 lastMousePosition;
+    [SerializeField] SpriteRenderer spriteRenderer;
     float shakeMagnitude = 0.05f;
     float shakeDuration = 0.2f;
     Vector3 mousePosition;
@@ -30,6 +31,7 @@ public class PlayerController : Character
     {
         rb = GetComponent<Rigidbody2D>();
         weapons = GetComponent<Weapons>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
@@ -38,7 +40,11 @@ public class PlayerController : Character
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
             transform.position += movement * Time.deltaTime;
-            transform.LookAt(mousePosition, Vector3.forward);
+
+            Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+            transform.up = dir;
+
+            //transform.LookAt(mousePosition, Vector3.forward);
             Inputs();
         }
         else
@@ -68,19 +74,19 @@ public class PlayerController : Character
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            GetComponent<SpriteRenderer>().color = Color.green;
+            spriteRenderer.color = Color.green;
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            GetComponent<SpriteRenderer>().color = Color.red;
+            spriteRenderer.color = Color.red;
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            GetComponent<SpriteRenderer>().color = Color.blue;
+            spriteRenderer.color = Color.blue;
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
-            GetComponent<SpriteRenderer>().color = Color.yellow;
+            spriteRenderer.color = Color.yellow;
         }
         if(Input.GetMouseButton(1))
         {
