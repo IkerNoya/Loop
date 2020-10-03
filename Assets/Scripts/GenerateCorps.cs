@@ -12,15 +12,17 @@ public class GenerateCorps : MonoBehaviour
 
     [SerializeField] private PlayerController PlayerReference;
     public GameObject objectCorpGenerate;
-    private List<ParentClass> parentClasses;
+    private ParentClass[] parentClasses;
     // Update is called once per frame
 
     private void Start()
     {
         GameObject[] parents = GameObject.FindGameObjectsWithTag("Level");
-        for (int i = 0; i < parents.Length; i++)
-        {
+        parentClasses = new ParentClass[parents.Length];
 
+        for (int i = 0; i < parentClasses.Length; i++)
+        {
+            parentClasses[i].nameLevel = "Level" + (i + 1);
         }
     }
     void Update()

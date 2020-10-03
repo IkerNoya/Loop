@@ -324,7 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 145414379}
   m_Layer: 0
-  m_Name: Level03
+  m_Name: Level3
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -511,7 +511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601071499}
   m_Layer: 0
-  m_Name: Level02
+  m_Name: Level2
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -857,7 +857,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1477696489}
   m_Layer: 0
-  m_Name: Level01
+  m_Name: Level1
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1245,3 +1245,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ef160e91c54c8498f551d601b8c7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerReference: {fileID: 0}
+  objectCorpGenerate: {fileID: 0}
