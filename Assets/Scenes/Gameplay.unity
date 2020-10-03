@@ -1257,6 +1257,11 @@ PrefabInstance:
       propertyPath: screenShake
       value: 
       objectReference: {fileID: 323281893}
+    - target: {fileID: 8959907081112616838, guid: 37d406ebe2342cf419c1d85181ba4753,
+        type: 3}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8959907081112616839, guid: 37d406ebe2342cf419c1d85181ba4753,
         type: 3}
       propertyPath: m_Name

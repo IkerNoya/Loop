@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Character
 {
+    #region VARIABLES
     [SerializeField] float speed;
-    [SerializeField] float hp;
     [SerializeField] GameObject bullet;
     [SerializeField] CameraShake screenShake;
     [HideInInspector] public Vector3 lastMousePosition;
@@ -15,10 +15,11 @@ public class PlayerController : MonoBehaviour
     Vector3 mousePosition;
     Vector3 movement;
 
-
     public delegate void EnterDoor(GameObject door);
     public static event EnterDoor DoorEnter;
+    #endregion
 
+    #region BASE_FUNCTIONS
     void Start()
     {
         
@@ -30,6 +31,9 @@ public class PlayerController : MonoBehaviour
         transform.position += movement * Time.deltaTime;
         Inputs();
     }
+    #endregion
+
+    #region FUNCTIONS
     void Inputs() 
     {
         if (Input.GetMouseButtonDown(0))
@@ -44,14 +48,9 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    public void SetHP(float healthPoints)
-    {
-        hp = healthPoints;
-    }
-    public float GetHP()
-    {
-        return hp;
-    }
+    #endregion
+
+    #region COLLISION
     private void OnTriggerEnter2D(Collider2D collision) {
         Debug.Log("XD");
         if (collision.gameObject.CompareTag("Door")) {
@@ -59,4 +58,5 @@ public class PlayerController : MonoBehaviour
                 DoorEnter(collision.gameObject);
         }
     }
+    #endregion
 }
