@@ -63,4 +63,9 @@ public class Enemy : Character
         }
     }
     protected virtual void Attack() { }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Bullet") { }
+    }
 }
