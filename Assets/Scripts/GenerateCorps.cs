@@ -11,14 +11,40 @@ public class GenerateCorps : MonoBehaviour
     }
 
     [SerializeField] private Character character;
-    public GameObject objectCorpGenerate;
+    public GameObject objectGenerateOnDieCharacter;
     private ParentClass parentClasses;
     // Update is called once per frame
-
+    private GameObject[] parents;
+    [SerializeField] private LevelManager levelManager;
     private void Start()
     {
-        GameObject[] parents = GameObject.FindGameObjectsWithTag("Level");
+        parents = GameObject.FindGameObjectsWithTag("Level");
+        levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+        for (int i = 0; i < parents.Length; i++)
+        {
+            parents[i].SetActive(false);
+        }
+
+        if(levelManager != null)
+            parents[levelManager.GetCurrentLevel()].SetActive(true);
+
         parentClasses = new ParentClass();
+        SettingParent();
+    }
+    void Update()
+    {
+        CheckGenerateCorp();
+        
+        //ZONA DE TESTEO//
+        //if (Input.GetKeyDown(KeyCode.Keypad0))
+        //{
+        //    if (character == null) return;
+        //    character.SetHP(0);
+        //}
+        //-------------//
+    }
+    public void SettingParent()
+    {
         GameObject currentParent = null;
         int index = 0;
         for (int i = 0; i < parents.Length; i++)
@@ -30,20 +56,12 @@ public class GenerateCorps : MonoBehaviour
                 i = parents.Length;
             }
         }
-        parentClasses.parentObject = currentParent;
-        parentClasses.nameLevel = "Level" + index;
-    }
-    void Update()
-    {
-        CheckGenerateCorp();
-        //BORRAR LUEGO DEL TESTEO
-        if (Input.GetKeyDown(KeyCode.Keypad0))
+        if (currentParent != null)
         {
-            if (character == null) return;
-            character.SetHP(0);
+            parentClasses.parentObject = currentParent;
+            parentClasses.nameLevel = "Level" + index;
         }
     }
-
     public void CheckGenerateCorp()
     {
         if (character == null) return;
@@ -53,7 +71,10 @@ public class GenerateCorps : MonoBehaviour
     }
     public void GenerateCorp()
     {
-        Instantiate(objectCorpGenerate, transform.position, Quaternion.identity, parentClasses.parentObject.transform);
-        Destroy(character.gameObject);
+        SettingParent();
+        Instantiate(objectGenerateOnDieCharacter, transform.position, Quaternion.identity, parentClasses.parentObject.transform);
+
+        //ZONA DE TESTEO//
+        //character.SetHP(100);
     }
 }

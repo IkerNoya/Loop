@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] SpriteRenderer level;
     [SerializeField] Sprite[] levelsSprites;
     [SerializeField] GameObject[] doors;
+
     int actualLevel = 1;
 
     private void Start() {
@@ -45,4 +46,8 @@ public class LevelManager : MonoBehaviour {
         level.sprite = levelsSprites[actualLevel];
     }
 
+    public int GetCurrentLevel()
+    {
+        return actualLevel;
+    }
 }
