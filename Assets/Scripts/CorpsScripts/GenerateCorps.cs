@@ -29,7 +29,7 @@ public class GenerateCorps : MonoBehaviour
     private void Start()
     {
         parents = GameObject.FindGameObjectsWithTag("Level");
-        levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+        levelManager = FindObjectOfType<LevelManager>();
         for (int i = 0; i < parents.Length; i++)
         {
             parents[i].SetActive(false);

@@ -24,4 +24,11 @@ public class Bullet : MonoBehaviour
         transform.position += movement * Time.deltaTime;
         Destroy(gameObject, lifeTime);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Walls"))
+        {
+            Destroy(gameObject); 
+        }
+    }
 }
