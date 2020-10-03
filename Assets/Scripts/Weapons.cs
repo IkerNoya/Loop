@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Weapons : MonoBehaviour
 {
-    [SerializeField] GameObject bullet;
+   
+    [SerializeField] private Bullet.User user;
+    [SerializeField] private Bullet OriginBullet;
+    private Bullet bullet;
     [SerializeField] float timeToShoot;
     [SerializeField] float shakeDuration;
     [SerializeField] float shakeMagnitudeShotgun;
@@ -12,7 +15,7 @@ public class Weapons : MonoBehaviour
     float shotgunShellsAmmount = 7;
     public enum WeaponType
     {
-        subMachineGun, Shotgun, Revolver
+        subMachineGun, Shotgun, Revolver, Count
     }
     public WeaponType type;
     float timer = 0;
@@ -21,8 +24,12 @@ public class Weapons : MonoBehaviour
     {
         if (canShoot)
         {
-            if (bullet != null)
-                Instantiate(bullet, transform.position, Quaternion.identity);
+            if (OriginBullet != null)
+            {
+                bullet = Instantiate(OriginBullet, transform.position, Quaternion.identity);
+                bullet.SetUser(user);
+                Debug.Log(bullet.GetUser());
+            }
 
             canShoot = false;
             StartCoroutine(Cooldown(timeToShoot));
@@ -32,10 +39,13 @@ public class Weapons : MonoBehaviour
     {
         if (canShoot)
         {
-            if(bullet!=null)
+            if(OriginBullet != null)
             {
-                for(int i=0;i<shotgunShellsAmmount;i++)
-                    Instantiate(bullet, transform.position, Quaternion.identity);
+                for (int i = 0; i < shotgunShellsAmmount; i++)
+                {
+                    bullet = Instantiate(OriginBullet, transform.position, Quaternion.identity);
+                    bullet.SetUser(user);
+                }
             }
             canShoot = false;
             StartCoroutine(Cooldown(timeToShoot + 1f));
@@ -45,8 +55,11 @@ public class Weapons : MonoBehaviour
     {
         if (canShoot)
         {
-            if (bullet != null)
-                Instantiate(bullet, transform.position, Quaternion.identity);
+            if (OriginBullet != null)
+            {
+                bullet = Instantiate(OriginBullet, transform.position, Quaternion.identity);
+                bullet.SetUser(user);
+            }
 
             canShoot = false;
             StartCoroutine(Cooldown(timeToShoot + 0.3f));
@@ -65,6 +78,10 @@ public class Weapons : MonoBehaviour
     public float GetShakeDuration()
     {
         return shakeDuration;
+    }
+    public int GetCountWeapons()
+    {
+        return (int)WeaponType.Count;
     }
     public float GetShakeMagnitude(WeaponType weapon)
     {

@@ -13,7 +13,6 @@ public class Enemy : Character
     [SerializeField]
     protected int layerEnvarioment = 9;
 
-    [SerializeField] protected float distancePlayerInRange;
     private Vector3 currentDistanceWhitPlayer;
     private Vector3 auxCurrentDistanceWhitPlayer;
     protected Transform currentTarget;
@@ -29,7 +28,10 @@ public class Enemy : Character
         aiPathDestination.target = targets[0].transform;
     }
     protected virtual void Start(){}
-    protected virtual void Update(){ CheckCurrentTarget(); }
+    protected virtual void Update()
+    {
+        CheckCurrentTarget();
+    }
     public void CheckCurrentTarget()
     {
         for (int i = 0; i < targets.Length; i++)
@@ -53,6 +55,12 @@ public class Enemy : Character
         aiPath.maxSpeed = speed;
         //aiPath.enabled = true;
     }
-
+    public void CheckLife()
+    {
+        if (GetHP() <= 0)
+        {
+            Destroy(this);
+        }
+    }
     protected virtual void Attack() { }
 }

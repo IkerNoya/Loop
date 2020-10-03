@@ -155,7 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f44724511a70b74b84d35b9c7627982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 9033116984022976241, guid: 1585d4fcbd133d84d9504352fe3991d2, type: 3}
+  user: 1
+  OriginBullet: {fileID: 9116509845460994660, guid: 1585d4fcbd133d84d9504352fe3991d2,
+    type: 3}
   timeToShoot: 0.08
   shakeDuration: 0.2
   shakeMagnitudeShotgun: 0.1

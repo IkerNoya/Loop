@@ -16,8 +16,9 @@ GameObject:
   - component: {fileID: 8853489992321274273}
   - component: {fileID: 8853489992321274274}
   - component: {fileID: 8853489992321274278}
+  - component: {fileID: -7878162965046718608}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Guardia De Seguridad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,11 +103,14 @@ MonoBehaviour:
   hp: 100
   stamina: 0
   damageAmmount: 0
-  speed: 3
+  speed: 5
   enableCallAlies: 1
   layerEnvarioment: 9
-  distancePlayerInRange: 4
   speedAttack: 0
+  distancePlayerInRange: 15
+  distanceInAttackRange: 9
+  generateWeaponRandom: 1
+  weapons: {fileID: -7878162965046718608}
   test: 0
 --- !u!114 &8853489992321274272
 MonoBehaviour:
@@ -223,3 +227,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-7878162965046718608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8853489992321274286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f44724511a70b74b84d35b9c7627982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  user: 0
+  OriginBullet: {fileID: 9116509845460994660, guid: 1585d4fcbd133d84d9504352fe3991d2,
+    type: 3}
+  timeToShoot: 0.08
+  shakeDuration: 0.2
+  shakeMagnitudeShotgun: 0.1
+  shakeMagnitudeSMG: 0.05
+  type: 0

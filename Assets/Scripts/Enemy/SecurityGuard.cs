@@ -6,8 +6,11 @@ public class SecurityGuard : Enemy
 {
     public static event Action<Enemy, int> OnDetectedPlayer;
     [SerializeField] protected float speedAttack;
-
-
+    [SerializeField] protected float distancePlayerInRange;
+    [SerializeField] protected float distanceInAttackRange;
+    [SerializeField] protected bool generateWeaponRandom = true; 
+    public Weapons weapons;
+    
     public enum EstadosGuardia
     {
         Idle,
@@ -41,6 +44,10 @@ public class SecurityGuard : Enemy
     protected override void Start()
     {
         base.Start();
+        if (generateWeaponRandom)
+        {
+            weapons.type = (Weapons.WeaponType)UnityEngine.Random.Range(0, weapons.GetCountWeapons());
+        }
     }
     protected override void Awake()
     {
@@ -81,24 +88,47 @@ public class SecurityGuard : Enemy
             case (int)EstadosGuardia.Atacar:
                 callAlies = true;
                 aiPath.maxSpeed = speedAttack;
+                Attack();
                 break;
             case (int)EstadosGuardia.Morir:
                 callAlies = false;
                 break;
         }
-        CheckPlayerInRange();
+        
+        CheckPlayerInRangePerseguir();
+        CheckPlayerInRangeAttack();
         test = (EstadosGuardia)fsm.GetCurrentState();
     }
-    public void CheckPlayerInRange()
+    public void CheckPlayerInRangePerseguir()
     {
         Vector3 currentDistance = Vector3.zero;
         if (currentTarget != null)
         {
             //Debug.Log("A BUSCAR UWU");
             currentDistance = transform.position - currentTarget.position;
-            if (currentDistance.magnitude <= distancePlayerInRange)
+            if (currentDistance.magnitude <= distancePlayerInRange && currentDistance.magnitude > distanceInAttackRange)
             {
                 fsm.SendEvent((int)EventosGuardia.EnRangoDePersecucion);
+            }
+            /*else if (currentDistance.magnitude > distancePlayerInRange)
+            {
+                fsm.SendEvent((int)EventosGuardia.FueraDeRangoDePersecucion);
+            }*/
+        }
+    }
+    public void CheckPlayerInRangeAttack()
+    {
+        Vector3 currentDistance = Vector3.zero;
+        if (currentTarget != null)
+        {
+            currentDistance = transform.position - currentTarget.position;
+            if (currentDistance.magnitude <= distanceInAttackRange)
+            {
+                fsm.SendEvent((int)EventosGuardia.EnRangoDeAtaque);
+            }
+            else
+            {
+                fsm.SendEvent((int)EventosGuardia.FueraDeRangoDeAtaque);
             }
         }
     }
@@ -107,5 +137,21 @@ public class SecurityGuard : Enemy
         if (e == null || e == this) return;
 
         fsm.SendEvent(state);
+    }
+    protected override void Attack()
+    {
+        base.Attack();
+        switch (weapons.type)
+        {
+            case Weapons.WeaponType.Revolver:
+                weapons.ShootRevolver();
+                break;
+            case Weapons.WeaponType.Shotgun:
+                weapons.ShootSubmachineGun();
+                break;
+            case Weapons.WeaponType.subMachineGun:
+                weapons.ShootSubmachineGun();
+                break;
+        }
     }
 }
