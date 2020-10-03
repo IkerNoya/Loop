@@ -88,7 +88,7 @@ public class PlayerController : Character {
         }
     }
     #endregion
-    #region COROUTINES
+    #region COROUTINES**
     IEnumerator StartCollider(GameObject collider) {
         collider.SetActive(true);
         yield return new WaitForSeconds(0.5f);
