@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float lifeTime;
     GameObject player;
+    Weapons weaponType;
     PlayerController playerController;
     Vector3 mousePos;
     Vector3 movement;
@@ -16,10 +17,12 @@ public class Bullet : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         direction = playerController.lastMousePosition - transform.position;
+        weaponType = player.GetComponent<Weapons>();
     }
 
     private void Update()
     {
+        
         movement = direction.normalized * speed;
         transform.position += movement * Time.deltaTime;
         Destroy(gameObject, lifeTime);
