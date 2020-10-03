@@ -309,11 +309,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: {fileID: 1498502175}
   levelsSprites:
-  - {fileID: 0}
   - {fileID: 21300000, guid: f689cd558210b354aa1ded66970d832d, type: 3}
   - {fileID: 21300000, guid: 45dc9a9f276f532499deedb61029a2fd, type: 3}
   - {fileID: 21300000, guid: 12c1304ce225e2043ad13c0bf3b8a3c6, type: 3}
-  doors: []
+  doors:
+  - {fileID: 335444861}
+  - {fileID: 1626105022}
+  - {fileID: 996632309}
+  - {fileID: 50133203}
 --- !u!1 &145414378
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &145414379
 Transform:
   m_ObjectHideFlags: 0
@@ -516,7 +519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &601071499
 Transform:
   m_ObjectHideFlags: 0
@@ -1227,23 +1230,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37d406ebe2342cf419c1d85181ba4753, type: 3}
---- !u!1 &5530135108587646466 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8959907081112616839, guid: 37d406ebe2342cf419c1d85181ba4753,
-    type: 3}
-  m_PrefabInstance: {fileID: 5530135108587646465}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5530135108587646467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5530135108587646466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ef160e91c54c8498f551d601b8c7e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerReference: {fileID: 0}
-  objectCorpGenerate: {fileID: 0}
