@@ -1203,7 +1203,7 @@ MonoBehaviour:
   hp: 100
   stamina: 0
   damageAmmount: 0
-  speed: 10
+  speed: 7
   usePatrullaje: 1
   waypointsPatrullaje: {fileID: 0}
 --- !u!212 &826451558
@@ -2827,6 +2827,8 @@ MonoBehaviour:
   hitCollider: {fileID: 2716311325242566388}
   shakeMagnitude: 0.05
   shakeDuration: 0.2
+  playerInputHorizontal: Horizontal
+  playerInputVertical: Vertical
   lastMousePosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1538901016033069167
 GameObject:
@@ -2879,7 +2881,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 9033116984022976241, guid: 1585d4fcbd133d84d9504352fe3991d2, type: 3}
-  timeToShoot: 0.15
+  timeToShoot: 0.08
+  type: 0
 --- !u!1 &2716311325242566388
 GameObject:
   m_ObjectHideFlags: 0
@@ -2980,7 +2983,7 @@ MonoBehaviour:
     objectOnDieCharacter: {fileID: 5713534235791246420, guid: 50191cdb32675d44f85ae21cf6784028,
       type: 3}
     recycled: 0
-  levelManager: {fileID: 0}
+  levelManager: {fileID: 98656460}
 --- !u!50 &7569629955774674922
 Rigidbody2D:
   serializedVersion: 4
@@ -2998,7 +3001,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 2
+  m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4

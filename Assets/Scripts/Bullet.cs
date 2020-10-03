@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     Vector3 mousePos;
     Vector3 movement;
     Vector3 direction;
+    Vector3 randomDirRecoil;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");

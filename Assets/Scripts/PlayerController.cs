@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class PlayerController : Character {
@@ -39,7 +37,6 @@ public class PlayerController : Character {
 
             Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
             transform.up = dir;
-
             Inputs();
         }
         if(ActivateDash)
@@ -53,19 +50,34 @@ public class PlayerController : Character {
 
     #region FUNCTIONS
     void Inputs() {
-        if (Input.GetMouseButton(0) && !ActivateDash) {
+        if (weapons != null)
+        {
             Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
-            if (hit.collider != null) {
-                if (weapons != null)
-                    if (weapons.GetCanShoot()) {
-                        lastMousePosition = hit.point;
-                        weapons.ShootSubmachineGun();
-                        if (screenShake != null)
-                            StartCoroutine(screenShake.Shake(shakeDuration, shakeMagnitude));
+            switch (weapons.type)
+            {
+                case Weapons.WeaponType.subMachineGun:
+                    if (Input.GetMouseButton(0) && !ActivateDash)
+                    {
+                        if (hit.collider != null)
+                        { 
+                            if (weapons.GetCanShoot())
+                            {
+                                lastMousePosition = new Vector3(hit.point.x, hit.point.y, 0f) + new Vector3((float)Random.Range(-1.75f,1.75f), (float)Random.Range(-1.75f, 1.75f), 0f);
+                                weapons.ShootSubmachineGun();
+                                if (screenShake != null)
+                                    StartCoroutine(screenShake.Shake(shakeDuration, shakeMagnitude));
+                            }
+                        }
                     }
+                    break;
+                case Weapons.WeaponType.Shotgun:
+                    break;
+                case Weapons.WeaponType.Pistol:
+                    break;
             }
         }
+        
         if (Input.GetKeyDown(KeyCode.A)) {
             spriteRenderer.color = Color.green;
         }
