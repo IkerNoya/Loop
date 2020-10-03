@@ -136,6 +136,13 @@ public class PlayerController : Character {
             canActivateDash = false;
         }
     }
+
+    public void ReceiveDamage(float d) {
+        hp -= d;
+        if (hp <= 0) 
+            Destroy(this.gameObject);   
+    }
+
     #endregion
 
     #region COROUTINES

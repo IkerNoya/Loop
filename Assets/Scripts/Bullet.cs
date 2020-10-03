@@ -4,10 +4,8 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.GameCenter;
 
-public class Bullet : MonoBehaviour
-{
-    public enum User
-    {
+public class Bullet : MonoBehaviour {
+    public enum User {
         Enemy,
         Player,
     }
@@ -25,8 +23,7 @@ public class Bullet : MonoBehaviour
     Vector3 movement;
     Vector3 direction;
     Vector3 randomDir;
-    private void Start()
-    {
+    private void Start() {
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
         weaponType = player.GetComponent<Weapons>();
@@ -36,17 +33,14 @@ public class Bullet : MonoBehaviour
         else
             direction = enemyUser.transform.up;
 
-        if (weaponType.type == Weapons.WeaponType.Shotgun)
-        {
+        if (weaponType.type == Weapons.WeaponType.Shotgun) {
             randomDir = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0) + direction;
         }
-        else
-        {
+        else {
             randomDir = new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 0) + direction;
         }
         movement = direction.normalized * speed;
-        switch (weaponType.type)
-        {
+        switch (weaponType.type) {
             case Weapons.WeaponType.subMachineGun:
                 movement = (direction.normalized + randomDir.normalized) * speed;
                 Destroy(gameObject, lifeTime);
@@ -62,34 +56,31 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
+    private void Update() {
         transform.position += movement * Time.deltaTime;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Walls"))
-        {
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("Boss")) {
+            collision.gameObject.GetComponent<Boss>().ReceiveDamage(1f);
+            return;
+        }
+        if (collision.gameObject.CompareTag("Walls")) {
             movement *= -1 / 2;
             Destroy(bullet);
             particles.Play();
             Destroy(gameObject, 1.0f);
         }
     }
-    public void SetUser(User _user)
-    {
+    public void SetUser(User _user) {
         user = _user;
     }
-    public Bullet.User GetUser()
-    {
+    public Bullet.User GetUser() {
         return user;
     }
-    public void SetDamage(float value)
-    {
+    public void SetDamage(float value) {
         damage = value;
     }
-    public float GetDamage()
-    {
+    public float GetDamage() {
         return damage;
     }
 }

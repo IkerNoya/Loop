@@ -8,6 +8,7 @@ TagManager:
   - Level
   - Walls
   - Bullet
+  - Boss
   layers:
   - Default
   - TransparentFX

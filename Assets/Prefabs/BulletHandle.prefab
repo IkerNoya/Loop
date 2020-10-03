@@ -236,7 +236,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: 0
+<<<<<<< Updated upstream
   enemyUser: {fileID: 0}
+=======
+>>>>>>> Stashed changes
   speed: 20
   lifeTime: 1
   bullet: {fileID: 1120227829585399319}
