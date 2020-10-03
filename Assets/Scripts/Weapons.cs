@@ -6,6 +6,7 @@ public class Weapons : MonoBehaviour
 {
    
     [SerializeField] private Bullet.User user;
+    [SerializeField] private Enemy enemyUser;
     [SerializeField] private Bullet OriginBullet;
     private Bullet bullet;
     [SerializeField] float timeToShoot;
@@ -28,6 +29,7 @@ public class Weapons : MonoBehaviour
             {
                 bullet = Instantiate(OriginBullet, transform.position, Quaternion.identity);
                 bullet.SetUser(user);
+                bullet.enemyUser = enemyUser;
                 Debug.Log(bullet.GetUser());
             }
 
@@ -45,6 +47,7 @@ public class Weapons : MonoBehaviour
                 {
                     bullet = Instantiate(OriginBullet, transform.position, Quaternion.identity);
                     bullet.SetUser(user);
+                    bullet.enemyUser = enemyUser;
                 }
             }
             canShoot = false;
@@ -59,6 +62,7 @@ public class Weapons : MonoBehaviour
             {
                 bullet = Instantiate(OriginBullet, transform.position, Quaternion.identity);
                 bullet.SetUser(user);
+                bullet.enemyUser = enemyUser;
             }
 
             canShoot = false;

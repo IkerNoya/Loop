@@ -89,6 +89,8 @@ public class SecurityGuard : Enemy
                 callAlies = true;
                 aiPath.maxSpeed = speedAttack;
                 Attack();
+                Vector2 dir = new Vector2(currentTarget.position.x - transform.position.x, currentTarget.position.y - transform.position.y);
+                transform.up = dir;
                 break;
             case (int)EstadosGuardia.Morir:
                 callAlies = false;

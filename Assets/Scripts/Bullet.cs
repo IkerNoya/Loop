@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour
         Player,
     }
     [SerializeField] User user;
+    [HideInInspector]
+    public Enemy enemyUser;
     [SerializeField] float speed;
     [SerializeField] float lifeTime;
     GameObject player;
@@ -27,7 +29,7 @@ public class Bullet : MonoBehaviour
         if (user == User.Player)
             direction = playerController.lastMousePosition - transform.position;
         else
-            direction = Camera.main.WorldToScreenPoint(player.transform.position);
+            direction = enemyUser.transform.up;
 
         if (weaponType.type == Weapons.WeaponType.Shotgun)
         {

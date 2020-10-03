@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: 0
+  enemyUser: {fileID: 8853489992321274287}
   OriginBullet: {fileID: 7843187418377519882, guid: d2144be0dd6279742b1ba7a3004503af,
     type: 3}
   timeToShoot: 0.08
