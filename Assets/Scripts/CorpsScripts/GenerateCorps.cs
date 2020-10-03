@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System;
 public class GenerateCorps : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -10,12 +11,21 @@ public class GenerateCorps : MonoBehaviour
         public string nameLevel;
     }
 
+    [System.Serializable]
+    class ObjectInstanciate
+    {
+        public GameObject objectOnDieCharacter;
+        public bool recycled;
+    }
     [SerializeField] private Character character;
-    public GameObject objectGenerateOnDieCharacter;
+    [SerializeField] private ObjectInstanciate objectBloodCharacter;
+    [SerializeField] private ObjectInstanciate objectCorpCharacter;
+    public static event Action<GenerateCorps, GameObject, bool> OnCorpGenerate;
     private ParentClass parentClasses;
-    // Update is called once per frame
     private GameObject[] parents;
     [SerializeField] private LevelManager levelManager;
+    private int inLevel;
+
     private void Start()
     {
         parents = GameObject.FindGameObjectsWithTag("Level");
@@ -25,22 +35,23 @@ public class GenerateCorps : MonoBehaviour
             parents[i].SetActive(false);
         }
 
-        if(levelManager != null)
+        if (levelManager != null)
             parents[levelManager.GetCurrentLevel()].SetActive(true);
 
         parentClasses = new ParentClass();
         SettingParent();
+        inLevel = levelManager.GetCurrentLevel();
     }
     void Update()
     {
         CheckGenerateCorp();
-        
+
         //ZONA DE TESTEO//
-        //if (Input.GetKeyDown(KeyCode.Keypad0))
-        //{
-        //    if (character == null) return;
-        //    character.SetHP(0);
-        //}
+        if (Input.GetKeyDown(KeyCode.Keypad0))
+        {
+            if (character == null) return;
+            character.SetHP(0);
+        }
         //-------------//
     }
     public void SettingParent()
@@ -72,9 +83,20 @@ public class GenerateCorps : MonoBehaviour
     public void GenerateCorp()
     {
         SettingParent();
-        Instantiate(objectGenerateOnDieCharacter, transform.position, Quaternion.identity, parentClasses.parentObject.transform);
-
+        GameObject go = null;
+        go = Instantiate(objectCorpCharacter.objectOnDieCharacter, transform.position, Quaternion.identity, parentClasses.parentObject.transform);
+        if (OnCorpGenerate != null)
+        {
+            //Debug.Log(objectCorpCharacter.recycled);
+            OnCorpGenerate(this, go, objectCorpCharacter.recycled);
+        }
+        go = Instantiate(objectBloodCharacter.objectOnDieCharacter, transform.position, Quaternion.identity, parentClasses.parentObject.transform);
+        if (OnCorpGenerate != null)
+        {
+            //Debug.Log(objectBloodCharacter.recycled);
+            OnCorpGenerate(this, go, objectBloodCharacter.recycled);
+        }
         //ZONA DE TESTEO//
-        //character.SetHP(100);
+        character.SetHP(100);
     }
 }

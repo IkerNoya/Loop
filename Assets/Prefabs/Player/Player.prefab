@@ -106,8 +106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   speed: 5
-  bullet: {fileID: 9033116984022976241, guid: 1585d4fcbd133d84d9504352fe3991d2, type: 3}
   screenShake: {fileID: 0}
+  weapons: {fileID: 0}
   hitCollider: {fileID: 7569629956179511541}
   lastMousePosition: {x: 0, y: 0, z: 0}
 --- !u!114 &651937285197008495
@@ -123,8 +123,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 6477789001937577583}
-  objectCorpGenerate: {fileID: 5713534235791246420, guid: 50191cdb32675d44f85ae21cf6784028,
-    type: 3}
+  user: 0
+  objectBloodCharacter:
+    objectOnDieCharacter: {fileID: 8168400675038062609, guid: 05452a0ea1448d145917c1a39b6b9d67,
+      type: 3}
+    recycled: 1
+  objectCorpCharacter:
+    objectOnDieCharacter: {fileID: 5713534235791246420, guid: 50191cdb32675d44f85ae21cf6784028,
+      type: 3}
+    recycled: 0
+  levelManager: {fileID: 0}
 --- !u!114 &6062405373300370481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f44724511a70b74b84d35b9c7627982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bullet: {fileID: 9033116984022976241, guid: 1585d4fcbd133d84d9504352fe3991d2, type: 3}
+  timeToShoot: 0.2
 --- !u!50 &2716311324300843499
 Rigidbody2D:
   serializedVersion: 4
