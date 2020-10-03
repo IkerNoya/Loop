@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] GameObject bullet;
+    [SerializeField] CameraShake screenShake;
     [HideInInspector] public Vector3 lastMousePosition;
+    float shakeMagnitude = 0.05f;
+    float shakeDuration = 0.2f;
     Vector3 mousePosition;
     Vector3 movement;
 
@@ -24,7 +28,6 @@ public class PlayerController : MonoBehaviour
         movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
         transform.position += movement * Time.deltaTime;
         Inputs();
-
     }
     void Inputs() 
     {
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
             {
                 lastMousePosition = hit.point;
                 Instantiate(bullet, transform.position, Quaternion.identity);
+                StartCoroutine(screenShake.Shake(shakeDuration, shakeMagnitude));
             }
         }
     }
