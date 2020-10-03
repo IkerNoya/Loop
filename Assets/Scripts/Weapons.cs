@@ -18,13 +18,6 @@ public class Weapons : MonoBehaviour
             canShoot = false;
             StartCoroutine(Cooldown());
         }
-       // canShoot = false;
-       // timer += Time.deltaTime;
-       // if(timer>= timeToShoot)
-       // {
-       //     canShoot = true;
-       //     timer = 0;
-       // }
     }
     IEnumerator Cooldown() {
         canShoot = false;
