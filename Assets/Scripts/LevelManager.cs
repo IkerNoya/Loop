@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
-    [SerializeField] SpriteRenderer level;
-    [SerializeField] Sprite[] levelsSprites;
+    [SerializeField] GameObject[] levels;
+
     [SerializeField] GameObject[] doors;
 
     int actualLevel = 1;
 
     private void Start() {
-
         for (int i = 0; i < doors.Length; i++)
             if (doors[i] != null)
                 doors[i].SetActive(false);
@@ -20,8 +19,15 @@ public class LevelManager : MonoBehaviour {
             doors[doorToOpen].SetActive(true);
 
         PlayerController.DoorEnter += ChangeLevel;
-    }
 
+        for (int i = 0; i < levels.Length; i++)
+            if (levels[i] != null)
+                levels[i].SetActive(false);
+
+        if (levels[actualLevel] != null) {
+            levels[actualLevel].SetActive(true);
+        }
+    }
     private void OnDisable() {
         PlayerController.DoorEnter -= ChangeLevel;
     }
@@ -35,6 +41,13 @@ public class LevelManager : MonoBehaviour {
             if (doors[i] != null)
                 doors[i].SetActive(false);
 
+        for (int i = 0; i < levels.Length; i++)
+            if (levels[i] != null)
+                levels[i].SetActive(false);
+
+        if (levels[actualLevel] != null)
+            levels[actualLevel].SetActive(true);
+
 
         int doorToOpen = Random.Range(0, doors.Length);
         while (doors[doorToOpen] == door.gameObject)
@@ -43,7 +56,6 @@ public class LevelManager : MonoBehaviour {
         if (doors[doorToOpen] != null)
             doors[doorToOpen].SetActive(true);
 
-        level.sprite = levelsSprites[actualLevel];
     }
 
     public int GetCurrentLevel()

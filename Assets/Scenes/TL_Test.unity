@@ -415,11 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d81756f8f17694bb272bfe9b70b4c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 1498502175}
-  levelsSprites:
-  - {fileID: 21300000, guid: f689cd558210b354aa1ded66970d832d, type: 3}
-  - {fileID: 21300000, guid: 45dc9a9f276f532499deedb61029a2fd, type: 3}
-  - {fileID: 21300000, guid: 12c1304ce225e2043ad13c0bf3b8a3c6, type: 3}
+  levels: []
   doors:
   - {fileID: 335444861}
   - {fileID: 1626105022}
@@ -2842,6 +2838,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 651937285197008495, guid: 37d406ebe2342cf419c1d85181ba4753,
         type: 3}
+      propertyPath: parents.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 651937285197008495, guid: 37d406ebe2342cf419c1d85181ba4753,
+        type: 3}
       propertyPath: objectsGenerateOnDieCharacter.Array.data[1].recycled
       value: 1
       objectReference: {fileID: 0}
@@ -2860,6 +2861,21 @@ PrefabInstance:
       propertyPath: objectCorpCharacter.recycled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 651937285197008495, guid: 37d406ebe2342cf419c1d85181ba4753,
+        type: 3}
+      propertyPath: parents.Array.data[1]
+      value: 
+      objectReference: {fileID: 1477696488}
+    - target: {fileID: 651937285197008495, guid: 37d406ebe2342cf419c1d85181ba4753,
+        type: 3}
+      propertyPath: parents.Array.data[2]
+      value: 
+      objectReference: {fileID: 601071498}
+    - target: {fileID: 651937285197008495, guid: 37d406ebe2342cf419c1d85181ba4753,
+        type: 3}
+      propertyPath: parents.Array.data[3]
+      value: 
+      objectReference: {fileID: 145414378}
     - target: {fileID: 2716311324300843499, guid: 37d406ebe2342cf419c1d85181ba4753,
         type: 3}
       propertyPath: m_GravityScale

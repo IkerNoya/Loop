@@ -32,7 +32,7 @@ public class PlayerController : Character {
     void Update() {
         if (!ActivateDash) {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            movement = new Vector2(Input.GetAxis(playerInputHorizontal), Input.GetAxis(playerInputVertical)) * speed;
+            movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
             transform.position += movement * Time.deltaTime;
 
             Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);

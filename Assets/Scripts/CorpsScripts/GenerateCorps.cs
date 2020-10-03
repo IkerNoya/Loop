@@ -22,22 +22,14 @@ public class GenerateCorps : MonoBehaviour
     [SerializeField] private ObjectInstanciate objectCorpCharacter;
     public static event Action<GenerateCorps, GameObject, bool> OnCorpGenerate;
     private ParentClass parentClasses;
-    private GameObject[] parents;
+    [SerializeField] GameObject[] parents;
     [SerializeField] private LevelManager levelManager;
     private int inLevel;
 
     private void Start()
     {
-        parents = GameObject.FindGameObjectsWithTag("Level");
         levelManager = FindObjectOfType<LevelManager>();
-        for (int i = 0; i < parents.Length; i++)
-        {
-            parents[i].SetActive(false);
-        }
-
-        if (levelManager != null)
-            parents[levelManager.GetCurrentLevel()].SetActive(true);
-
+ 
         parentClasses = new ParentClass();
         SettingParent();
         inLevel = levelManager.GetCurrentLevel();
@@ -54,23 +46,10 @@ public class GenerateCorps : MonoBehaviour
         }
         //-------------//
     }
-    public void SettingParent()
-    {
-        GameObject currentParent = null;
-        int index = 0;
-        for (int i = 0; i < parents.Length; i++)
-        {
-            if (parents[i] != null)
-                if (parents[i].activeSelf) {
-                    currentParent = parents[i];
-                    index = i;
-                    i = parents.Length;
-                }
-        }
-        if (currentParent != null)
-        {
-            parentClasses.parentObject = currentParent;
-            parentClasses.nameLevel = "Level" + index;
+    public void SettingParent() {
+        if (parents[levelManager.GetCurrentLevel()] != null) {
+            parentClasses.parentObject = parents[levelManager.GetCurrentLevel()];
+            parentClasses.nameLevel = "Level" + levelManager.GetCurrentLevel();
         }
     }
     public void CheckGenerateCorp()
