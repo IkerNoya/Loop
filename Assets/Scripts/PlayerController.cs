@@ -7,16 +7,16 @@ using UnityEngine;
 public class PlayerController : Character {
     #region VARIABLES
     [SerializeField] float speed;
+    [SerializeField] float dashSpeed;
     [SerializeField] CameraShake screenShake;
-    [SerializeField] Weapons weapons;
     [SerializeField] GameObject hitCollider;
+    [SerializeField] float shakeMagnitude = 0.05f;
+    [SerializeField] float shakeDuration = 0.2f;
     [HideInInspector] public Vector3 lastMousePosition;
-    [SerializeField] SpriteRenderer spriteRenderer;
-    float shakeMagnitude = 0.05f;
-    float shakeDuration = 0.2f;
     Vector3 mousePosition;
     Vector3 movement;
-    Rigidbody2D rb;
+    SpriteRenderer spriteRenderer;
+    Weapons weapons;
 
     bool ActivateDash = false;
     bool canActivateDash = true;
@@ -27,7 +27,6 @@ public class PlayerController : Character {
 
     #region BASE_FUNCTIONS
     void Start() {
-        rb = GetComponent<Rigidbody2D>();
         weapons = GetComponent<Weapons>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
@@ -40,11 +39,10 @@ public class PlayerController : Character {
             Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
             transform.up = dir;
 
-            //transform.LookAt(mousePosition, Vector3.forward);
             Inputs();
         }
         else {
-            transform.position += transform.up * 50 * Time.deltaTime;
+            transform.position += movement * dashSpeed * Time.deltaTime;
             ActivateDash = false;
             StartCoroutine(DashCooldown());
         }
@@ -53,7 +51,7 @@ public class PlayerController : Character {
 
     #region FUNCTIONS
     void Inputs() {
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetMouseButton(0) && !ActivateDash) {
             Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
             if (hit.collider != null) {
@@ -88,7 +86,8 @@ public class PlayerController : Character {
         }
     }
     #endregion
-    #region COROUTINES**
+
+    #region COROUTINES
     IEnumerator StartCollider(GameObject collider) {
         collider.SetActive(true);
         yield return new WaitForSeconds(0.5f);
