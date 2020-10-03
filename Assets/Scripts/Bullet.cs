@@ -9,7 +9,6 @@ public class Bullet : MonoBehaviour
     GameObject player;
     Weapons weaponType;
     PlayerController playerController;
-    Vector3 mousePos;
     Vector3 movement;
     Vector3 direction;
     Vector3 randomDir;
@@ -23,25 +22,25 @@ public class Bullet : MonoBehaviour
         {
            randomDir = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0) + direction;
         }
-    }
-
-    private void Update()
-    {
+        movement = direction.normalized * speed;
         switch (weaponType.type)
         {
             case Weapons.WeaponType.subMachineGun:
                 movement = direction.normalized * speed;
-                transform.position += movement * Time.deltaTime;
                 Destroy(gameObject, lifeTime);
                 break;
             case Weapons.WeaponType.Shotgun:
-                movement = randomDir.normalized * (speed+2f);
-                transform.position += movement * Time.deltaTime;
-                Destroy(gameObject, lifeTime-0.5f);
+                movement = randomDir.normalized * (speed + 2f);
+                Destroy(gameObject, lifeTime - 0.5f);
                 break;
             case Weapons.WeaponType.Pistol:
                 break;
         }
+    }
+
+    private void Update()
+    {
+        transform.position += movement * Time.deltaTime;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

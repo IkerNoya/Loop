@@ -14,7 +14,6 @@ public class PlayerController : Character {
     [HideInInspector] public Vector3 lastMousePosition;
     Vector3 mousePosition;
     Vector3 movement;
-
     SpriteRenderer spriteRenderer;
     Weapons weapons;
 
@@ -67,7 +66,7 @@ public class PlayerController : Character {
                                 lastMousePosition = new Vector3(hit.point.x, hit.point.y, 0f) + new Vector3((float)Random.Range(-1.75f,1.75f), (float)Random.Range(-1.75f, 1.75f), 0f);
                                 weapons.ShootSubmachineGun();
                                 if (screenShake != null)
-                                    StartCoroutine(screenShake.Shake(shakeDuration, shakeMagnitude));
+                                    StartCoroutine(screenShake.Shake(weapons.GetShakeDuration(), weapons.GetShakeMagnitude(Weapons.WeaponType.subMachineGun)));
                             }
                         }
                     }
@@ -82,7 +81,7 @@ public class PlayerController : Character {
                                 lastMousePosition = hit.point;
                                 weapons.ShootShotgun();
                                 if (screenShake != null)
-                                    StartCoroutine(screenShake.Shake(shakeDuration, shakeMagnitude));
+                                    StartCoroutine(screenShake.Shake(weapons.GetShakeDuration(), weapons.GetShakeMagnitude(Weapons.WeaponType.Shotgun)));
                             }
                         }
                     }
@@ -107,6 +106,14 @@ public class PlayerController : Character {
         if (Input.GetMouseButton(1)) {
             if (hitCollider != null)
                 StartCoroutine(StartCollider(hitCollider));
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            weapons.type = Weapons.WeaponType.subMachineGun;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            weapons.type = Weapons.WeaponType.Shotgun;
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && canActivateDash) {
             ActivateDash = true;
