@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] float lifeTime;
     GameObject player;
     PlayerController playerController;
     Vector3 mousePos;
@@ -21,5 +22,6 @@ public class Bullet : MonoBehaviour
     {
         movement = direction.normalized * speed;
         transform.position += movement * Time.deltaTime;
+        Destroy(gameObject, lifeTime);
     }
 }
