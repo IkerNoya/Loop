@@ -417,6 +417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: {fileID: 1498502175}
   levelsSprites:
+  - {fileID: 0}
   - {fileID: 21300000, guid: f689cd558210b354aa1ded66970d832d, type: 3}
   - {fileID: 21300000, guid: 45dc9a9f276f532499deedb61029a2fd, type: 3}
   - {fileID: 21300000, guid: 12c1304ce225e2043ad13c0bf3b8a3c6, type: 3}
