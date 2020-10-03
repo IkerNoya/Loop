@@ -389,12 +389,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c7ce136f1a0d847986d010f838ccb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doors:
-  - {fileID: 335444861}
-  - {fileID: 1626105022}
-  - {fileID: 996632309}
-  - {fileID: 50133203}
-  cam: {fileID: 0}
 --- !u!4 &205251697
 Transform:
   m_ObjectHideFlags: 0

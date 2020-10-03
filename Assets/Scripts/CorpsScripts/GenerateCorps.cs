@@ -60,12 +60,12 @@ public class GenerateCorps : MonoBehaviour
         int index = 0;
         for (int i = 0; i < parents.Length; i++)
         {
-            if (parents[i].activeSelf)
-            {
-                currentParent = parents[i];
-                index = i;
-                i = parents.Length;
-            }
+            if (parents[i] != null)
+                if (parents[i].activeSelf) {
+                    currentParent = parents[i];
+                    index = i;
+                    i = parents.Length;
+                }
         }
         if (currentParent != null)
         {
