@@ -25,14 +25,18 @@ public class PlayerController : Character {
     #endregion
 
     #region BASE_FUNCTIONS
-    void Start() {
+    void Start()
+    {
         weapons = GetComponent<Weapons>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        screenShake = FindObjectOfType<CameraShake>();
     }
-    void Update() {
-        if (!ActivateDash) {
+    void Update()
+    {
+        if (!ActivateDash)
+        {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
+            movement = new Vector2(Input.GetAxis(playerInputHorizontal), Input.GetAxis(playerInputVertical)) * speed;
             transform.position += movement * Time.deltaTime;
 
             Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
