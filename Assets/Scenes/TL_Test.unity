@@ -1360,7 +1360,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   speed: 10
-  damage: 5
   usePatrullaje: 1
   waypointsPatrullaje: {fileID: 0}
 --- !u!212 &826451558
@@ -1456,12 +1455,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.5
-  height: 1
+  radius: 1
+  height: 2
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 2
+  maxSpeed: 5
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -1472,9 +1471,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.95
+  slowdownDistance: 1.28
   pickNextWaypointDist: 2
-  endReachedDistance: 0.55
+  endReachedDistance: 0.62
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -1595,7 +1594,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 5.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2867,7 +2866,7 @@ PrefabInstance:
     - target: {fileID: 2716311324300843499, guid: 37d406ebe2342cf419c1d85181ba4753,
         type: 3}
       propertyPath: m_Constraints
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2716311324300843499, guid: 37d406ebe2342cf419c1d85181ba4753,
         type: 3}
