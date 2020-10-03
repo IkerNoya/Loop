@@ -12,8 +12,6 @@ public class Bullet : MonoBehaviour
     [SerializeField] User user;
     [SerializeField] float speed;
     [SerializeField] float lifeTime;
-    [SerializeField] GameObject bullet;
-    [SerializeField] ParticleSystem particles;
     GameObject player;
     Weapons weaponType;
     PlayerController playerController;
@@ -60,15 +58,12 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         transform.position += movement * Time.deltaTime;
-    }  
-    private void OnCollisionEnter2D(Collision2D collision)
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Walls"))
         {
-            movement *= -1 / 2;
-            Destroy(bullet);
-            particles.Play();
-            Destroy(gameObject, 1.0f);
+            Destroy(gameObject); 
         }
     }
     public void SetUser(User _user)
