@@ -9,6 +9,11 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Vector3 lastMousePosition;
     Vector3 mousePosition;
     Vector3 movement;
+
+
+    public delegate void EnterDoor(GameObject door);
+    public static event EnterDoor DoorEnter;
+
     void Start()
     {
         
@@ -32,6 +37,14 @@ public class PlayerController : MonoBehaviour
                 lastMousePosition = hit.point;
                 Instantiate(bullet, transform.position, Quaternion.identity);
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        Debug.Log("XD");
+        if (collision.gameObject.CompareTag("Door")) {
+            if (DoorEnter != null)
+                DoorEnter(collision.gameObject);
         }
     }
 }
