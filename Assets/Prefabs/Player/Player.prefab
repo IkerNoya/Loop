@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8959907081112616836}
   - component: {fileID: 8959907081112616837}
   - component: {fileID: 8959907081112616838}
+  - component: {fileID: 3224123525817341830}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -99,6 +100,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92ff31104b190f4ba7f6b728d4bb2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 100
   speed: 4
   bullet: {fileID: 9033116984022976241, guid: 1585d4fcbd133d84d9504352fe3991d2, type: 3}
+  screenShake: {fileID: 0}
   lastMousePosition: {x: 0, y: 0, z: 0}
+--- !u!114 &3224123525817341830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8959907081112616839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ef160e91c54c8498f551d601b8c7e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 8959907081112616838}
+  objectCorpGenerate: {fileID: 5713534235791246420, guid: 50191cdb32675d44f85ae21cf6784028,
+    type: 3}
