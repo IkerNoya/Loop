@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.GameCenter;
 
 public class Bullet : MonoBehaviour
 {
@@ -15,7 +17,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float lifeTime;
     [SerializeField] GameObject bullet;
-    [SerializeField] ParticleSystem particles;  
+    [SerializeField] ParticleSystem particles;
+    float damage;
     GameObject player;
     Weapons weaponType;
     PlayerController playerController;
@@ -50,7 +53,7 @@ public class Bullet : MonoBehaviour
                 break;
             case Weapons.WeaponType.Shotgun:
                 movement = randomDir.normalized * (speed + 2f);
-                Destroy(gameObject, lifeTime - 0.5f);
+                Destroy(gameObject, lifeTime);
                 break;
             case Weapons.WeaponType.Revolver:
                 movement = (direction.normalized + randomDir.normalized) * speed;
@@ -80,5 +83,13 @@ public class Bullet : MonoBehaviour
     public Bullet.User GetUser()
     {
         return user;
+    }
+    public void SetDamage(float value)
+    {
+        damage = value;
+    }
+    public float GetDamage()
+    {
+        return damage;
     }
 }

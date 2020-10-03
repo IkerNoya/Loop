@@ -239,6 +239,8 @@ MonoBehaviour:
   enemyUser: {fileID: 0}
   speed: 20
   lifeTime: 1
+  bullet: {fileID: 1120227829585399319}
+  particles: {fileID: 1897141716931424586}
 --- !u!61 &4739554622820511150
 BoxCollider2D:
   m_ObjectHideFlags: 0
