@@ -14,6 +14,8 @@ public class Bullet : MonoBehaviour
     public Enemy enemyUser;
     [SerializeField] float speed;
     [SerializeField] float lifeTime;
+    [SerializeField] GameObject bullet;
+    [SerializeField] ParticleSystem particles;  
     GameObject player;
     Weapons weaponType;
     PlayerController playerController;
@@ -65,7 +67,10 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Walls"))
         {
-            Destroy(gameObject); 
+            movement *= -1 / 2;
+            Destroy(bullet);
+            particles.Play();
+            Destroy(gameObject, 1.0f);
         }
     }
     public void SetUser(User _user)
