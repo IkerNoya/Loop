@@ -93,7 +93,7 @@ public class PlayerController : Character {
                         {
                             if (weapons.GetCanShoot())
                             {
-                                lastMousePosition = new Vector3(hit.point.x, hit.point.y, 0f) + new Vector3((float)Random.Range(-0.5f, 0.5f), (float)Random.Range(-0.5f, 0.5f), 0f);
+                                lastMousePosition = new Vector3(hit.point.x, hit.point.y, 0f) + new Vector3((float)Random.Range(-0.75f, 0.75f), (float)Random.Range(-0.75f, 0.75f), 0f);
                                 weapons.ShootRevolver();
                                 if (screenShake != null)
                                     StartCoroutine(screenShake.Shake(weapons.GetShakeDuration(), weapons.GetShakeMagnitude(Weapons.WeaponType.Shotgun)));
