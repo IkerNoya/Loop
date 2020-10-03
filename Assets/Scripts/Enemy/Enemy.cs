@@ -9,20 +9,33 @@ public class Enemy : Character
     [SerializeField] Transform waypointsPatrullaje;
     private AIDestinationSetter aiPathDestination;
     protected FSM fsm;
+    private Vector3 currentDistanceWhitPlayer;
+    private Vector3 auxCurrentDistanceWhitPlayer;
     private Transform currentTarget;
     private PlayerController[] targets; 
-    private void Awake()
+    protected virtual void Awake()
     {
         aiPathDestination = GetComponent<AIDestinationSetter>();
         targets = FindObjectsOfType<PlayerController>();
+        currentDistanceWhitPlayer = transform.position - targets[0].transform.position;
+        aiPathDestination.target = targets[0].transform;
     }
-
+    protected virtual void Update()
+    {
+        CheckCurrentTarget();
+    }
     public void CheckCurrentTarget()
     {
         for (int i = 0; i < targets.Length; i++)
         {
-
+            auxCurrentDistanceWhitPlayer = transform.position - targets[i].transform.position;
+            if (currentDistanceWhitPlayer.magnitude > auxCurrentDistanceWhitPlayer.magnitude)
+            {
+                currentDistanceWhitPlayer = auxCurrentDistanceWhitPlayer;
+                currentTarget = targets[i].transform;
+            }
         }
+        aiPathDestination.target = currentTarget;
     }
     protected virtual void Attack() { }
 }

@@ -25,8 +25,9 @@ public class SecurityGuard : Enemy
         Count
     }
 
-    private void Awake()
-    { 
+    protected override void Awake()
+    {
+        base.Awake();
         // Aca defino las relaciones de estado y le hago el new al objeto FSM
         fsm = new FSM((int)EstadosGuardia.Count, (int)EventosGuardia.Count, (int)EstadosGuardia.Idle);
         fsm.SetRelations((int)EstadosGuardia.Idle, (int)EstadosGuardia.Patrullar, (int)EventosGuardia.EmpezarPatrullaje);
@@ -41,12 +42,12 @@ public class SecurityGuard : Enemy
         fsm.SetRelations((int)EstadosGuardia.Atacar, (int)EstadosGuardia.Morir, (int)EventosGuardia.SinVida);
     }
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         switch (fsm.GetCurrentState())
         {
             case (int)EstadosGuardia.Idle:
-                
                 break;
             case (int)EstadosGuardia.Patrullar:
                 break;
