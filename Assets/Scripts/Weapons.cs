@@ -14,13 +14,26 @@ public class Weapons : MonoBehaviour
         {
             if (bullet != null)
                 Instantiate(bullet, transform.position, Quaternion.identity);
+
+            canShoot = false;
+            StartCoroutine(Cooldown());
         }
+       // canShoot = false;
+       // timer += Time.deltaTime;
+       // if(timer>= timeToShoot)
+       // {
+       //     canShoot = true;
+       //     timer = 0;
+       // }
+    }
+    IEnumerator Cooldown() {
         canShoot = false;
-        timer += Time.deltaTime;
-        if(timer>= timeToShoot)
-        {
-            canShoot = true;
-            timer = 0;
-        }
+        yield return new WaitForSeconds(timeToShoot);
+        canShoot = true;
+        StopCoroutine(Cooldown());
+        yield return null;
+    }
+    public bool GetCanShoot() {
+        return canShoot;
     }
 }
