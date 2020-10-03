@@ -52,60 +52,55 @@ public class PlayerController : Character {
     void Inputs() {
         if (weapons != null)
         {
-            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
             switch (weapons.type)
             {
                 case Weapons.WeaponType.subMachineGun:
                     if (Input.GetMouseButton(0) && !ActivateDash)
                     {
-                        if (hit.collider != null)
-                        { 
-                            if (weapons.GetCanShoot())
-                            {
-                                lastMousePosition = new Vector3(hit.point.x, hit.point.y, 0f) + new Vector3((float)Random.Range(-1.75f,1.75f), (float)Random.Range(-1.75f, 1.75f), 0f);
-                                weapons.ShootSubmachineGun();
-                                if (screenShake != null)
-                                    StartCoroutine(screenShake.Shake(weapons.GetShakeDuration(), weapons.GetShakeMagnitude(Weapons.WeaponType.subMachineGun)));
-                            }
+
+                        if (weapons.GetCanShoot())
+                        {
+                            lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f) + new Vector3((float)Random.Range(-1.75f, 1.75f), (float)Random.Range(-1.75f, 1.75f), 0f);
+                            weapons.ShootSubmachineGun();
+                            if (screenShake != null)
+                                StartCoroutine(screenShake.Shake(weapons.GetShakeDuration(), weapons.GetShakeMagnitude(Weapons.WeaponType.subMachineGun)));
                         }
+
                     }
                     break;
                 case Weapons.WeaponType.Shotgun:
                     if (Input.GetMouseButtonDown(0) && !ActivateDash)
                     {
-                        if (hit.collider != null)
+
+                        if (weapons.GetCanShoot())
                         {
-                            if (weapons.GetCanShoot())
-                            {
-                                lastMousePosition = hit.point;
-                                weapons.ShootShotgun();
-                                if (screenShake != null)
-                                    StartCoroutine(screenShake.Shake(weapons.GetShakeDuration(), weapons.GetShakeMagnitude(Weapons.WeaponType.Shotgun)));
-                            }
+                            lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f);
+                            weapons.ShootShotgun();
+                            if (screenShake != null)
+                                StartCoroutine(screenShake.Shake(weapons.GetShakeDuration(), weapons.GetShakeMagnitude(Weapons.WeaponType.Shotgun)));
                         }
+
                     }
                     break;
                 case Weapons.WeaponType.Revolver:
                     if (Input.GetMouseButton(0) && !ActivateDash)
                     {
-                        if (hit.collider != null)
+
+                        if (weapons.GetCanShoot())
                         {
-                            if (weapons.GetCanShoot())
-                            {
-                                lastMousePosition = new Vector3(hit.point.x, hit.point.y, 0f) + new Vector3((float)Random.Range(-0.75f, 0.75f), (float)Random.Range(-0.75f, 0.75f), 0f);
-                                weapons.ShootRevolver();
-                                if (screenShake != null)
-                                    StartCoroutine(screenShake.Shake(weapons.GetShakeDuration(), weapons.GetShakeMagnitude(Weapons.WeaponType.Shotgun)));
-                            }
+                            lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f) + new Vector3((float)Random.Range(-0.5f, 0.5f), (float)Random.Range(-0.5f, 0.5f), 0f);
+                            weapons.ShootRevolver();
+                            if (screenShake != null)
+                                StartCoroutine(screenShake.Shake(weapons.GetShakeDuration(), weapons.GetShakeMagnitude(Weapons.WeaponType.Shotgun)));
                         }
+
                     }
                     break;
             }
         }
-        
+
         if (Input.GetKeyDown(KeyCode.A)) {
-            spriteRenderer.color = Color.green;
+        spriteRenderer.color = Color.green;
         }
         if (Input.GetKeyDown(KeyCode.S)) {
             spriteRenderer.color = Color.red;
