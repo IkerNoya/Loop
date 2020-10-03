@@ -110,6 +110,7 @@ MonoBehaviour:
   weapons: {fileID: 0}
   hitCollider: {fileID: 7569629956179511541}
   lastMousePosition: {x: 0, y: 0, z: 0}
+  spriteRenderer: {fileID: 0}
 --- !u!114 &651937285197008495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 6477789001937577583}
-  user: 0
   objectBloodCharacter:
     objectOnDieCharacter: {fileID: 8168400675038062609, guid: 05452a0ea1448d145917c1a39b6b9d67,
       type: 3}
@@ -131,7 +131,7 @@ MonoBehaviour:
   objectCorpCharacter:
     objectOnDieCharacter: {fileID: 5713534235791246420, guid: 50191cdb32675d44f85ae21cf6784028,
       type: 3}
-    recycled: 0
+    recycled: 1
   levelManager: {fileID: 0}
 --- !u!114 &6062405373300370481
 MonoBehaviour:
