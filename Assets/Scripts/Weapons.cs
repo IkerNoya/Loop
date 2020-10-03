@@ -20,6 +20,7 @@ public class Weapons : MonoBehaviour
         if(timer>= timeToShoot)
         {
             canShoot = true;
+            timer = 0;
         }
     }
 }
