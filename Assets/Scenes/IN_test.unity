@@ -5362,6 +5362,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 715245168594399247, guid: 6c2d2c79795e61544b364d121fe833cd,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 4554933302140683626, guid: d2144be0dd6279742b1ba7a3004503af,
+        type: 3}
     - target: {fileID: 6107118178563707473, guid: 6c2d2c79795e61544b364d121fe833cd,
         type: 3}
       propertyPath: parents.Array.data[1]
@@ -5382,6 +5388,11 @@ PrefabInstance:
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 98656460}
+    - target: {fileID: 8682576022405400021, guid: 6c2d2c79795e61544b364d121fe833cd,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c2d2c79795e61544b364d121fe833cd, type: 3}
 --- !u!224 &1538901016033069164 stripped
