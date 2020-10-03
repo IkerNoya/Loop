@@ -29,7 +29,7 @@ public class PlayerController : Character {
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         weapons = GetComponent<Weapons>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
     void Update() {
         if (!ActivateDash) {
