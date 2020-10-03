@@ -2822,7 +2822,7 @@ MonoBehaviour:
   stamina: 100
   damageAmmount: 20
   speed: 8
-  dashSpeed: 10
+  dashSpeed: 6
   screenShake: {fileID: 1183811002}
   hitCollider: {fileID: 2716311325242566388}
   shakeMagnitude: 0.05
@@ -2879,7 +2879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 9033116984022976241, guid: 1585d4fcbd133d84d9504352fe3991d2, type: 3}
-  timeToShoot: 0.2
+  timeToShoot: 0.15
 --- !u!1 &2716311325242566388
 GameObject:
   m_ObjectHideFlags: 0

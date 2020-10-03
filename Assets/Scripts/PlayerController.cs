@@ -41,12 +41,13 @@ public class PlayerController : Character {
 
             Inputs();
         }
-        else {
-            transform.position += movement * dashSpeed * Time.deltaTime;
-            ActivateDash = false;
+        if(ActivateDash)
+        {
+            StartCoroutine(Dash());
             StartCoroutine(DashCooldown());
         }
     }
+
     #endregion
 
     #region FUNCTIONS
@@ -97,6 +98,12 @@ public class PlayerController : Character {
     IEnumerator DashCooldown() {
         yield return new WaitForSeconds(2f);
         canActivateDash = true;
+    }
+    IEnumerator Dash()
+    {
+        transform.position += movement * dashSpeed * Time.deltaTime;
+        yield return new WaitForSeconds(0.05f);
+        ActivateDash = false;
     }
     #endregion
 
