@@ -5,17 +5,20 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] float speed;
+    GameObject player;
+    PlayerController playerController;
     Vector3 mousePos;
     Vector3 movement;
+    Vector3 direction;
     private void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
+        direction = playerController.lastMousePosition - transform.position;
     }
 
     private void Update()
     {
-        mousePos = Input.mousePosition;
-        Vector3 direction = mousePos - transform.position;
         movement = direction.normalized * speed;
         transform.position += movement * Time.deltaTime;
     }

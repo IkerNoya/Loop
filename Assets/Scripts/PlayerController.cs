@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] GameObject bullet;
+    [HideInInspector] public Vector3 lastMousePosition;
     Vector3 mousePosition;
     Vector3 movement;
     void Start()
@@ -14,19 +15,23 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        mousePosition = Input.mousePosition;
-        movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f) * speed;
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        movement = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * speed;
         transform.position += movement * Time.deltaTime;
         Inputs();
-        Debug.Log(mousePosition);
+
     }
     void Inputs() 
-    { 
-        Ray castPoint = Camera.main.ScreenPointToRay(mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+    {
+        if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
+            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+            if (hit.collider != null)
+            {
+                lastMousePosition = hit.point;
+                Instantiate(bullet, transform.position, Quaternion.identity);
+            }
         }
     }
 }
