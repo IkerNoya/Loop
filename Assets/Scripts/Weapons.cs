@@ -6,6 +6,11 @@ public class Weapons : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
     [SerializeField] float timeToShoot;
+    public enum WeaponType
+    {
+        subMachineGun, Shotgun, Pistol
+    }
+    public WeaponType type;
     float timer = 0;
     bool canShoot = true;
     public void ShootSubmachineGun()

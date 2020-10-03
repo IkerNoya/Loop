@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class PlayerController : Character {
     #region VARIABLES
-    [SerializeField] float speed;
     [SerializeField] float dashSpeed;
     [SerializeField] CameraShake screenShake;
     [SerializeField] GameObject hitCollider;

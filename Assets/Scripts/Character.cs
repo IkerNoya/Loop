@@ -7,6 +7,7 @@ public class Character : MonoBehaviour
     [SerializeField] float hp;
     [SerializeField] float stamina;
     [SerializeField] float damageAmmount;
+    [SerializeField] protected float speed;
 
     void Start()
     {
