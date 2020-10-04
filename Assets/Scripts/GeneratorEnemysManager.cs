@@ -35,8 +35,8 @@ public class GeneratorEnemysManager : MonoBehaviour
         if (rounds >= countRoundsAddRandomGenerate)
         {
             int resultRandom = UnityEngine.Random.Range(minAddedRandomGenerate, maxAddedRandomGenerate);
+            minRandomGenerateEnemys = maxRandomGenerateEnemys;
             maxRandomGenerateEnemys = maxRandomGenerateEnemys + resultRandom;
-            minRandomGenerateEnemys = maxRandomGenerateEnemys - resultRandom;
 
             for (int i = 0; i < generadorEnemys.Length; i++)
             {
