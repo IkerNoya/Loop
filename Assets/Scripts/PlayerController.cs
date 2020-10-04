@@ -53,7 +53,7 @@ public class PlayerController : Character {
                 gunSpriteRenderer.flipX = true;
                 gun.transform.right = -dir;
             }
-            if (mousePosition.y > transform.position.y) spriteRenderer.sortingOrder = 3;
+            if (gun.transform.position.y > transform.position.y) spriteRenderer.sortingOrder = 3;
             else spriteRenderer.sortingOrder = 1;
             Inputs();
         }
