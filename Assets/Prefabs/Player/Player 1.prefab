@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 3286807087772411430}
   - component: {fileID: 3286807087772411431}
   - component: {fileID: 3286807087772411428}
+  - component: {fileID: 1526269366885299114}
   - component: {fileID: 9040003075531787812}
   - component: {fileID: 2330985499436395642}
   - component: {fileID: 5893779957411240352}
@@ -185,6 +186,19 @@ MonoBehaviour:
   cannonPos:
   - {fileID: 8468597519667731859}
   - {fileID: 8468597520271394667}
+--- !u!114 &1526269366885299114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286807087772411429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b537f42db778d4f907c4454beb0617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4333490736360102469}
 --- !u!114 &9040003075531787812
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -28,6 +28,8 @@ public class PlayerController : Character {
     bool ActivateDash = false;
     bool canActivateDash = true;
 
+    [SerializeField] PlayerAnims playerAnims;
+
     public delegate void EnterDoor(GameObject door);
     public static event EnterDoor DoorEnter;
     #endregion
@@ -160,18 +162,27 @@ public class PlayerController : Character {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.A)) {
-            //cambiar animacion
+        if (Input.GetKeyDown(KeyCode.W)) {
+            playerAnims.StartIdleAnim();
         }
         if (Input.GetKeyDown(KeyCode.S)) {
-            //cambiar animacion
+            playerAnims.StartIdleAnim();
         }
+
+        if (Input.GetKeyDown(KeyCode.A)) {
+            spriteRenderer.flipX = true;
+        }
+
+        if(Input.GetKey(KeyCode.A))
+            playerAnims.StartAnimMoveSide();
+
         if (Input.GetKeyDown(KeyCode.D)) {
-            //cambiar animacion
+            spriteRenderer.flipX = false;
         }
-        if (Input.GetKeyDown(KeyCode.W)) {
-            //cambiar animacion
-        }
+
+        if(Input.GetKey(KeyCode.D))
+            playerAnims.StartAnimMoveSide();
+
         if (Input.GetMouseButton(1)) {
             if (hitCollider != null)
                 StartCoroutine(StartCollider(hitCollider));

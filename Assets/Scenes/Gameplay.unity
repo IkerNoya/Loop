@@ -890,6 +890,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &449789049 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3286807087772411429, guid: 4df39cd6367f47647a2c0393bc582802,
+    type: 3}
+  m_PrefabInstance: {fileID: 8468597518691977290}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &449789050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449789049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b537f42db778d4f907c4454beb0617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+--- !u!114 &449789058 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1526269366885299114, guid: 4df39cd6367f47647a2c0393bc582802,
+    type: 3}
+  m_PrefabInstance: {fileID: 8468597518691977290}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449789049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b537f42db778d4f907c4454beb0617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &466088039
 GameObject:
   m_ObjectHideFlags: 0
@@ -5036,6 +5067,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3286807087772411428, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: playerAnims
+      value: 
+      objectReference: {fileID: 449789058}
     - target: {fileID: 3286807087772411429, guid: 4df39cd6367f47647a2c0393bc582802,
         type: 3}
       propertyPath: m_Name
@@ -5099,12 +5135,12 @@ PrefabInstance:
     - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.26476908
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.50967693
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
         type: 3}
@@ -5145,6 +5181,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286807087772411431, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286807087772411431, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468597519769541835, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468597519769541835, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468597519769541835, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4df39cd6367f47647a2c0393bc582802, type: 3}
