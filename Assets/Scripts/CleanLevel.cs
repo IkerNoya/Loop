@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class CleanLevel : MonoBehaviour
 {
+    public static event Action<CleanLevel> OnClearLevel;
     [System.Serializable]
     class ObjectsClean
     {
@@ -33,6 +34,9 @@ public class CleanLevel : MonoBehaviour
         objectsClean.Add(objectClean);
 
         //Debug.Log(objectsClean.Count);
+        if (OnClearLevel != null)
+            OnClearLevel(this);
+
     }
     public void SettingDestroyObjects()
     {
@@ -44,10 +48,11 @@ public class CleanLevel : MonoBehaviour
             //Debug.Log("DESTRUI AL " + i);
             if (!objectsClean[i].recycled)
             {
-                Destroy(objectsClean[i].objectOnDieCharacter);
+                Destroy(objectsClean[i].objectOnDieCharacter.gameObject);
                 //Debug.Log("DESTRUI AL " +i);
             }
         }
+        
         objectsClean.Clear();
     }
 }

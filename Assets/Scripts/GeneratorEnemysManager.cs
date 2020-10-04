@@ -14,9 +14,10 @@ public class GeneratorEnemysManager : MonoBehaviour
     public GeneradorEnemys[] generadorEnemys;
     public OnEnableLevel enableLevelObject;
 
+    bool upgrade = true;
+
     private void Start()
     {
-        rounds = 0;
         for (int i = 0; i < generadorEnemys.Length; i++)
         {
             generadorEnemys[i].numberCurrentLevel = enableLevelObject.numberLevel;
@@ -25,28 +26,24 @@ public class GeneratorEnemysManager : MonoBehaviour
     private void OnEnable()
     {
         OnEnableLevel.onEnableLevel += Enable;
+        upgrade = true;
     }
     private void OnDisable()
     {
         OnEnableLevel.onEnableLevel -= Enable;
+        upgrade = true;
     }
     public void AddMaxRandomGenerate()
     {
-        if (rounds >= countRoundsAddRandomGenerate)
-        {
-            int resultRandom = UnityEngine.Random.Range(minAddedRandomGenerate, maxAddedRandomGenerate);
-            minRandomGenerateEnemys = maxRandomGenerateEnemys;
-            maxRandomGenerateEnemys = maxRandomGenerateEnemys + resultRandom;
+        Debug.Log("ENTRE");
+        int resultRandom = UnityEngine.Random.Range(minAddedRandomGenerate, maxAddedRandomGenerate+1);
+        Debug.Log(resultRandom);
+        minRandomGenerateEnemys = maxRandomGenerateEnemys;
+        maxRandomGenerateEnemys = maxRandomGenerateEnemys + resultRandom;
 
-            for (int i = 0; i < generadorEnemys.Length; i++)
-            {
-                generadorEnemys[i].maxEnemysGenerates = UnityEngine.Random.Range(minRandomGenerateEnemys, maxRandomGenerateEnemys);
-            }
-            rounds = 0;
-        }
-        else
+        for (int i = 0; i < generadorEnemys.Length; i++)
         {
-            rounds++;
+            generadorEnemys[i].maxEnemysGenerates = UnityEngine.Random.Range(minRandomGenerateEnemys, maxAddedRandomGenerate + 1);
         }
     }
     public void Enable(OnEnableLevel onEnableLevel, int currentLevel)
@@ -58,6 +55,10 @@ public class GeneratorEnemysManager : MonoBehaviour
                 generadorEnemys[i].gameObject.SetActive(true);
             }
         }
-        AddMaxRandomGenerate();
+        if (upgrade)
+        {
+            AddMaxRandomGenerate();
+            upgrade = false;
+        }
     }
 }

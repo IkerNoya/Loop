@@ -11,6 +11,16 @@ public class LevelManager : MonoBehaviour {
     GameManager gm;
     int actualLevel = 1;
 
+    private void OnEnable()
+    {
+        CleanLevel.OnClearLevel += CheckNextLevel;
+    }
+    private void OnDisable()
+    {
+        CleanLevel.OnClearLevel -= CheckNextLevel;
+        PlayerController.DoorEnter -= ChangeLevel;
+    }
+
     private void Start() {
         gm = GameManager.instanceGM;
        //for (int i = 0; i < doors.Length; i++)
@@ -34,13 +44,8 @@ public class LevelManager : MonoBehaviour {
         doors = GameObject.FindGameObjectsWithTag("Door");
         
     }
-    private void OnDisable() {
-        PlayerController.DoorEnter -= ChangeLevel;
-    }
-    private void Update()
-    {
-        CheckNextLevel();
-    }
+
+
     public void CheckNextLevel()
     {
         if (gm != null)
@@ -48,10 +53,27 @@ public class LevelManager : MonoBehaviour {
             if (gm.GetCurrentCountEnemy() <= 0 && gm.GetEnableCheckNextLevel())
             {
                 ChangeLevel();
+                gm.SetEnableCheckNextLevel(false);
+            }
+        }
+    }
+
+    public void CheckNextLevel(CleanLevel cleanLevel)
+    {
+        if (cleanLevel != null)
+        {
+            if (gm != null)
+            {
+                if (gm.GetCurrentCountEnemy() <= 0 && gm.GetEnableCheckNextLevel())
+                {
+                    ChangeLevel();
+                    gm.SetEnableCheckNextLevel(false);
+                }
             }
         }
     }
     public void ChangeLevel() {
+        //Debug.Log("ALFAJOR");
         actualLevel++;
         if (actualLevel > 3)
             actualLevel = 1;

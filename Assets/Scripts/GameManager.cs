@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] int currentCountEnemys;
-    [SerializeField] int maxCountEnemys;
     bool gameStarted;
     bool enableCheckNextLevel = false;
     public static GameManager instanceGM;
