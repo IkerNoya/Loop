@@ -200,9 +200,9 @@ GameObject:
   - component: {fileID: 5179017900267201866}
   - component: {fileID: 6360674323102310443}
   - component: {fileID: 5709065041830798960}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BulletHandle
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   user: 0
   enemyUser: {fileID: 0}
-  speed: 20
+  speed: 10
   lifeTime: 1
   bullet: {fileID: 4368425385165763257}
   particles: {fileID: 348790301578327726}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 3522431263417260025}
   - component: {fileID: 348790301578327726}
   - component: {fileID: 5470393371469095890}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

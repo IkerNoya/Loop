@@ -131,7 +131,7 @@ MonoBehaviour:
   objectCorpCharacter:
     objectOnDieCharacter: {fileID: 5713534235791246420, guid: 50191cdb32675d44f85ae21cf6784028,
       type: 3}
-    recycled: 0
+    recycled: 1
   parents:
   - {fileID: 0}
   - {fileID: 0}
@@ -152,12 +152,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   user: 1
   enemyUser: {fileID: 0}
-  OriginBullet: {fileID: 7843187418377519882, guid: d2144be0dd6279742b1ba7a3004503af,
+  OriginBullet: {fileID: 5179017900267201866, guid: d2144be0dd6279742b1ba7a3004503af,
     type: 3}
   timeToShoot: 0.08
   shakeDuration: 0.2
   shakeMagnitudeShotgun: 0.1
   shakeMagnitudeSMG: 0.05
+  damageShootgun: 15
+  damageRevolver: 10
+  damageSMG: 8
   type: 0
 --- !u!50 &8682576022405400021
 Rigidbody2D:

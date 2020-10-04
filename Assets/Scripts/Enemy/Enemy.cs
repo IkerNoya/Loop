@@ -60,12 +60,17 @@ public class Enemy : Character
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Bullet")
-        { 
+        {
+            Debug.Log("OUCH");
             Bullet b = collision.GetComponent<Bullet>();
-            if (b.enemyUser != this && b.GetUser() != Bullet.User.Enemy)
+            if (b != null)
             {
-                SetHP(GetHP() - b.GetDamage());
-                Destroy(b);
+                if (b.enemyUser != this && b.GetUser() != Bullet.User.Enemy)
+                {
+                    Debug.Log("Damage:" + b.GetDamage());
+                    SetHP(GetHP() - b.GetDamage());
+                    Destroy(b);
+                }
             }
         }
     }

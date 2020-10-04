@@ -33,6 +33,7 @@ public class GenerateCorps : MonoBehaviour
         parentClasses = new ParentClass();
         SettingParent();
         inLevel = levelManager.GetCurrentLevel();
+        parents = levelManager.GetLevels();
     }
     void Update()
     {

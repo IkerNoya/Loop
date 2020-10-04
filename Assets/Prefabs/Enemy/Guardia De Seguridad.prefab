@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8853489992321274274}
   - component: {fileID: 8853489992321274278}
   - component: {fileID: -7878162965046718608}
+  - component: {fileID: 7573588260834824983}
   m_Layer: 0
   m_Name: Guardia De Seguridad
   m_TagString: Untagged
@@ -239,12 +240,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f44724511a70b74b84d35b9c7627982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: 0
+  user: 1
   enemyUser: {fileID: 8853489992321274287}
-  OriginBullet: {fileID: 7843187418377519882, guid: d2144be0dd6279742b1ba7a3004503af,
+  OriginBullet: {fileID: 5179017900267201866, guid: d2144be0dd6279742b1ba7a3004503af,
     type: 3}
   timeToShoot: 0.08
   shakeDuration: 0.2
   shakeMagnitudeShotgun: 0.1
   shakeMagnitudeSMG: 0.05
+  damageShootgun: 15
+  damageRevolver: 10
+  damageSMG: 8
   type: 0
+--- !u!114 &7573588260834824983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8853489992321274286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ef160e91c54c8498f551d601b8c7e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 8853489992321274287}
+  objectBloodCharacter:
+    objectOnDieCharacter: {fileID: 8168400675038062609, guid: 05452a0ea1448d145917c1a39b6b9d67,
+      type: 3}
+    recycled: 1
+  objectCorpCharacter:
+    objectOnDieCharacter: {fileID: 5713534235791246420, guid: 50191cdb32675d44f85ae21cf6784028,
+      type: 3}
+    recycled: 0
+  parents:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  levelManager: {fileID: 0}

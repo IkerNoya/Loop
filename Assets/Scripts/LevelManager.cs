@@ -62,4 +62,9 @@ public class LevelManager : MonoBehaviour {
     {
         return actualLevel;
     }
+
+    public GameObject[] GetLevels()
+    {
+        return levels;
+    }
 }
