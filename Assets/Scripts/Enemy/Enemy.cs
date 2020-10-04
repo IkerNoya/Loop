@@ -5,9 +5,14 @@ using Pathfinding;
 using System;
 public class Enemy : Character
 {
+
+    public static event Action<Enemy> OnStartEnemy;
+    public static event Action<Enemy> OnDieEnemy;
+
     private AIDestinationSetter aiPathDestination;
     protected AIPath aiPath;
     protected FSM fsm;
+    bool IDead;
 
     [SerializeField] protected bool enableCallAlies = true;
     protected bool callAlies;
@@ -30,7 +35,8 @@ public class Enemy : Character
     }
     protected virtual void Start()
     {
-
+        if (OnStartEnemy != null)
+            OnStartEnemy(this);
     }
     protected virtual void Update()
     {
@@ -76,6 +82,15 @@ public class Enemy : Character
                 {
                     //Debug.Log("Damage:" + b.GetDamage());
                     SetHP(GetHP() - b.GetDamage());
+                    if (GetHP() <= 0 && !IDead) 
+                    {
+                        SetHP(1);
+                        if (OnDieEnemy != null)
+                            OnDieEnemy(this);
+
+                        SetHP(0);
+                        IDead = true;
+                    }
                     Destroy(b.gameObject);
                 }
             }

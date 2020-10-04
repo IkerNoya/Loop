@@ -8,17 +8,39 @@ public class GameManager : MonoBehaviour
     [SerializeField] int currentCountEnemys;
     bool gameStarted;
     bool enableCheckNextLevel = false;
-    void Start()
+    public static GameManager instanceGM;
+
+    private void Awake()
     {
-        
+        if (instanceGM == null)
+        {
+            instanceGM = this;
+        }
+        else
+        {
+            Destroy(instanceGM.gameObject);
+        }
+    }
+    private void OnEnable()
+    {
+        Enemy.OnStartEnemy += AddedEnemy;
+        Enemy.OnDieEnemy += SubstractEnemy;
+    }
+    private void OnDisable()
+    {
+        Enemy.OnStartEnemy += AddedEnemy;
+        Enemy.OnDieEnemy -= SubstractEnemy;
     }
 
-    // Update is called once per frame
-    void Update()
+    void AddedEnemy(Enemy e)
     {
-        
+        currentCountEnemys++;
+        enableCheckNextLevel = true;
     }
-
+    void SubstractEnemy(Enemy e)
+    {
+        currentCountEnemys--;
+    }
     public void CheckNextLevel()
     {
         if (currentCountEnemys <= 0)
