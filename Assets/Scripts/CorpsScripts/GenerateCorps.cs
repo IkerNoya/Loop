@@ -29,7 +29,6 @@ public class GenerateCorps : MonoBehaviour
     private void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
- 
         parentClasses = new ParentClass();
         SettingParent();
         inLevel = levelManager.GetCurrentLevel();

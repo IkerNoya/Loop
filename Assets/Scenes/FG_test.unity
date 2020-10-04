@@ -686,6 +686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 148483319}
   - component: {fileID: 148483321}
+  - component: {fileID: 148483322}
   - component: {fileID: 148483320}
   m_Layer: 9
   m_Name: Ladrillito UwU (21)
@@ -708,8 +709,8 @@ Transform:
   m_Father: {fileID: 1477696489}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &148483320
-BoxCollider2D:
+--- !u!58 &148483320
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -717,23 +718,13 @@ BoxCollider2D:
   m_GameObject: {fileID: 148483318}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.030303, y: 1.030303}
-    newSize: {x: 1.7, y: 1.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.64
 --- !u!212 &148483321
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -784,6 +775,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &148483322
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148483318}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &180862798
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,6 +914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 220069734}
   - component: {fileID: 220069736}
+  - component: {fileID: 220069737}
   - component: {fileID: 220069735}
   m_Layer: 9
   m_Name: Ladrillito UwU (23)
@@ -924,8 +937,8 @@ Transform:
   m_Father: {fileID: 1477696489}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &220069735
-BoxCollider2D:
+--- !u!58 &220069735
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -933,23 +946,13 @@ BoxCollider2D:
   m_GameObject: {fileID: 220069733}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.030303, y: 1.030303}
-    newSize: {x: 1.7, y: 1.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.64
 --- !u!212 &220069736
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1000,6 +1003,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &220069737
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220069733}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &335444861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,6 +1142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 467423488}
   - component: {fileID: 467423490}
+  - component: {fileID: 467423491}
   - component: {fileID: 467423489}
   m_Layer: 9
   m_Name: Ladrillito UwU (7)
@@ -1140,8 +1165,8 @@ Transform:
   m_Father: {fileID: 1477696489}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &467423489
-BoxCollider2D:
+--- !u!58 &467423489
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1149,23 +1174,13 @@ BoxCollider2D:
   m_GameObject: {fileID: 467423487}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.030303, y: 1.030303}
-    newSize: {x: 1.7, y: 1.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.64
 --- !u!212 &467423490
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1216,6 +1231,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &467423491
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467423487}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &505668349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,6 +1636,7 @@ GameObject:
   m_Component:
   - component: {fileID: 730552423}
   - component: {fileID: 730552425}
+  - component: {fileID: 730552426}
   - component: {fileID: 730552424}
   m_Layer: 9
   m_Name: Ladrillito UwU (19)
@@ -1622,8 +1659,8 @@ Transform:
   m_Father: {fileID: 1477696489}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &730552424
-BoxCollider2D:
+--- !u!58 &730552424
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1631,23 +1668,13 @@ BoxCollider2D:
   m_GameObject: {fileID: 730552422}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.030303, y: 1.030303}
-    newSize: {x: 1.7, y: 1.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.64
 --- !u!212 &730552425
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1698,6 +1725,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &730552426
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730552422}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &798896531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1980,6 +2028,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1127845268}
   - component: {fileID: 1127845270}
+  - component: {fileID: 1127845271}
   - component: {fileID: 1127845269}
   m_Layer: 9
   m_Name: Ladrillito UwU (22)
@@ -2002,8 +2051,8 @@ Transform:
   m_Father: {fileID: 1477696489}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1127845269
-BoxCollider2D:
+--- !u!58 &1127845269
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2011,23 +2060,13 @@ BoxCollider2D:
   m_GameObject: {fileID: 1127845267}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.030303, y: 1.030303}
-    newSize: {x: 1.7, y: 1.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.64
 --- !u!212 &1127845270
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2078,6 +2117,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1127845271
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127845267}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1210836512
 GameObject:
   m_ObjectHideFlags: 0
@@ -2526,7 +2586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1477696489
 Transform:
   m_ObjectHideFlags: 0
@@ -2576,7 +2636,7 @@ GameObject:
   - component: {fileID: 1498502174}
   - component: {fileID: 1498502175}
   - component: {fileID: 1498502176}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2654,7 +2714,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498502173}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -2683,6 +2743,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1552734470}
   - component: {fileID: 1552734472}
+  - component: {fileID: 1552734473}
   - component: {fileID: 1552734471}
   m_Layer: 9
   m_Name: Ladrillito UwU (16)
@@ -2705,8 +2766,8 @@ Transform:
   m_Father: {fileID: 1477696489}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1552734471
-BoxCollider2D:
+--- !u!58 &1552734471
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2714,23 +2775,13 @@ BoxCollider2D:
   m_GameObject: {fileID: 1552734469}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.030303, y: 1.030303}
-    newSize: {x: 1.7, y: 1.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.64
 --- !u!212 &1552734472
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2781,6 +2832,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1552734473
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552734469}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1597098612
 GameObject:
   m_ObjectHideFlags: 0
@@ -3007,6 +3079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1687317325}
   - component: {fileID: 1687317327}
+  - component: {fileID: 1687317328}
   - component: {fileID: 1687317326}
   m_Layer: 9
   m_Name: Ladrillito UwU (10)
@@ -3029,8 +3102,8 @@ Transform:
   m_Father: {fileID: 1477696489}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1687317326
-BoxCollider2D:
+--- !u!58 &1687317326
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3038,23 +3111,13 @@ BoxCollider2D:
   m_GameObject: {fileID: 1687317324}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.030303, y: 1.030303}
-    newSize: {x: 1.7, y: 1.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.64
 --- !u!212 &1687317327
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3105,6 +3168,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1687317328
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1687317324}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1688693933
 GameObject:
   m_ObjectHideFlags: 0
@@ -3223,6 +3307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1701045993}
   - component: {fileID: 1701045995}
+  - component: {fileID: 1701045996}
   - component: {fileID: 1701045994}
   m_Layer: 9
   m_Name: Ladrillito UwU (8)
@@ -3245,8 +3330,8 @@ Transform:
   m_Father: {fileID: 1477696489}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1701045994
-BoxCollider2D:
+--- !u!58 &1701045994
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3254,23 +3339,13 @@ BoxCollider2D:
   m_GameObject: {fileID: 1701045992}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.030303, y: 1.030303}
-    newSize: {x: 1.7, y: 1.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.64
 --- !u!212 &1701045995
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3321,6 +3396,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1701045996
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701045992}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1747672880
 GameObject:
   m_ObjectHideFlags: 0
@@ -3331,6 +3427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1747672881}
   - component: {fileID: 1747672883}
+  - component: {fileID: 1747672884}
   - component: {fileID: 1747672882}
   m_Layer: 9
   m_Name: Ladrillito UwU (20)
@@ -3353,8 +3450,8 @@ Transform:
   m_Father: {fileID: 1477696489}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1747672882
-BoxCollider2D:
+--- !u!58 &1747672882
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3362,23 +3459,13 @@ BoxCollider2D:
   m_GameObject: {fileID: 1747672880}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.030303, y: 1.030303}
-    newSize: {x: 1.7, y: 1.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.64
 --- !u!212 &1747672883
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3429,6 +3516,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1747672884
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747672880}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1781155667
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,6 +3655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1853186286}
   - component: {fileID: 1853186288}
+  - component: {fileID: 1853186289}
   - component: {fileID: 1853186287}
   m_Layer: 9
   m_Name: Ladrillito UwU (17)
@@ -3569,8 +3678,8 @@ Transform:
   m_Father: {fileID: 1477696489}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1853186287
-BoxCollider2D:
+--- !u!58 &1853186287
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3578,23 +3687,13 @@ BoxCollider2D:
   m_GameObject: {fileID: 1853186285}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.030303, y: 1.030303}
-    newSize: {x: 1.7, y: 1.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.64
 --- !u!212 &1853186288
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3645,6 +3744,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1853186289
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853186285}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1909896394
 GameObject:
   m_ObjectHideFlags: 0
@@ -3655,6 +3775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1909896395}
   - component: {fileID: 1909896397}
+  - component: {fileID: 1909896398}
   - component: {fileID: 1909896396}
   m_Layer: 9
   m_Name: Ladrillito UwU (24)
@@ -3677,8 +3798,8 @@ Transform:
   m_Father: {fileID: 1477696489}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1909896396
-BoxCollider2D:
+--- !u!58 &1909896396
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3686,23 +3807,13 @@ BoxCollider2D:
   m_GameObject: {fileID: 1909896394}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.030303, y: 1.030303}
-    newSize: {x: 1.7, y: 1.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.64
 --- !u!212 &1909896397
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3753,6 +3864,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1909896398
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909896394}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1995436274
 GameObject:
   m_ObjectHideFlags: 0
@@ -3763,6 +3895,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1995436275}
   - component: {fileID: 1995436277}
+  - component: {fileID: 1995436278}
   - component: {fileID: 1995436276}
   m_Layer: 9
   m_Name: Ladrillito UwU (18)
@@ -3785,8 +3918,8 @@ Transform:
   m_Father: {fileID: 1477696489}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1995436276
-BoxCollider2D:
+--- !u!58 &1995436276
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3794,23 +3927,13 @@ BoxCollider2D:
   m_GameObject: {fileID: 1995436274}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.030303, y: 1.030303}
-    newSize: {x: 1.7, y: 1.7}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.64
 --- !u!212 &1995436277
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3861,6 +3984,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1995436278
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995436274}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &2125902121
 GameObject:
   m_ObjectHideFlags: 0
@@ -4026,11 +4170,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
-  m_Constraints: 7
+  m_Constraints: 0
 --- !u!1 &3182974515709949648
 GameObject:
   m_ObjectHideFlags: 0
@@ -4057,7 +4201,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 6258538717742357114}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -4131,7 +4275,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.02, y: 1.12}
+  m_AnchoredPosition: {x: -1.037, y: 1.12}
   m_SizeDelta: {x: 0.16, y: 0.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6258538717742357114
@@ -4149,7 +4293,7 @@ GameObject:
   - component: {fileID: 6565839900302168101}
   - component: {fileID: 3066168258713789951}
   - component: {fileID: 6258538717742357093}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4180,6 +4324,8 @@ MonoBehaviour:
   playerInputHorizontal: Horizontal
   playerInputVertical: Vertical
   lastMousePosition: {x: 0, y: 0, z: 0}
+  rayDistance: 0.75
+  directions: []
 --- !u!114 &6565839900302168101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4193,12 +4339,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   user: 1
-  OriginBullet: {fileID: 7843187418377519882, guid: d2144be0dd6279742b1ba7a3004503af,
+  enemyUser: {fileID: 0}
+  OriginBullet: {fileID: 5179017900267201866, guid: d2144be0dd6279742b1ba7a3004503af,
     type: 3}
   timeToShoot: 0.08
   shakeDuration: 0.2
   shakeMagnitudeShotgun: 0.1
   shakeMagnitudeSMG: 0.05
+  damageShootgun: 0
+  damageRevolver: 0
+  damageSMG: 0
   type: 0
 --- !u!1 &7364453419485525217
 GameObject:
@@ -4210,7 +4360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7364453419485525218}
   - component: {fileID: 7364453419485525219}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: hitCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
