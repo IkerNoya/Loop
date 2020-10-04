@@ -8,9 +8,11 @@ public class LevelManager : MonoBehaviour {
 
     [SerializeField] GameObject[] doors;
 
+    GameManager gm;
     int actualLevel = 1;
 
     private void Start() {
+        gm = GameManager.instanceGM;
        //for (int i = 0; i < doors.Length; i++)
        //    if (doors[i] != null)
        //        doors[i].SetActive(false);
@@ -35,7 +37,20 @@ public class LevelManager : MonoBehaviour {
     private void OnDisable() {
         PlayerController.DoorEnter -= ChangeLevel;
     }
-
+    private void Update()
+    {
+        CheckNextLevel();
+    }
+    public void CheckNextLevel()
+    {
+        if (gm != null)
+        {
+            if (gm.GetCurrentCountEnemy() <= 0 && gm.GetEnableCheckNextLevel())
+            {
+                ChangeLevel();
+            }
+        }
+    }
     public void ChangeLevel() {
         actualLevel++;
         if (actualLevel > 3)

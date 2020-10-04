@@ -383,7 +383,7 @@ PrefabInstance:
     - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
         type: 3}
@@ -1008,90 +1008,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8875260c99f7d7640bdfc3125b3dcadd, type: 3}
---- !u!1001 &4007782043440576442
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1995854388709933418, guid: cd57fba2390cca14093e75a1d7ae4e94,
-        type: 3}
-      propertyPath: m_Name
-      value: TesterLevelCadaveres
-      objectReference: {fileID: 0}
-    - target: {fileID: 4120000405688286682, guid: cd57fba2390cca14093e75a1d7ae4e94,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4120000405688286682, guid: cd57fba2390cca14093e75a1d7ae4e94,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4120000405688286682, guid: cd57fba2390cca14093e75a1d7ae4e94,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4120000405688286682, guid: cd57fba2390cca14093e75a1d7ae4e94,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4120000405688286682, guid: cd57fba2390cca14093e75a1d7ae4e94,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4120000405688286682, guid: cd57fba2390cca14093e75a1d7ae4e94,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4120000405688286682, guid: cd57fba2390cca14093e75a1d7ae4e94,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4120000405688286682, guid: cd57fba2390cca14093e75a1d7ae4e94,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4120000405688286682, guid: cd57fba2390cca14093e75a1d7ae4e94,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4120000405688286682, guid: cd57fba2390cca14093e75a1d7ae4e94,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4120000405688286682, guid: cd57fba2390cca14093e75a1d7ae4e94,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4695156051808255059, guid: cd57fba2390cca14093e75a1d7ae4e94,
-        type: 3}
-      propertyPath: gameObjectsLevel.Array.data[0]
-      value: 
-      objectReference: {fileID: 1477696488}
-    - target: {fileID: 4695156051808255059, guid: cd57fba2390cca14093e75a1d7ae4e94,
-        type: 3}
-      propertyPath: gameObjectsLevel.Array.data[1]
-      value: 
-      objectReference: {fileID: 601071498}
-    - target: {fileID: 4695156051808255059, guid: cd57fba2390cca14093e75a1d7ae4e94,
-        type: 3}
-      propertyPath: gameObjectsLevel.Array.data[2]
-      value: 
-      objectReference: {fileID: 145414378}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: cd57fba2390cca14093e75a1d7ae4e94, type: 3}
 --- !u!1001 &5233093042955310812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1280,7 +1196,7 @@ PrefabInstance:
     - target: {fileID: 9207061357966949394, guid: a9c4748367326e446a636604da9253d8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9207061357966949394, guid: a9c4748367326e446a636604da9253d8,
         type: 3}

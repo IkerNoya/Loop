@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
         Enemy.OnDieEnemy -= SubstractEnemy;
     }
 
+    public int GetCurrentCountEnemy()
+    {
+        return currentCountEnemys;
+    }
     void AddedEnemy(Enemy e)
     {
         currentCountEnemys++;
