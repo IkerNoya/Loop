@@ -26,12 +26,11 @@ public class GeneratorEnemysManager : MonoBehaviour
     private void OnEnable()
     {
         upgrade = true;
-        OnEnableLevel.onEnableLevel += Enable;
+        Enable();
     }
     private void OnDisable()
     {
         upgrade = true;
-        OnEnableLevel.onEnableLevel -= Enable;
     }
     public void AddMaxRandomGenerate()
     {
@@ -46,15 +45,13 @@ public class GeneratorEnemysManager : MonoBehaviour
             generadorEnemys[i].maxEnemysGenerates = UnityEngine.Random.Range(minRandomGenerateEnemys, maxAddedRandomGenerate + 1);
         }
     }
-    public void Enable(OnEnableLevel onEnableLevel, int currentLevel)
-    {
-        if (onEnableLevel != null)
+    public void Enable()
+    { 
+        for (int i = 0; i<generadorEnemys.Length; i++)
         {
-            for (int i = 0; i < generadorEnemys.Length; i++)
-            {
-                generadorEnemys[i].gameObject.SetActive(true);
-            }
+            generadorEnemys[i].gameObject.SetActive(true);
         }
+
         if (upgrade)
         {
             AddMaxRandomGenerate();

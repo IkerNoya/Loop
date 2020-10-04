@@ -19,12 +19,8 @@ public class CleanLevel : MonoBehaviour
     }
     private void OnEnable()
     {
-        GenerateCorps.OnCorpGenerate += AddListClean;
-    }
-    private void OnDisable()
-    {
-        SettingDestroyObjects();
-        GenerateCorps.OnCorpGenerate -= AddListClean;
+        GenerateCorps.OnCorpGenerateBlood += AddListClean;
+        //GenerateCorps.OnCorpGenerateCorpse += AddListClean2;
     }
     public void AddListClean(GenerateCorps gc, GameObject go, bool recycled)
     {
@@ -37,7 +33,19 @@ public class CleanLevel : MonoBehaviour
         if (OnClearLevel != null)
             OnClearLevel(this);
 
-    }
+    }  
+    //public void AddListClean2(GenerateCorps gc, GameObject go, bool recycled)
+    //{
+    //    ObjectsClean objectClean = new ObjectsClean();
+    //    objectClean.objectOnDieCharacter = go;
+    //    objectClean.recycled = recycled;
+    //    objectsClean.Add(objectClean);
+
+    //    //Debug.Log(objectsClean.Count);
+    //    if (OnClearLevel != null)
+    //        OnClearLevel(this);
+
+    //}
     public void SettingDestroyObjects()
     {
         if (objectsClean == null) return;
@@ -54,5 +62,11 @@ public class CleanLevel : MonoBehaviour
         }
         
         objectsClean.Clear();
+    }
+    private void OnDisable()
+    {
+        SettingDestroyObjects();
+        GenerateCorps.OnCorpGenerateBlood -= AddListClean;
+        //GenerateCorps.OnCorpGenerateCorpse -= AddListClean2;
     }
 }

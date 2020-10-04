@@ -1468,6 +1468,12 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.28, y: 0.28}
   m_EdgeRadius: 0
+--- !u!224 &618028620 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
+    type: 3}
+  m_PrefabInstance: {fileID: 1731376102}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &649679850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,7 +1879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9dcdeef76a9ff941b95ab3a8d20ba85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 618028620}
 --- !u!1 &716594777
 GameObject:
   m_ObjectHideFlags: 0
@@ -4483,12 +4489,12 @@ PrefabInstance:
     - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.63
+      value: 21.4
       objectReference: {fileID: 0}
     - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.21
+      value: -10.77
       objectReference: {fileID: 0}
     - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
         type: 3}
@@ -4529,6 +4535,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 449789050, guid: 4df39cd6367f47647a2c0393bc582802, type: 3}

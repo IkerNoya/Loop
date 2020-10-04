@@ -20,7 +20,8 @@ public class GenerateCorps : MonoBehaviour
     [SerializeField] private Character character;
     [SerializeField] private ObjectInstanciate objectBloodCharacter;
     [SerializeField] private ObjectInstanciate objectCorpCharacter;
-    public static event Action<GenerateCorps, GameObject, bool> OnCorpGenerate;
+    public static event Action<GenerateCorps, GameObject, bool> OnCorpGenerateBlood;
+    public static event Action<GenerateCorps, GameObject, bool> OnCorpGenerateCorpse;
     private ParentClass parentClasses;
     [SerializeField] GameObject[] parents;
     [SerializeField] private LevelManager levelManager;
@@ -63,18 +64,18 @@ public class GenerateCorps : MonoBehaviour
     {
         SettingParent();
         //Debug.Log(levelManager.GetCurrentLevel());
+
         GameObject go = null;
         go = Instantiate(objectCorpCharacter.objectOnDieCharacter, transform.position, Quaternion.identity, parentClasses.parentObject.transform);
-        if (OnCorpGenerate != null)
+        if (OnCorpGenerateBlood != null)
         {
-            //Debug.Log(objectCorpCharacter.recycled);
-            OnCorpGenerate(this, go, objectCorpCharacter.recycled);
+            OnCorpGenerateBlood(this, go, objectBloodCharacter.recycled);
         }
         go = Instantiate(objectBloodCharacter.objectOnDieCharacter, transform.position, Quaternion.identity, parentClasses.parentObject.transform);
-        if (OnCorpGenerate != null)
+        if (OnCorpGenerateCorpse != null)
         {
-            //Debug.Log(objectBloodCharacter.recycled);
-            OnCorpGenerate(this, go, objectBloodCharacter.recycled);
+            //Debug.Log(objectCorpCharacter.recycled);
+            OnCorpGenerateCorpse(this, go, objectCorpCharacter.recycled);
         }
         //ZONA DE TESTEO//
         //character.SetHP(100);

@@ -1101,7 +1101,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2d1d126416d137e49868bbf35874fc7b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df9baab5b78892245b5ae896b3de3de8, type: 3}
   m_Color: {r: 0.6886792, g: 0.67893374, b: 0.67893374, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1408,7 +1408,7 @@ PrefabInstance:
     - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.26476908
+      value: -0.67
       objectReference: {fileID: 0}
     - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
         type: 3}
@@ -1455,6 +1455,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286807087772411430, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4df39cd6367f47647a2c0393bc582802, type: 3}
 --- !u!114 &8554036659773541353
@@ -1469,12 +1484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4725bfc76227e53439358facc46dd3a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObjectsLevel:
-  - {fileID: 1477696488}
-  - {fileID: 601071498}
-  - {fileID: 145414378}
-  nextLevelInput: 260
-  prevLevelInput: 262
 --- !u!1001 &9087694214445812893
 PrefabInstance:
   m_ObjectHideFlags: 0
