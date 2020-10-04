@@ -7,6 +7,7 @@ public class Weapons : MonoBehaviour
    
     [SerializeField] private Bullet.User user;
     [SerializeField] private Enemy enemyUser;
+    [SerializeField] private GameObject playerGun; // para pasar posicion del arma en player
     [SerializeField] private Bullet OriginBullet;
     private Bullet bullet;
     [SerializeField] float timeToShoot;
