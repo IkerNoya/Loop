@@ -25,6 +25,16 @@ public class Bullet : MonoBehaviour
     Vector3 movement;
     Vector3 direction;
     Vector3 randomDir;
+
+    /*[SerializeField]*/ float EnemyShotgunRecoil = 0.3f;
+    /*[SerializeField]*/ float EnemyRevolverRecoil = 0.25f;
+    /*[SerializeField]*/ float EnemySubMachineGunRecoil = 0.32f;
+
+    /*[SerializeField]*/ float PlayerShotgunRecoil = 2.5f;
+    /*[SerializeField]*/ float PlayerRevolverRecoil = 1.0f;
+    /*[SerializeField]*/ float PlayerSubMachineGunRecoil = 1.5f;
+
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -44,18 +54,28 @@ public class Bullet : MonoBehaviour
         Debug.Log(weaponType.type);
         if (weaponType.type == Weapons.WeaponType.Shotgun)
         {
-            Debug.Log("SOY SHOOTGUN");
-            randomDir = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0) + direction;
+            //Debug.Log("SOY SHOOTGUN");
+            if (user == User.Player)
+                randomDir = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0) + direction;
+            else if (user == User.Enemy)
+                randomDir = new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(-0.3f, 0.3f), 0) + direction;
         }
         else
         {
             if(weaponType.type == Weapons.WeaponType.subMachineGun)
             {
-                randomDir = new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 0) + direction;
+                if(user == User.Player)
+                    randomDir = new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 0) + direction;
+                else if(user == User.Enemy)
+                    randomDir = new Vector3(Random.Range(-0.32f, 0.32f), Random.Range(-0.32f, 0.32f), 0) + direction;
+
             }
             else if(weaponType.type == Weapons.WeaponType.Revolver)
             {
-                randomDir = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0) + direction;
+                if(user == User.Player)
+                    randomDir = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0) + direction;
+                else if(user == User.Enemy)
+                    randomDir = new Vector3(Random.Range(-EnemyRevolverRecoil, EnemyRevolverRecoil), Random.Range(-EnemyRevolverRecoil, EnemyRevolverRecoil), 0) + direction;
             }
         }
         movement = direction.normalized * speed;
