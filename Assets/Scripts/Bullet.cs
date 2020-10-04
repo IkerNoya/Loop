@@ -29,15 +29,22 @@ public class Bullet : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
-        weaponType = player.GetComponent<Weapons>();
 
         if (user == User.Player)
+        {
             direction = playerController.lastMousePosition - transform.position;
-        else
+            weaponType = player.GetComponent<Weapons>();
+        }
+        else if(user == User.Enemy)
+        {
             direction = enemyUser.transform.up;
+            weaponType = enemyUser.GetComponent<Weapons>();
+        }
 
+        Debug.Log(weaponType.type);
         if (weaponType.type == Weapons.WeaponType.Shotgun)
         {
+            Debug.Log("SOY SHOOTGUN");
             randomDir = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0) + direction;
         }
         else
@@ -103,5 +110,10 @@ public class Bullet : MonoBehaviour
     public float GetDamage()
     {
         return damage;
+    }
+    public void SetTypeWeapon(Weapons.WeaponType _weaponType)
+    {
+        if(weaponType != null)
+            weaponType.type = _weaponType;
     }
 }

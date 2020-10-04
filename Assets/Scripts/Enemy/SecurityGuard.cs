@@ -46,7 +46,8 @@ public class SecurityGuard : Enemy
         base.Start();
         if (generateWeaponRandom)
         {
-            weapons.type = (Weapons.WeaponType)UnityEngine.Random.Range(0, weapons.GetCountWeapons());
+            weapons.type = Weapons.WeaponType.Shotgun;//(Weapons.WeaponType)UnityEngine.Random.Range(0, weapons.GetCountWeapons());
+            Debug.Log(weapons.type);
         }
     }
     protected override void Awake()
@@ -149,7 +150,7 @@ public class SecurityGuard : Enemy
                 weapons.ShootRevolver();
                 break;
             case Weapons.WeaponType.Shotgun:
-                weapons.ShootSubmachineGun();
+                weapons.ShootShotgun();
                 break;
             case Weapons.WeaponType.subMachineGun:
                 weapons.ShootSubmachineGun();

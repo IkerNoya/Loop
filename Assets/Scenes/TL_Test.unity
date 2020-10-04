@@ -5798,6 +5798,11 @@ PrefabInstance:
       propertyPath: enableCallAlies
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8853489992321274287, guid: 77e46090f2bd1e044a1480f782464651,
+        type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77e46090f2bd1e044a1480f782464651, type: 3}
 --- !u!1001 &9207061358405459693

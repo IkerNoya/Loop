@@ -37,8 +37,9 @@ public class Weapons : MonoBehaviour
                 bullet.SetUser(user);
                 bullet.enemyUser = enemyUser;
                 bullet.SetDamage(damageSMG);
+                bullet.SetTypeWeapon(type);
 
-               // Debug.Log(bullet.GetUser());
+                // Debug.Log(bullet.GetUser());
             }
 
             canShoot = false;
@@ -57,6 +58,7 @@ public class Weapons : MonoBehaviour
                     bullet.SetUser(user);
                     bullet.enemyUser = enemyUser;
                     bullet.SetDamage(damageShootgun);
+                    bullet.SetTypeWeapon(type);
                 }
             }
             canShoot = false;
@@ -73,7 +75,7 @@ public class Weapons : MonoBehaviour
                 bullet.SetUser(user);
                 bullet.enemyUser = enemyUser;
                 bullet.SetDamage(damageRevolver);
-                
+                bullet.SetTypeWeapon(type);
             }
 
             canShoot = false;
