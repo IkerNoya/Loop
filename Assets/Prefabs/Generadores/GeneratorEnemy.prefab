@@ -53,4 +53,6 @@ MonoBehaviour:
   cientifico_GO: {fileID: 2342546344682205856, guid: 479ff76e8a13ded49b95f99a9b4e7da5,
     type: 3}
   typeEnemysGenerates: 2
+  rangePositionX: 3
+  rangePositionY: 3
   maxEnemysGenerates: 1

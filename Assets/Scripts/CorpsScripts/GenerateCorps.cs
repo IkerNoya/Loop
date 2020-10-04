@@ -24,7 +24,7 @@ public class GenerateCorps : MonoBehaviour
     private ParentClass parentClasses;
     [SerializeField] GameObject[] parents;
     [SerializeField] private LevelManager levelManager;
-    private int inLevel;
+    [SerializeField] private int inLevel;
 
     private void Start()
     {

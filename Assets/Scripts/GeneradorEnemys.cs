@@ -23,8 +23,12 @@ public class GeneradorEnemys : MonoBehaviour
     [SerializeField] int countGradualGeneration;
     public GameObject securityGuard_GO;
     public GameObject cientifico_GO;
+    public GameObject parentEnemys;
     public TypeEnemysGenerates typeEnemysGenerates;
     private TypeGeneration typeGeneration;
+
+    [SerializeField] float rangePositionX;
+    [SerializeField] float rangePositionY;
 
     private bool start;
     private int countEnemysGenerates;
@@ -105,17 +109,40 @@ public class GeneradorEnemys : MonoBehaviour
     }
     void GenerateEnemy(int count)
     {
+        Vector3 relativePosition = Vector3.zero;
+        float porcentageGenerationCientifico = 30;
+        float porcentageGenerationSecurityGuard = 70;
+
         for (int i = 0; i < count; i++)
         {
             if (countEnemysGenerates < maxEnemysGenerates)
             {
+                //Enemy e = null;
+                //GameObject go = null;
+                float x = Random.Range(-rangePositionX, rangePositionX);
+                float y = Random.Range(-rangePositionY, rangePositionY);
+                float optionGeneration = Random.Range(0, 100);
+                relativePosition = new Vector3(x, y, 0);
                 switch (typeEnemysGenerates)
                 {
                     case TypeEnemysGenerates.GenerateAll:
+                        if (optionGeneration <= porcentageGenerationCientifico && optionGeneration >= 0)
+                        {
+                            //go = Instantiate(cientifico_GO, (transform.position + relativePosition), Quaternion.identity, parentEnemys.transform);
+                            //e = go.GetComponent<Enemy>();
+                            //e.
+                        }
+                        else if(optionGeneration > porcentageGenerationCientifico 
+                            && optionGeneration <= porcentageGenerationSecurityGuard + porcentageGenerationCientifico)
+                        {
+                            Instantiate(securityGuard_GO, (transform.position + relativePosition), Quaternion.identity, parentEnemys.transform);
+                        }
                         break;
                     case TypeEnemysGenerates.GenerateCientifico:
+                        Instantiate(cientifico_GO, (transform.position + relativePosition), Quaternion.identity);
                         break;
                     case TypeEnemysGenerates.GenerateSecurityGuard:
+                        Instantiate(securityGuard_GO, (transform.position + relativePosition), Quaternion.identity, parentEnemys.transform);
                         break;
                 }
                 countEnemysGenerates++;

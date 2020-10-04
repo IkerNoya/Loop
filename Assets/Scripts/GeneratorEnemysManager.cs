@@ -5,6 +5,8 @@ using System;
 public class GeneratorEnemysManager : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] int countRoundsAddRandomGenerate = 1;
+    [SerializeField] int rounds;
     public int minAddedRandomGenerate = 1;
     public int maxAddedRandomGenerate = 2;
     public int minRandomGenerateEnemys = 1;
@@ -14,6 +16,7 @@ public class GeneratorEnemysManager : MonoBehaviour
 
     private void Start()
     {
+        rounds = 0;
         for (int i = 0; i < generadorEnemys.Length; i++)
         {
             generadorEnemys[i].numberCurrentLevel = enableLevelObject.numberLevel;
@@ -21,25 +24,29 @@ public class GeneratorEnemysManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        OnEnableLevel.onEnableLevel += AddMaxRandomGenerate;
         OnEnableLevel.onEnableLevel += Enable;
     }
     private void OnDisable()
     {
-        OnEnableLevel.onEnableLevel -= AddMaxRandomGenerate;
-        OnEnableLevel.onEnableLevel += Enable;
-
-
+        OnEnableLevel.onEnableLevel -= Enable;
     }
-    public void AddMaxRandomGenerate(OnEnableLevel onEnableLevel, int currentLevel)
+    public void AddMaxRandomGenerate()
     {
-        int resultRandom = UnityEngine.Random.Range(minAddedRandomGenerate, maxAddedRandomGenerate);
-        maxRandomGenerateEnemys = maxRandomGenerateEnemys + resultRandom;
-        minRandomGenerateEnemys = maxRandomGenerateEnemys - resultRandom;
-
-        for (int i = 0; i < generadorEnemys.Length; i++)
+        if (rounds >= countRoundsAddRandomGenerate)
         {
-            generadorEnemys[i].maxEnemysGenerates = UnityEngine.Random.Range(minRandomGenerateEnemys, maxRandomGenerateEnemys);
+            int resultRandom = UnityEngine.Random.Range(minAddedRandomGenerate, maxAddedRandomGenerate);
+            maxRandomGenerateEnemys = maxRandomGenerateEnemys + resultRandom;
+            minRandomGenerateEnemys = maxRandomGenerateEnemys - resultRandom;
+
+            for (int i = 0; i < generadorEnemys.Length; i++)
+            {
+                generadorEnemys[i].maxEnemysGenerates = UnityEngine.Random.Range(minRandomGenerateEnemys, maxRandomGenerateEnemys);
+            }
+            rounds = 0;
+        }
+        else
+        {
+            rounds++;
         }
     }
     public void Enable(OnEnableLevel onEnableLevel, int currentLevel)
@@ -51,5 +58,6 @@ public class GeneratorEnemysManager : MonoBehaviour
                 generadorEnemys[i].gameObject.SetActive(true);
             }
         }
+        AddMaxRandomGenerate();
     }
 }
