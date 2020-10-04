@@ -39,21 +39,20 @@ public class PlayerController : Character {
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             movement = new Vector2(Input.GetAxis(playerInputHorizontal), Input.GetAxis(playerInputVertical)) * speed;
-           
-
             Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
             transform.up = dir;
             Inputs();
         }
-        if(ActivateDash)
-        {
-            StartCoroutine(Dash());
-            StartCoroutine(DashCooldown());
-        }
+        
     }
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(movement.x, movement.y);
+        if (ActivateDash)
+        {
+            StartCoroutine(Dash());
+            StartCoroutine(DashCooldown());
+        }
     }
 
     #endregion
@@ -163,7 +162,7 @@ public class PlayerController : Character {
     }
     IEnumerator Dash()
     {
-        transform.position += movement * dashSpeed * Time.deltaTime;
+        rb.velocity = movement * dashSpeed;
         yield return new WaitForSeconds(0.05f);
         ActivateDash = false;
     }
