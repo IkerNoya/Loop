@@ -5926,6 +5926,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4554933302140683626, guid: d2144be0dd6279742b1ba7a3004503af,
         type: 3}
+    - target: {fileID: 715245168594399247, guid: 6c2d2c79795e61544b364d121fe833cd,
+        type: 3}
+      propertyPath: OriginBullet
+      value: 
+      objectReference: {fileID: 5179017900267201866, guid: d2144be0dd6279742b1ba7a3004503af,
+        type: 3}
     - target: {fileID: 4897278352941076900, guid: 6c2d2c79795e61544b364d121fe833cd,
         type: 3}
       propertyPath: m_RootOrder
