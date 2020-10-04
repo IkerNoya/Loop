@@ -19,7 +19,6 @@ public class Weapons : MonoBehaviour
     [SerializeField] float damageRevolver;
     [SerializeField] float damageSMG;
     float shotgunShellsAmmount = 7;
-    
 
     public enum WeaponType
     {
@@ -28,13 +27,16 @@ public class Weapons : MonoBehaviour
     public WeaponType type;
     float timer = 0;
     bool canShoot = true;
-    public void ShootSubmachineGun()
+    public void ShootSubmachineGun(Vector3 cannonPos)
     {
         if (canShoot)
         {
             if (OriginBullet != null)
             {
-                bullet = Instantiate(OriginBullet, transform.position, Quaternion.identity);
+                if (cannonPos != Vector3.zero)
+                    bullet = Instantiate(OriginBullet, cannonPos, Quaternion.identity);
+                else
+                    bullet = Instantiate(OriginBullet, transform.position, Quaternion.identity);
                 bullet.SetUser(user);
                 bullet.enemyUser = enemyUser;
                 bullet.SetDamage(damageSMG);
@@ -47,7 +49,7 @@ public class Weapons : MonoBehaviour
             StartCoroutine(Cooldown(timeToShoot));
         }
     }
-    public void ShootShotgun()
+    public void ShootShotgun(Vector3 cannonPos)
     {
         if (canShoot)
         {
@@ -55,7 +57,11 @@ public class Weapons : MonoBehaviour
             {
                 for (int i = 0; i < shotgunShellsAmmount; i++)
                 {
-                    bullet = Instantiate(OriginBullet, transform.position, Quaternion.identity);
+                    if(cannonPos!= Vector3.zero)
+                    bullet = Instantiate(OriginBullet, cannonPos, Quaternion.identity);
+                    else
+                        bullet = Instantiate(OriginBullet, transform.position, Quaternion.identity);
+
                     bullet.SetUser(user);
                     bullet.enemyUser = enemyUser;
                     bullet.SetDamage(damageShootgun);
@@ -66,13 +72,16 @@ public class Weapons : MonoBehaviour
             StartCoroutine(Cooldown(timeToShoot + 1f));
         }
     }
-    public void ShootRevolver()
+    public void ShootRevolver(Vector3 cannonPos)
     {
         if (canShoot)
         {
             if (OriginBullet != null)
             {
-                bullet = Instantiate(OriginBullet, transform.position, Quaternion.identity);
+                if (cannonPos != Vector3.zero)
+                    bullet = Instantiate(OriginBullet, cannonPos, Quaternion.identity);
+                else
+                    bullet = Instantiate(OriginBullet, transform.position, Quaternion.identity);
                 bullet.SetUser(user);
                 bullet.enemyUser = enemyUser;
                 bullet.SetDamage(damageRevolver);

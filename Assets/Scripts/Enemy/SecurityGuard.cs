@@ -155,13 +155,13 @@ public class SecurityGuard : Enemy
         switch (weapons.type)
         {
             case Weapons.WeaponType.Revolver:
-                weapons.ShootRevolver();
+                weapons.ShootRevolver(Vector3.zero);
                 break;
             case Weapons.WeaponType.Shotgun:
-                weapons.ShootShotgun();
+                weapons.ShootShotgun(Vector3.zero);
                 break;
             case Weapons.WeaponType.subMachineGun:
-                weapons.ShootSubmachineGun();
+                weapons.ShootSubmachineGun(Vector3.zero);
                 break;
         }
     }

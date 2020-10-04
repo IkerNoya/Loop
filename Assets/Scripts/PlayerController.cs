@@ -20,6 +20,11 @@ public class PlayerController : Character {
     Weapons weapons;
     Rigidbody2D rb;
 
+    [SerializeField] GameObject[] cannonPos;
+
+    bool aimingRight = false;
+    bool aimingLeft = false;
+
     bool ActivateDash = false;
     bool canActivateDash = true;
 
@@ -42,10 +47,30 @@ public class PlayerController : Character {
             Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
             if (mousePosition.x > transform.position.x) {
                 gunSpriteRenderer.flipX = false;
+
+                aimingRight = true;
+                aimingLeft = false;
+                if (cannonPos[0] != null)
+                    if (!cannonPos[0].activeSelf)
+                        cannonPos[0].SetActive(true);
+                if (cannonPos[1] != null)
+                    if (cannonPos[1].activeSelf)
+                        cannonPos[1].SetActive(false);
+
                 gun.transform.right = dir;
             }
             else if (mousePosition.x < transform.position.x) {
                 gunSpriteRenderer.flipX = true;
+
+                aimingRight = false;
+                aimingLeft = true;
+                if (cannonPos[0] != null)
+                    if (cannonPos[0].activeSelf)
+                        cannonPos[0].SetActive(false);
+                if (cannonPos[1] != null)
+                    if (!cannonPos[1].activeSelf)
+                        cannonPos[1].SetActive(true);
+
                 gun.transform.right = -dir;
             }
             if (gun.transform.position.y > transform.position.y) gunSpriteRenderer.sortingOrder = 1;
@@ -74,7 +99,16 @@ public class PlayerController : Character {
 
                         if (weapons.GetCanShoot()) {
                             lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f) + new Vector3((float)Random.Range(-1.75f, 1.75f), (float)Random.Range(-1.75f, 1.75f), 0f);
-                            weapons.ShootSubmachineGun();
+
+                            if (aimingRight) {
+                                if (cannonPos[0] != null && cannonPos[0].activeSelf)
+                                    weapons.ShootSubmachineGun(cannonPos[0].transform.position);
+                            }
+                            else if (aimingLeft) {
+                                if (cannonPos[1] != null && cannonPos[1].activeSelf)
+                                    weapons.ShootSubmachineGun(cannonPos[1].transform.position);
+                            }
+
                             if (screenShake != null)
                                 StartCoroutine(screenShake.Shake(weapons.GetShakeDuration(), weapons.GetShakeMagnitude(Weapons.WeaponType.subMachineGun)));
                         }
@@ -86,7 +120,16 @@ public class PlayerController : Character {
 
                         if (weapons.GetCanShoot()) {
                             lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f);
-                            weapons.ShootShotgun();
+
+                            if (aimingRight) {
+                                if (cannonPos[0] != null && cannonPos[0].activeSelf)
+                                    weapons.ShootShotgun(cannonPos[0].transform.position);
+                            }
+                            else if (aimingLeft) {
+                                if (cannonPos[1] != null && cannonPos[1].activeSelf)
+                                    weapons.ShootShotgun(cannonPos[1].transform.position);
+                            }
+
                             if (screenShake != null)
                                 StartCoroutine(screenShake.Shake(weapons.GetShakeDuration(), weapons.GetShakeMagnitude(Weapons.WeaponType.Shotgun)));
                         }
@@ -98,7 +141,16 @@ public class PlayerController : Character {
 
                         if (weapons.GetCanShoot()) {
                             lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f) + new Vector3((float)Random.Range(-0.5f, 0.5f), (float)Random.Range(-0.5f, 0.5f), 0f);
-                            weapons.ShootRevolver();
+
+                            if (aimingRight) {
+                                if (cannonPos[0] != null && cannonPos[0].activeSelf)
+                                    weapons.ShootRevolver(cannonPos[0].transform.position);
+                            }
+                            else if (aimingLeft) {
+                                if (cannonPos[1] != null && cannonPos[1].activeSelf)
+                                    weapons.ShootRevolver(cannonPos[1].transform.position);
+                            }
+
                             if (screenShake != null)
                                 StartCoroutine(screenShake.Shake(weapons.GetShakeDuration(), weapons.GetShakeMagnitude(Weapons.WeaponType.Shotgun)));
                         }
