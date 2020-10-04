@@ -158,7 +158,6 @@ public class PlayerController : Character {
 
     public void ReceiveDamage(float d) {
         hp -= d;
-
     }
 
     #endregion
@@ -187,6 +186,18 @@ public class PlayerController : Character {
         if (collision.gameObject.CompareTag("Door")) {
             if (DoorEnter != null)
                 DoorEnter(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Bullet bullet = collision.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                if (bullet.GetUser() != Bullet.User.Player)
+                {
+                    SetHP(GetHP() - bullet.GetDamage());
+                    Destroy(bullet.gameObject);
+                }
+            }
         }
     }
     #endregion

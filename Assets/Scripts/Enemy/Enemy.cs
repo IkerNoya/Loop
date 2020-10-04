@@ -36,12 +36,15 @@ public class Enemy : Character
     {
         for (int i = 0; i < targets.Length; i++)
         {
-            auxCurrentDistanceWhitPlayer = transform.position - targets[i].transform.position;
-            if (currentDistanceWhitPlayer.magnitude > auxCurrentDistanceWhitPlayer.magnitude)
+            if (targets[i] != null)
             {
-                currentDistanceWhitPlayer = auxCurrentDistanceWhitPlayer;
-                currentTarget = targets[i].transform;
-                aiPathDestination.target = currentTarget;
+                auxCurrentDistanceWhitPlayer = transform.position - targets[i].transform.position;
+                if (currentDistanceWhitPlayer.magnitude > auxCurrentDistanceWhitPlayer.magnitude)
+                {
+                    currentDistanceWhitPlayer = auxCurrentDistanceWhitPlayer;
+                    currentTarget = targets[i].transform;
+                    aiPathDestination.target = currentTarget;
+                }
             }
         }
     }
@@ -67,7 +70,6 @@ public class Enemy : Character
             {
                 if (b.enemyUser != this && b.GetUser() != Bullet.User.Enemy)
                 {
-                    Debug.Log(b.GetUser());
                     //Debug.Log("Damage:" + b.GetDamage());
                     SetHP(GetHP() - b.GetDamage());
                     Destroy(b.gameObject);

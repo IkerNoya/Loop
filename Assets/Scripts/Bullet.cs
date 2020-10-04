@@ -38,6 +38,8 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null) return;
+
         playerController = player.GetComponent<PlayerController>();
 
         if (user == User.Player)
@@ -51,7 +53,7 @@ public class Bullet : MonoBehaviour
             weaponType = enemyUser.GetComponent<Weapons>();
         }
 
-        Debug.Log(weaponType.type);
+        //Debug.Log(weaponType.type);
         if (weaponType.type == Weapons.WeaponType.Shotgun)
         {
             //Debug.Log("SOY SHOOTGUN");

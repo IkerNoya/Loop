@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class SecurityGuard : Enemy
+public class Cientifico : Enemy
 {
+    // Start is called before the first frame update
     public static event Action<Enemy, int> OnDetectedPlayer;
-    [SerializeField] protected float speedAttack;
     [SerializeField] protected float distancePlayerInRange;
     [SerializeField] protected float distanceInAttackRange;
-    [SerializeField] protected bool generateWeaponRandom = true; 
-    public Weapons weapons;
-    
+
+    [SerializeField] protected float damageFakazo;
+    [SerializeField] private GameObject fakaCollider;
+    [SerializeField] private float delayFakazo = 0.1f;
+    [SerializeField] private float delayFkazoEnable = 0.05f;
+    [SerializeField] bool enableIdleStatePlayerOutRange;
+    [SerializeField] Faka faka;
+    private float auxDelayFakazo;
+    private float auxDelayFakazoEnable;
+
     public enum EstadosGuardia
     {
         Idle,
@@ -31,25 +38,6 @@ public class SecurityGuard : Enemy
         Count
     }
 
-    public EstadosGuardia test;
-
-    private void OnEnable()
-    {
-        SecurityGuard.OnDetectedPlayer += LisentCallAlies;
-    }
-    private void OnDisable()
-    {
-        SecurityGuard.OnDetectedPlayer -= LisentCallAlies;
-    }
-    protected override void Start()
-    {
-        base.Start();
-        if (generateWeaponRandom)
-        {
-            weapons.type = (Weapons.WeaponType)UnityEngine.Random.Range(0, weapons.GetCountWeapons());
-            //Debug.Log(weapons.type);
-        }
-    }
     protected override void Awake()
     {
         base.Awake();
@@ -68,9 +56,29 @@ public class SecurityGuard : Enemy
         fsm.SetRelations((int)EstadosGuardia.Perseguir, (int)EstadosGuardia.Idle, (int)EventosGuardia.Quieto);
         fsm.SetRelations((int)EstadosGuardia.Atacar, (int)EstadosGuardia.Idle, (int)EventosGuardia.Quieto);
     }
+
+    protected override void Start()
+    {
+        base.Start();
+        auxDelayFakazo = delayFakazo;
+        auxDelayFakazoEnable = delayFkazoEnable;
+        fakaCollider.SetActive(false);
+        faka.SetDamage(damageFakazo);
+        ResetTimers();
+        StopAIPathDestination();
+    }
+    private void OnEnable()
+    {
+        Cientifico.OnDetectedPlayer += LisentCallAlies;
+    }
+    private void OnDisable()
+    {
+        Cientifico.OnDetectedPlayer -= LisentCallAlies;
+    }
     // Update is called once per frame
     protected override void Update()
     {
+        //Debug.Log((EstadosGuardia)fsm.GetCurrentState());
         //if (currentTarget == null) return;
 
         base.Update();
@@ -84,7 +92,7 @@ public class SecurityGuard : Enemy
                 StartAIPathDestination();
                 if (callAlies && enableCallAlies)
                 {
-                    if(OnDetectedPlayer != null)
+                    if (OnDetectedPlayer != null)
                         OnDetectedPlayer(this, (int)EstadosGuardia.Perseguir);
                     callAlies = false;
                 }
@@ -92,8 +100,8 @@ public class SecurityGuard : Enemy
             case (int)EstadosGuardia.Atacar:
                 if (currentTarget != null)
                 {
+                    //Debug.Log("ATAQUE");
                     callAlies = true;
-                    aiPath.maxSpeed = speedAttack;
                     Attack();
                     Vector2 dir = new Vector2(currentTarget.position.x - transform.position.x, currentTarget.position.y - transform.position.y);
                     transform.up = dir;
@@ -103,26 +111,27 @@ public class SecurityGuard : Enemy
                 callAlies = false;
                 break;
         }
-        
+
         CheckPlayerInRangePerseguir();
         CheckPlayerInRangeAttack();
-        test = (EstadosGuardia)fsm.GetCurrentState();
     }
     public void CheckPlayerInRangePerseguir()
     {
         Vector3 currentDistance = Vector3.zero;
         if (currentTarget != null)
         {
-            //Debug.Log("A BUSCAR UWU");
+           
             currentDistance = transform.position - currentTarget.position;
+            //Debug.Log(currentDistance.magnitude);
             if (currentDistance.magnitude <= distancePlayerInRange && currentDistance.magnitude > distanceInAttackRange)
             {
                 fsm.SendEvent((int)EventosGuardia.EnRangoDePersecucion);
+                //Debug.Log("ENTRE");
             }
-            /*else if (currentDistance.magnitude > distancePlayerInRange)
+            else if (currentDistance.magnitude > distancePlayerInRange && enableIdleStatePlayerOutRange)
             {
                 fsm.SendEvent((int)EventosGuardia.FueraDeRangoDePersecucion);
-            }*/
+            }
         }
     }
     public void CheckPlayerInRangeAttack()
@@ -131,6 +140,7 @@ public class SecurityGuard : Enemy
         if (currentTarget != null)
         {
             currentDistance = transform.position - currentTarget.position;
+            //Debug.Log(currentDistance.magnitude);
             if (currentDistance.magnitude <= distanceInAttackRange)
             {
                 fsm.SendEvent((int)EventosGuardia.EnRangoDeAtaque);
@@ -141,26 +151,39 @@ public class SecurityGuard : Enemy
             }
         }
     }
+    public void ResetTimers()
+    {
+        delayFakazo = 0;
+        delayFkazoEnable = auxDelayFakazoEnable;
+        fakaCollider.SetActive(true);
+    }
+    protected override void Attack()
+    {
+        if (delayFakazo > 0 && !fakaCollider.activeSelf)
+        {
+            delayFakazo = delayFakazo - Time.deltaTime;
+           
+        }
+        else if (delayFakazo <= 0 && !fakaCollider.activeSelf)
+        {
+            delayFkazoEnable = auxDelayFakazoEnable;
+            fakaCollider.SetActive(true);
+        }
+
+        if (delayFkazoEnable > 0 && fakaCollider.activeSelf)
+        {
+            delayFkazoEnable = delayFkazoEnable - Time.deltaTime;
+        }
+        else if (delayFkazoEnable <= 0 && fakaCollider.activeSelf)
+        {
+            delayFakazo = auxDelayFakazo;
+            fakaCollider.SetActive(false);
+        }
+    }
     public void LisentCallAlies(Enemy e, int state)
     {
         if (e == null || e == this) return;
 
         fsm.SendEvent(state);
-    }
-    protected override void Attack()
-    {
-        base.Attack();
-        switch (weapons.type)
-        {
-            case Weapons.WeaponType.Revolver:
-                weapons.ShootRevolver();
-                break;
-            case Weapons.WeaponType.Shotgun:
-                weapons.ShootShotgun();
-                break;
-            case Weapons.WeaponType.subMachineGun:
-                weapons.ShootSubmachineGun();
-                break;
-        }
     }
 }
