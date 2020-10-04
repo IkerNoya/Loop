@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f44724511a70b74b84d35b9c7627982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: 1
+  user: 0
   enemyUser: {fileID: 8853489992321274287}
   OriginBullet: {fileID: 5179017900267201866, guid: d2144be0dd6279742b1ba7a3004503af,
     type: 3}

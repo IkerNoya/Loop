@@ -67,6 +67,7 @@ public class Enemy : Character
             {
                 if (b.enemyUser != this && b.GetUser() != Bullet.User.Enemy)
                 {
+                    Debug.Log(b.GetUser());
                     //Debug.Log("Damage:" + b.GetDamage());
                     SetHP(GetHP() - b.GetDamage());
                     Destroy(b.gameObject);

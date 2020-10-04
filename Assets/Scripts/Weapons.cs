@@ -72,6 +72,7 @@ public class Weapons : MonoBehaviour
                 bullet.SetUser(user);
                 bullet.enemyUser = enemyUser;
                 bullet.SetDamage(damageRevolver);
+                
             }
 
             canShoot = false;
