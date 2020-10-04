@@ -39,7 +39,7 @@ public class GeneradorEnemys : MonoBehaviour
     private void Awake()
     {
         instanceGM = GameManager.instanceGM;
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
         countEnemysGenerates = 0;
     }
 

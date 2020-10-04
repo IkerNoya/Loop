@@ -40,7 +40,7 @@ public class PlayerController : Character
 
     [SerializeField] PlayerAnims playerAnims;
 
-    public delegate void EnterDoor(GameObject door);
+    public delegate void EnterDoor();
     public static event EnterDoor DoorEnter;
     #endregion
 
@@ -371,7 +371,7 @@ public class PlayerController : Character
         if (collision.gameObject.CompareTag("Door"))
         {
             if (DoorEnter != null)
-                DoorEnter(collision.gameObject);
+                DoorEnter();
         }
         if (collision.gameObject.CompareTag("Bullet"))
         {

@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour {
         PlayerController.DoorEnter -= ChangeLevel;
     }
 
-    void ChangeLevel(GameObject door) {
+    public void ChangeLevel() {
         actualLevel++;
         if (actualLevel > 3)
             actualLevel = 1;

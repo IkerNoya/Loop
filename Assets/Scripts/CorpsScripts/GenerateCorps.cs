@@ -38,6 +38,10 @@ public class GenerateCorps : MonoBehaviour
     {
         CheckGenerateCorp();
 
+        if (Input.GetKeyDown(KeyCode.Keypad7)) {
+            levelManager.ChangeLevel();
+        }
+
         //ZONA DE TESTEO//
         //if (Input.GetKeyDown(KeyCode.Keypad0))
         //{
@@ -62,6 +66,7 @@ public class GenerateCorps : MonoBehaviour
     public void GenerateCorp()
     {
         SettingParent();
+        Debug.Log(levelManager.GetCurrentLevel());
         GameObject go = null;
         go = Instantiate(objectCorpCharacter.objectOnDieCharacter, transform.position, Quaternion.identity, parentClasses.parentObject.transform);
         if (OnCorpGenerate != null)
