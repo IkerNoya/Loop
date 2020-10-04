@@ -7,6 +7,7 @@ public class PlayerController : Character {
     [SerializeField] float dashSpeed;
     [SerializeField] CameraShake screenShake;
     [SerializeField] GameObject hitCollider;
+    [SerializeField] GameObject gun;
     [SerializeField] float shakeMagnitude = 0.05f;
     [SerializeField] float shakeDuration = 0.2f;
     [SerializeField] string playerInputHorizontal;
@@ -39,8 +40,15 @@ public class PlayerController : Character {
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             movement = new Vector2(Input.GetAxis(playerInputHorizontal), Input.GetAxis(playerInputVertical)) * speed;
-            //Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-            //transform.up = dir;
+            Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+            if (mousePosition.x > transform.position.x)
+            {
+                gun.transform.right = dir;  
+            }
+            else 
+            {
+                gun.transform.right = dir;
+            }
             Inputs();
         }
         
