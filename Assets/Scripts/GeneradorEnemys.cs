@@ -63,7 +63,7 @@ public class GeneradorEnemys : MonoBehaviour
 
     public void Disable(OnEnableLevel onEnableLevel, int currentLevel)
     {
-        if(onEnableLevel != null)
+        if (onEnableLevel != null)
         {
             if (numberCurrentLevel == currentLevel)
             {
@@ -100,7 +100,7 @@ public class GeneradorEnemys : MonoBehaviour
                     GenerateEnemy(countGradualGeneration);
                 }
                 break;
-            
+
         }
     }
     void GenerateEnemy(int count)
