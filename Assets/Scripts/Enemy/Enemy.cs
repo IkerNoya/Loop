@@ -61,15 +61,15 @@ public class Enemy : Character
     {
         if (collision.tag == "Bullet")
         {
-            Debug.Log("OUCH");
+            //Debug.Log("OUCH");
             Bullet b = collision.GetComponent<Bullet>();
             if (b != null)
             {
                 if (b.enemyUser != this && b.GetUser() != Bullet.User.Enemy)
                 {
-                    Debug.Log("Damage:" + b.GetDamage());
+                    //Debug.Log("Damage:" + b.GetDamage());
                     SetHP(GetHP() - b.GetDamage());
-                    Destroy(b);
+                    Destroy(b.gameObject);
                 }
             }
         }

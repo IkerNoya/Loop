@@ -78,6 +78,6 @@ public class GenerateCorps : MonoBehaviour
         }
         //ZONA DE TESTEO//
         //character.SetHP(100);
-        Destroy(character);
+        Destroy(character.gameObject);
     }
 }
