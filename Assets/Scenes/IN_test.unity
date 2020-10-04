@@ -2659,6 +2659,10 @@ MonoBehaviour:
   shakeDuration: 0
   shakeMagnitudeShotgun: 0
   shakeMagnitudeSMG: 0
+  shakeMagnitudeRevolver: 0
+  damageShootgun: 0
+  damageRevolver: 0
+  damageSMG: 0
   type: 0
 --- !u!1 &847272657
 GameObject:
@@ -5810,11 +5814,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 299851007590218320, guid: 6c2d2c79795e61544b364d121fe833cd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 299851007590218321, guid: 6c2d2c79795e61544b364d121fe833cd,
         type: 3}
       propertyPath: screenShake
       value: 
       objectReference: {fileID: 1183811002}
+    - target: {fileID: 299851007590218321, guid: 6c2d2c79795e61544b364d121fe833cd,
+        type: 3}
+      propertyPath: rayDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 299851007590218323, guid: 6c2d2c79795e61544b364d121fe833cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5932,6 +5946,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5179017900267201866, guid: d2144be0dd6279742b1ba7a3004503af,
         type: 3}
+    - target: {fileID: 715245168594399247, guid: 6c2d2c79795e61544b364d121fe833cd,
+        type: 3}
+      propertyPath: shakeMagnitudeRevolver
+      value: 0.075
+      objectReference: {fileID: 0}
     - target: {fileID: 4897278352941076900, guid: 6c2d2c79795e61544b364d121fe833cd,
         type: 3}
       propertyPath: m_RootOrder
@@ -5957,10 +5976,15 @@ PrefabInstance:
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 98656460}
+    - target: {fileID: 6112094560927679311, guid: 6c2d2c79795e61544b364d121fe833cd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8682576022405400021, guid: 6c2d2c79795e61544b364d121fe833cd,
         type: 3}
       propertyPath: m_Constraints
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c2d2c79795e61544b364d121fe833cd, type: 3}

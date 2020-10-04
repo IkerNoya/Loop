@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 1688830}
   - component: {fileID: 1688832}
   - component: {fileID: 1688831}
+  - component: {fileID: 1688833}
   m_Layer: 9
   m_Name: Ladrillito UwU (24)
   m_TagString: Untagged
@@ -337,6 +338,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1688833
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688829}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &26922540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,6 +1391,7 @@ GameObject:
   - component: {fileID: 481340963}
   - component: {fileID: 481340965}
   - component: {fileID: 481340964}
+  - component: {fileID: 481340966}
   m_Layer: 9
   m_Name: Ladrillito UwU (19)
   m_TagString: Untagged
@@ -1466,6 +1489,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &481340966
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481340962}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &601071498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,6 +1717,7 @@ GameObject:
   - component: {fileID: 665413080}
   - component: {fileID: 665413082}
   - component: {fileID: 665413081}
+  - component: {fileID: 665413083}
   m_Layer: 9
   m_Name: Ladrillito UwU (23)
   m_TagString: Untagged
@@ -1770,6 +1815,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &665413083
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665413079}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1873,6 +1939,7 @@ GameObject:
   - component: {fileID: 708138322}
   - component: {fileID: 708138324}
   - component: {fileID: 708138323}
+  - component: {fileID: 708138325}
   m_Layer: 9
   m_Name: Ladrillito UwU (20)
   m_TagString: Untagged
@@ -1970,6 +2037,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &708138325
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708138321}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &716924604
 GameObject:
   m_ObjectHideFlags: 0
@@ -2629,6 +2717,7 @@ GameObject:
   - component: {fileID: 1021786828}
   - component: {fileID: 1021786830}
   - component: {fileID: 1021786829}
+  - component: {fileID: 1021786831}
   m_Layer: 9
   m_Name: Ladrillito UwU (16)
   m_TagString: Untagged
@@ -2726,6 +2815,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1021786831
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021786827}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1001 &1106232414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2816,6 +2926,7 @@ GameObject:
   - component: {fileID: 1187680014}
   - component: {fileID: 1187680016}
   - component: {fileID: 1187680015}
+  - component: {fileID: 1187680017}
   m_Layer: 9
   m_Name: Ladrillito UwU (17)
   m_TagString: Untagged
@@ -2913,6 +3024,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1187680017
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187680013}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1210836512
 GameObject:
   m_ObjectHideFlags: 0
@@ -3317,6 +3449,7 @@ GameObject:
   - component: {fileID: 1325962972}
   - component: {fileID: 1325962974}
   - component: {fileID: 1325962973}
+  - component: {fileID: 1325962975}
   m_Layer: 9
   m_Name: Ladrillito UwU (8)
   m_TagString: Untagged
@@ -3414,6 +3547,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1325962975
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325962971}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1381309349
 GameObject:
   m_ObjectHideFlags: 0
@@ -3777,6 +3931,7 @@ GameObject:
   - component: {fileID: 1557127597}
   - component: {fileID: 1557127599}
   - component: {fileID: 1557127598}
+  - component: {fileID: 1557127600}
   m_Layer: 9
   m_Name: Ladrillito UwU (18)
   m_TagString: Untagged
@@ -3874,6 +4029,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1557127600
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557127596}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1597098612
 GameObject:
   m_ObjectHideFlags: 0
@@ -3993,6 +4169,7 @@ GameObject:
   - component: {fileID: 1608748614}
   - component: {fileID: 1608748616}
   - component: {fileID: 1608748615}
+  - component: {fileID: 1608748617}
   m_Layer: 9
   m_Name: Ladrillito UwU (7)
   m_TagString: Untagged
@@ -4090,6 +4267,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1608748617
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608748613}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1612305228
 GameObject:
   m_ObjectHideFlags: 0
@@ -4533,6 +4731,7 @@ GameObject:
   - component: {fileID: 1688861334}
   - component: {fileID: 1688861336}
   - component: {fileID: 1688861335}
+  - component: {fileID: 1688861337}
   m_Layer: 9
   m_Name: Ladrillito UwU (21)
   m_TagString: Untagged
@@ -4630,6 +4829,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1688861337
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688861333}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1715919921
 GameObject:
   m_ObjectHideFlags: 0
@@ -4641,6 +4861,7 @@ GameObject:
   - component: {fileID: 1715919922}
   - component: {fileID: 1715919924}
   - component: {fileID: 1715919923}
+  - component: {fileID: 1715919925}
   m_Layer: 9
   m_Name: Ladrillito UwU (10)
   m_TagString: Untagged
@@ -4738,6 +4959,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1715919925
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715919921}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1781155667
 GameObject:
   m_ObjectHideFlags: 0
@@ -5152,6 +5394,7 @@ GameObject:
   - component: {fileID: 2048879816}
   - component: {fileID: 2048879818}
   - component: {fileID: 2048879817}
+  - component: {fileID: 2048879819}
   m_Layer: 9
   m_Name: Ladrillito UwU (22)
   m_TagString: Untagged
@@ -5249,6 +5492,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2048879819
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048879815}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1001 &4007782043440576442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5344,6 +5608,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 299851007590218321, guid: 6c2d2c79795e61544b364d121fe833cd,
+        type: 3}
+      propertyPath: rayDistance
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4897278352941076900, guid: 6c2d2c79795e61544b364d121fe833cd,
         type: 3}

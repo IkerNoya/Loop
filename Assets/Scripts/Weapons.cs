@@ -13,6 +13,7 @@ public class Weapons : MonoBehaviour
     [SerializeField] float shakeDuration;
     [SerializeField] float shakeMagnitudeShotgun;
     [SerializeField] float shakeMagnitudeSMG;
+    [SerializeField] float shakeMagnitudeRevolver;
     [SerializeField] float damageShootgun;
     [SerializeField] float damageRevolver;
     [SerializeField] float damageSMG;
@@ -103,13 +104,10 @@ public class Weapons : MonoBehaviour
         {
             case WeaponType.subMachineGun:
                 return shakeMagnitudeSMG;
-                break;
             case WeaponType.Shotgun:
                 return shakeMagnitudeShotgun;
-                break;
             case WeaponType.Revolver:
-                return shakeMagnitudeSMG;
-                break;
+                return shakeMagnitudeRevolver;
         }
         return 0;
     }
