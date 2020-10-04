@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Character {
+public class PlayerController : Character
+{
     #region VARIABLES
     [SerializeField] float dashSpeed;
     [SerializeField] CameraShake screenShake;
     [SerializeField] GameObject hitCollider;
-    [SerializeField] GameObject gun;
+    [SerializeField] GameObject shotgun;
+    [SerializeField] GameObject smg;
+    [SerializeField] GameObject revolver;
     [SerializeField] float shakeMagnitude = 0.05f;
     [SerializeField] float shakeDuration = 0.2f;
     [SerializeField] string playerInputHorizontal;
@@ -16,12 +19,19 @@ public class PlayerController : Character {
     Vector3 mousePosition;
     Vector3 movement;
     SpriteRenderer spriteRenderer;
-    SpriteRenderer gunSpriteRenderer;
+    SpriteRenderer shotgunSpriteRenderer;
+    SpriteRenderer smgSpriteRenderer;
+    SpriteRenderer revolverSpriteRenderer;
     Weapons weapons;
     Rigidbody2D rb;
 
     [SerializeField] GameObject[] cannonPos;
 
+    enum WeaponSelected
+    {
+        SMG, Shotgun, Revolver
+    }
+    WeaponSelected selection;
     bool aimingRight = false;
     bool aimingLeft = false;
 
@@ -35,56 +45,154 @@ public class PlayerController : Character {
     #endregion
 
     #region BASE_FUNCTIONS
-    void Start() {
+    void Start()
+    {
         weapons = GetComponent<Weapons>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         screenShake = FindObjectOfType<CameraShake>();
         rb = GetComponent<Rigidbody2D>();
-        gunSpriteRenderer = gun.GetComponent<SpriteRenderer>();
+        shotgunSpriteRenderer = shotgun.GetComponent<SpriteRenderer>();
+        smgSpriteRenderer = smg.GetComponent<SpriteRenderer>();
+        revolverSpriteRenderer = revolver.GetComponent<SpriteRenderer>();
+
     }
-    void Update() {
-        if (!ActivateDash) {
+    void Update()
+    {
+        if (!ActivateDash)
+        {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             movement = new Vector2(Input.GetAxis(playerInputHorizontal), Input.GetAxis(playerInputVertical)) * speed;
             Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-            if (mousePosition.x > transform.position.x) {
-                gunSpriteRenderer.flipX = false;
 
-                aimingRight = true;
-                aimingLeft = false;
-                if (cannonPos[0] != null)
-                    if (!cannonPos[0].activeSelf)
-                        cannonPos[0].SetActive(true);
-                if (cannonPos[1] != null)
-                    if (cannonPos[1].activeSelf)
-                        cannonPos[1].SetActive(false);
+            switch (selection)
+            {
+                case WeaponSelected.Shotgun:
+                    shotgun.SetActive(true);
+                    smg.SetActive(false);
+                    revolver.SetActive(false);
+                    if (mousePosition.x > transform.position.x)
+                    {
+                        shotgunSpriteRenderer.flipX = false;
 
-                gun.transform.right = dir;
+                        aimingRight = true;
+                        aimingLeft = false;
+                        if (cannonPos[0] != null)
+                            if (!cannonPos[0].activeSelf)
+                                cannonPos[0].SetActive(true);
+                        if (cannonPos[1] != null)
+                            if (cannonPos[1].activeSelf)
+                                cannonPos[1].SetActive(false);
+
+                        shotgun.transform.right = dir;
+                    }
+                    else if (mousePosition.x < transform.position.x)
+                    {
+                        shotgunSpriteRenderer.flipX = true;
+
+                        aimingRight = false;
+                        aimingLeft = true;
+                        if (cannonPos[0] != null)
+                            if (cannonPos[0].activeSelf)
+                                cannonPos[0].SetActive(false);
+                        if (cannonPos[1] != null)
+                            if (!cannonPos[1].activeSelf)
+                                cannonPos[1].SetActive(true);
+
+                        shotgun.transform.right = -dir;
+                    }
+                    break;
+                case WeaponSelected.SMG:
+                    shotgun.SetActive(false);
+                    smg.SetActive(true);
+                    revolver.SetActive(false);
+                    if (mousePosition.x > transform.position.x)
+                    {
+                        smgSpriteRenderer.flipX = false;
+
+                        aimingRight = true;
+                        aimingLeft = false;
+                        if (cannonPos[2] != null)
+                            if (!cannonPos[2].activeSelf)
+                                cannonPos[2].SetActive(true);
+                        if (cannonPos[3] != null)
+                            if (cannonPos[3].activeSelf)
+                                cannonPos[3].SetActive(false);
+
+                        smg.transform.right = dir;
+                    }
+                    else if (mousePosition.x < transform.position.x)
+                    {
+                        smgSpriteRenderer.flipX = true;
+
+                        aimingRight = false;
+                        aimingLeft = true;
+                        if (cannonPos[2] != null)
+                            if (cannonPos[2].activeSelf)
+                                cannonPos[2].SetActive(false);
+                        if (cannonPos[3] != null)
+                            if (!cannonPos[3].activeSelf)
+                                cannonPos[3].SetActive(true);
+
+                        smg.transform.right = -dir;
+                    }
+                    break;
+                case WeaponSelected.Revolver:
+                    shotgun.SetActive(false);
+                    smg.SetActive(false);
+                    revolver.SetActive(true);
+                    if (mousePosition.x > transform.position.x)
+                    {
+                        revolverSpriteRenderer.flipX = false;
+
+                        aimingRight = true;
+                        aimingLeft = false;
+                        if (cannonPos[4] != null)
+                            if (!cannonPos[4].activeSelf)
+                                cannonPos[4].SetActive(true);
+                        if (cannonPos[5] != null)
+                            if (cannonPos[5].activeSelf)
+                                cannonPos[5].SetActive(false);
+
+                        revolver.transform.right = dir;
+                    }
+                    else if (mousePosition.x < transform.position.x)
+                    {
+                        revolverSpriteRenderer.flipX = true;
+
+                        aimingRight = false;
+                        aimingLeft = true;
+                        if (cannonPos[4] != null)
+                            if (cannonPos[4].activeSelf)
+                                cannonPos[4].SetActive(false);
+                        if (cannonPos[5] != null)
+                            if (!cannonPos[5].activeSelf)
+                                cannonPos[5].SetActive(true);
+
+                        revolver.transform.right = -dir;
+                    }
+                    break;
             }
-            else if (mousePosition.x < transform.position.x) {
-                gunSpriteRenderer.flipX = true;
-
-                aimingRight = false;
-                aimingLeft = true;
-                if (cannonPos[0] != null)
-                    if (cannonPos[0].activeSelf)
-                        cannonPos[0].SetActive(false);
-                if (cannonPos[1] != null)
-                    if (!cannonPos[1].activeSelf)
-                        cannonPos[1].SetActive(true);
-
-                gun.transform.right = -dir;
+            if (shotgun.transform.position.y > transform.position.y)
+            {
+                shotgunSpriteRenderer.sortingOrder = 1;
+                smgSpriteRenderer.sortingOrder = 1;
+                revolverSpriteRenderer.sortingOrder = 1;
             }
-            if (gun.transform.position.y > transform.position.y) gunSpriteRenderer.sortingOrder = 1;
-            else gunSpriteRenderer.sortingOrder = 3;
-            
+            else
+            {
+                shotgunSpriteRenderer.sortingOrder = 3;
+                smgSpriteRenderer.sortingOrder = 3;
+                revolverSpriteRenderer.sortingOrder = 3;
+            }
             Inputs();
         }
 
     }
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         rb.velocity = new Vector2(movement.x, movement.y);
-        if (ActivateDash) {
+        if (ActivateDash)
+        {
             StartCoroutine(Dash());
             StartCoroutine(DashCooldown());
         }
@@ -93,22 +201,29 @@ public class PlayerController : Character {
     #endregion
 
     #region FUNCTIONS
-    void Inputs() {
-        if (weapons != null) {
-            switch (weapons.type) {
+    void Inputs()
+    {
+        if (weapons != null)
+        {
+            switch (weapons.type)
+            {
                 case Weapons.WeaponType.subMachineGun:
-                    if (Input.GetMouseButton(0) && !ActivateDash) {
+                    if (Input.GetMouseButton(0) && !ActivateDash)
+                    {
 
-                        if (weapons.GetCanShoot()) {
+                        if (weapons.GetCanShoot())
+                        {
                             lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f) + new Vector3((float)Random.Range(-1.75f, 1.75f), (float)Random.Range(-1.75f, 1.75f), 0f);
 
-                            if (aimingRight) {
-                                if (cannonPos[0] != null && cannonPos[0].activeSelf)
-                                    weapons.ShootSubmachineGun(cannonPos[0].transform.position);
+                            if (aimingRight)
+                            {
+                                if (cannonPos[2] != null && cannonPos[2].activeSelf)
+                                    weapons.ShootSubmachineGun(cannonPos[2].transform.position);
                             }
-                            else if (aimingLeft) {
-                                if (cannonPos[1] != null && cannonPos[1].activeSelf)
-                                    weapons.ShootSubmachineGun(cannonPos[1].transform.position);
+                            else if (aimingLeft)
+                            {
+                                if (cannonPos[3] != null && cannonPos[3].activeSelf)
+                                    weapons.ShootSubmachineGun(cannonPos[3].transform.position);
                             }
 
                             if (screenShake != null)
@@ -118,16 +233,20 @@ public class PlayerController : Character {
                     }
                     break;
                 case Weapons.WeaponType.Shotgun:
-                    if (Input.GetMouseButtonDown(0) && !ActivateDash) {
+                    if (Input.GetMouseButtonDown(0) && !ActivateDash)
+                    {
 
-                        if (weapons.GetCanShoot()) {
+                        if (weapons.GetCanShoot())
+                        {
                             lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f);
 
-                            if (aimingRight) {
+                            if (aimingRight)
+                            {
                                 if (cannonPos[0] != null && cannonPos[0].activeSelf)
                                     weapons.ShootShotgun(cannonPos[0].transform.position);
                             }
-                            else if (aimingLeft) {
+                            else if (aimingLeft)
+                            {
                                 if (cannonPos[1] != null && cannonPos[1].activeSelf)
                                     weapons.ShootShotgun(cannonPos[1].transform.position);
                             }
@@ -139,18 +258,22 @@ public class PlayerController : Character {
                     }
                     break;
                 case Weapons.WeaponType.Revolver:
-                    if (Input.GetMouseButton(0) && !ActivateDash) {
+                    if (Input.GetMouseButton(0) && !ActivateDash)
+                    {
 
-                        if (weapons.GetCanShoot()) {
+                        if (weapons.GetCanShoot())
+                        {
                             lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f) + new Vector3((float)Random.Range(-0.5f, 0.5f), (float)Random.Range(-0.5f, 0.5f), 0f);
 
-                            if (aimingRight) {
-                                if (cannonPos[0] != null && cannonPos[0].activeSelf)
-                                    weapons.ShootRevolver(cannonPos[0].transform.position);
+                            if (aimingRight)
+                            {
+                                if (cannonPos[4] != null && cannonPos[4].activeSelf)
+                                    weapons.ShootRevolver(cannonPos[4].transform.position);
                             }
-                            else if (aimingLeft) {
-                                if (cannonPos[1] != null && cannonPos[1].activeSelf)
-                                    weapons.ShootRevolver(cannonPos[1].transform.position);
+                            else if (aimingLeft)
+                            {
+                                if (cannonPos[5] != null && cannonPos[5].activeSelf)
+                                    weapons.ShootRevolver(cannonPos[5].transform.position);
                             }
 
                             if (screenShake != null)
@@ -162,64 +285,80 @@ public class PlayerController : Character {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.W)) {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
             playerAnims.StartIdleAnim();
         }
-        if (Input.GetKeyDown(KeyCode.S)) {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
             playerAnims.StartIdleAnim();
         }
 
-        if (Input.GetKeyDown(KeyCode.A)) {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
             spriteRenderer.flipX = true;
         }
 
-        if(Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
             playerAnims.StartAnimMoveSide();
 
-        if (Input.GetKeyDown(KeyCode.D)) {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
             spriteRenderer.flipX = false;
         }
 
-        if(Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
             playerAnims.StartAnimMoveSide();
 
-        if (Input.GetMouseButton(1)) {
+        if (Input.GetMouseButton(1))
+        {
             if (hitCollider != null)
                 StartCoroutine(StartCollider(hitCollider));
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
             weapons.type = Weapons.WeaponType.subMachineGun;
+            selection = WeaponSelected.SMG;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2)) {
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
             weapons.type = Weapons.WeaponType.Shotgun;
+            selection = WeaponSelected.Shotgun;
         }
-        if (Input.GetKey(KeyCode.Alpha3)) {
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
             weapons.type = Weapons.WeaponType.Revolver;
+            selection = WeaponSelected.Revolver;
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canActivateDash) {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canActivateDash)
+        {
             ActivateDash = true;
             canActivateDash = false;
         }
     }
 
-    public void ReceiveDamage(float d) {
+    public void ReceiveDamage(float d)
+    {
         hp -= d;
     }
 
     #endregion
 
     #region COROUTINES
-    IEnumerator StartCollider(GameObject collider) {
+    IEnumerator StartCollider(GameObject collider)
+    {
         collider.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         collider.SetActive(false);
     }
 
-    IEnumerator DashCooldown() {
+    IEnumerator DashCooldown()
+    {
         yield return new WaitForSeconds(2f);
         canActivateDash = true;
     }
-    IEnumerator Dash() {
+    IEnumerator Dash()
+    {
         rb.velocity = movement * dashSpeed;
         yield return new WaitForSeconds(0.05f);
         ActivateDash = false;
@@ -227,15 +366,20 @@ public class PlayerController : Character {
     #endregion
 
     #region COLLISION
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Door")) {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Door"))
+        {
             if (DoorEnter != null)
                 DoorEnter(collision.gameObject);
         }
-        if (collision.gameObject.CompareTag("Bullet")) {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
             Bullet bullet = collision.GetComponent<Bullet>();
-            if (bullet != null) {
-                if (bullet.GetUser() != Bullet.User.Player) {
+            if (bullet != null)
+            {
+                if (bullet.GetUser() != Bullet.User.Player)
+                {
                     SetHP(GetHP() - bullet.GetDamage());
                     Destroy(bullet.gameObject);
                 }
