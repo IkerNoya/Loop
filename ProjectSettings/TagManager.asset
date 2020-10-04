@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Boss
   - HitCollider
+  - Enviroment
   layers:
   - Default
   - TransparentFX
