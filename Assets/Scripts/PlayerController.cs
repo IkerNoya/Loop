@@ -16,6 +16,7 @@ public class PlayerController : Character {
     Vector3 mousePosition;
     Vector3 movement;
     SpriteRenderer spriteRenderer;
+    SpriteRenderer gunSpriteRenderer;
     Weapons weapons;
     Rigidbody2D rb;
 
@@ -33,6 +34,7 @@ public class PlayerController : Character {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         screenShake = FindObjectOfType<CameraShake>();
         rb = GetComponent<Rigidbody2D>();
+        gunSpriteRenderer = gun.GetComponent<SpriteRenderer>();
     }
     void Update()
     {
@@ -43,12 +45,16 @@ public class PlayerController : Character {
             Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
             if (mousePosition.x > transform.position.x)
             {
+                gunSpriteRenderer.flipX = false;
                 gun.transform.right = dir;  
             }
-            else 
+            else if(mousePosition.x < transform.position.x) 
             {
-                gun.transform.right = dir;
+                gunSpriteRenderer.flipX = true;
+                gun.transform.right = -dir;
             }
+            if (mousePosition.y > transform.position.y) spriteRenderer.sortingOrder = 3;
+            else spriteRenderer.sortingOrder = 1;
             Inputs();
         }
         
