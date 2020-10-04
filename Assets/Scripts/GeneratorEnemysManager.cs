@@ -25,13 +25,13 @@ public class GeneratorEnemysManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        OnEnableLevel.onEnableLevel += Enable;
         upgrade = true;
+        OnEnableLevel.onEnableLevel += Enable;
     }
     private void OnDisable()
     {
-        OnEnableLevel.onEnableLevel -= Enable;
         upgrade = true;
+        OnEnableLevel.onEnableLevel -= Enable;
     }
     public void AddMaxRandomGenerate()
     {
