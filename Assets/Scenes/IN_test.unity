@@ -1868,6 +1868,11 @@ PrefabInstance:
       propertyPath: shakeMagnitudeRevolver
       value: 0.075
       objectReference: {fileID: 0}
+    - target: {fileID: 3522319879395871031, guid: 6c2d2c79795e61544b364d121fe833cd,
+        type: 3}
+      propertyPath: m_TagString
+      value: HitCollider
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c2d2c79795e61544b364d121fe833cd, type: 3}
 --- !u!1 &3182974515709949648
