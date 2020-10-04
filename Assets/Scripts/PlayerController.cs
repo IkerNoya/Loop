@@ -235,7 +235,7 @@ public class PlayerController : Character
                 case Weapons.WeaponType.Shotgun:
                     if (Input.GetMouseButtonDown(0) && !ActivateDash)
                     {
-
+                        
                         if (weapons.GetCanShoot())
                         {
                             lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f);
