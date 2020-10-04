@@ -54,11 +54,18 @@ public class Bullet : MonoBehaviour
         {
             if(weaponType.type == Weapons.WeaponType.subMachineGun)
             {
-                randomDir = new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 0) + direction;
+                if(user == User.Player)
+                    randomDir = new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 0) + direction;
+                else if(user == User.Enemy)
+                    randomDir = new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 0) + direction;
+
             }
             else if(weaponType.type == Weapons.WeaponType.Revolver)
             {
-                randomDir = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0) + direction;
+                if(user == User.Player)
+                    randomDir = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0) + direction;
+                else if(user == User.Enemy)
+                    randomDir = new Vector3(Random.Range(-0.35f, 0.35f), Random.Range(-0.35f, 0.35f), 0) + direction;
             }
         }
         movement = direction.normalized * speed;
