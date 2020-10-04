@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class OnEnableLevel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static event Action<OnEnableLevel, int> onEnableLevel;
+    public static event Action<OnEnableLevel, int> onDisableLevel;
+    public int numberLevel;
+    private void OnEnable()
     {
-        
+        if (onEnableLevel != null)
+            onEnableLevel(this, numberLevel);
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        if (onDisableLevel != null)
+            onDisableLevel(this, numberLevel);
     }
 }

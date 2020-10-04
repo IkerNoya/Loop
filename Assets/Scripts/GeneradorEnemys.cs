@@ -11,40 +11,119 @@ public class GeneradorEnemys : MonoBehaviour
         GenerateSecurityGuard,
         GenerateAll,
     }
+    private enum TypeGeneration
+    {
+        OneGeneration,
+        Gradual,
+    }
     [SerializeField] float delayGenerate;
     [SerializeField] float auxDelayGenerate;
+    [HideInInspector] public int numberCurrentLevel;
+    [SerializeField] bool enableGradualGeneration = false;
+    [SerializeField] int countGradualGeneration;
     public GameObject securityGuard_GO;
     public GameObject cientifico_GO;
     public TypeEnemysGenerates typeEnemysGenerates;
+    private TypeGeneration typeGeneration;
 
+    private bool start;
     private int countEnemysGenerates;
-    private int maxEnemysGenerates;
+    [HideInInspector]
+    public int maxEnemysGenerates = 1;
     GameManager instanceGM;
 
     private void Awake()
     {
         instanceGM = GameManager.instanceGM;
+        gameObject.SetActive(false);
+        countEnemysGenerates = 0;
     }
-    void Start()
+
+    private void OnEnable()
     {
-        
+        OnEnableLevel.onDisableLevel += Disable;
+        start = true;
     }
-    
+    private void OnDisable()
+    {
+        OnEnableLevel.onDisableLevel -= Disable;
+        start = false;
+        typeGeneration = TypeGeneration.OneGeneration;
+        countEnemysGenerates = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    void GenerateEnemys()
-    {
-        switch (typeEnemysGenerates)
+        if (start)
         {
-            case TypeEnemysGenerates.GenerateAll:
+            CheckGenerateEnemy();
+        }
+    }
+
+    public void Disable(OnEnableLevel onEnableLevel, int currentLevel)
+    {
+        if(onEnableLevel != null)
+        {
+            if (numberCurrentLevel == currentLevel)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
+    void CheckGenerateEnemy()
+    {
+        int count = 0;
+        if (enableGradualGeneration)
+            count = maxEnemysGenerates / 2;
+        else
+            count = maxEnemysGenerates;
+
+        switch (typeGeneration)
+        {
+            case TypeGeneration.OneGeneration:
+                GenerateEnemy(count);
+                if (enableGradualGeneration)
+                {
+                    typeGeneration = TypeGeneration.Gradual;
+                }
                 break;
-            case TypeEnemysGenerates.GenerateCientifico:
+            case TypeGeneration.Gradual:
+                if (delayGenerate > 0)
+                {
+                    delayGenerate = delayGenerate - Time.deltaTime;
+                }
+                else
+                {
+                    delayGenerate = auxDelayGenerate;
+                    GenerateEnemy(countGradualGeneration);
+                }
                 break;
-            case TypeEnemysGenerates.GenerateSecurityGuard:
-                break;
+            
+        }
+    }
+    void GenerateEnemy(int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            if (countEnemysGenerates < maxEnemysGenerates)
+            {
+                switch (typeEnemysGenerates)
+                {
+                    case TypeEnemysGenerates.GenerateAll:
+                        break;
+                    case TypeEnemysGenerates.GenerateCientifico:
+                        break;
+                    case TypeEnemysGenerates.GenerateSecurityGuard:
+                        break;
+                }
+                countEnemysGenerates++;
+            }
+        }
+        if (countEnemysGenerates >= maxEnemysGenerates)
+        {
+            start = false;
         }
     }
 }

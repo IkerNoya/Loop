@@ -249,7 +249,7 @@ MonoBehaviour:
   speed: 7
   enableCallAlies: 0
   layerEnvarioment: 9
-  distancePlayerInRange: 9
+  distancePlayerInRange: 12
   distanceInAttackRange: 3
   damageFakazo: 25
   fakaCollider: {fileID: 6512081092665429711}
