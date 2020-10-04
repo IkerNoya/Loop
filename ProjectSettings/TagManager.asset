@@ -9,6 +9,7 @@ TagManager:
   - Walls
   - Bullet
   - Boss
+  - HitCollider
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Player
   - Envarioment
   - Bullet
-  - 
+  - HitCollider
   - 
   - 
   - 
