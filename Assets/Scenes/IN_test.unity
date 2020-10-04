@@ -317,6 +317,31 @@ MonoBehaviour:
   - {fileID: 1626105022}
   - {fileID: 996632309}
   - {fileID: 50133203}
+--- !u!1 &134240033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2475913386633132, guid: 6c2d2c79795e61544b364d121fe833cd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1276340208098233582}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &134240034
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134240033}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: db7833d10443a5242a52e364317b43f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &145414378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,6 +1672,11 @@ PrefabInstance:
       propertyPath: screenShake
       value: 
       objectReference: {fileID: 1183811002}
+    - target: {fileID: 2475913386633134, guid: 6c2d2c79795e61544b364d121fe833cd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5092049721513924993, guid: 5e4c2e99c1292724abbd047f69feb266,
+        type: 3}
     - target: {fileID: 2475913386633135, guid: 6c2d2c79795e61544b364d121fe833cd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1730,6 +1760,23 @@ PrefabInstance:
     - target: {fileID: 2475913386633135, guid: 6c2d2c79795e61544b364d121fe833cd, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475913386633135, guid: 6c2d2c79795e61544b364d121fe833cd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475913386633135, guid: 6c2d2c79795e61544b364d121fe833cd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2475913386633135, guid: 6c2d2c79795e61544b364d121fe833cd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 994324113628638707, guid: 6c2d2c79795e61544b364d121fe833cd,
+        type: 3}
+      propertyPath: shakeMagnitudeRevolver
+      value: 0.075
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c2d2c79795e61544b364d121fe833cd, type: 3}

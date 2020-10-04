@@ -39,8 +39,8 @@ public class PlayerController : Character {
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             movement = new Vector2(Input.GetAxis(playerInputHorizontal), Input.GetAxis(playerInputVertical)) * speed;
-            Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-            transform.up = dir;
+            //Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+            //transform.up = dir;
             Inputs();
         }
         
@@ -109,16 +109,16 @@ public class PlayerController : Character {
         }
 
         if (Input.GetKeyDown(KeyCode.A)) {
-        spriteRenderer.color = Color.green;
+            //cambiar animacion
         }
         if (Input.GetKeyDown(KeyCode.S)) {
-            spriteRenderer.color = Color.red;
+            //cambiar animacion
         }
         if (Input.GetKeyDown(KeyCode.D)) {
-            spriteRenderer.color = Color.blue;
+            //cambiar animacion
         }
         if (Input.GetKeyDown(KeyCode.W)) {
-            spriteRenderer.color = Color.yellow;
+            //cambiar animacion
         }
         if (Input.GetMouseButton(1)) {
             if (hitCollider != null)
