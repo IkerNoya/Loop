@@ -48,7 +48,7 @@ public class Bullet : MonoBehaviour
             if (user == User.Player)
                 randomDir = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0) + direction;
             else if (user == User.Enemy)
-                randomDir = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0) + direction;
+                randomDir = new Vector3(Random.Range(-0.3f, 0.3f), Random.Range(-0.3f, 0.3f), 0) + direction;
         }
         else
         {
