@@ -33,6 +33,8 @@ public class Bullet : MonoBehaviour
     /*[SerializeField]*/ float PlayerShotgunRecoil = 2.5f;
     /*[SerializeField]*/ float PlayerRevolverRecoil = 1.0f;
     /*[SerializeField]*/ float PlayerSubMachineGunRecoil = 1.5f;
+    float shotgunLifetimeOffset = 0.3f;
+    float revolverLifetimeOffset = 0.5f;
 
 
     private void Start()
@@ -52,11 +54,8 @@ public class Bullet : MonoBehaviour
             direction = enemyUser.transform.up;
             weaponType = enemyUser.GetComponent<Weapons>();
         }
-
-        //Debug.Log(weaponType.type);
         if (weaponType.type == Weapons.WeaponType.Shotgun)
         {
-            //Debug.Log("SOY SHOOTGUN");
             if (user == User.Player)
                 randomDir = new Vector3(Random.Range(-PlayerShotgunRecoil, PlayerShotgunRecoil), Random.Range(-PlayerShotgunRecoil, PlayerShotgunRecoil), 0) + direction;
             else if (user == User.Enemy)
@@ -89,11 +88,11 @@ public class Bullet : MonoBehaviour
                 break;
             case Weapons.WeaponType.Shotgun:
                 movement = randomDir.normalized * speed;
-                Destroy(gameObject, lifeTime-0.5f);
+                Destroy(gameObject, lifeTime - shotgunLifetimeOffset);
                 break;
             case Weapons.WeaponType.Revolver:
                 movement = (randomDir.normalized) * speed;
-                Destroy(gameObject, lifeTime + 0.5f);
+                Destroy(gameObject, lifeTime + revolverLifetimeOffset);
                 break;
         }
     }
