@@ -237,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   user: 0
   enemyUser: {fileID: 0}
-  speed: 10
+  speed: 20
   lifeTime: 1
   bullet: {fileID: 4368425385165763257}
   particles: {fileID: 348790301578327726}

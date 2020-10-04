@@ -42,21 +42,28 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-            randomDir = new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 0) + direction;
+            if(weaponType.type == Weapons.WeaponType.subMachineGun)
+            {
+                randomDir = new Vector3(Random.Range(-1.5f, 1.5f), Random.Range(-1.5f, 1.5f), 0) + direction;
+            }
+            else if(weaponType.type == Weapons.WeaponType.Revolver)
+            {
+                randomDir = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0) + direction;
+            }
         }
         movement = direction.normalized * speed;
         switch (weaponType.type)
         {
             case Weapons.WeaponType.subMachineGun:
-                movement = (direction.normalized + randomDir.normalized) * speed;
+                movement = (randomDir.normalized) * speed;
                 Destroy(gameObject, lifeTime);
                 break;
             case Weapons.WeaponType.Shotgun:
-                movement = randomDir.normalized * (speed + 2f);
-                Destroy(gameObject, lifeTime);
+                movement = randomDir.normalized * speed;
+                Destroy(gameObject, lifeTime-0.5f);
                 break;
             case Weapons.WeaponType.Revolver:
-                movement = (direction.normalized + randomDir.normalized) * speed;
+                movement = (randomDir.normalized) * speed;
                 Destroy(gameObject, lifeTime + 0.5f);
                 break;
         }

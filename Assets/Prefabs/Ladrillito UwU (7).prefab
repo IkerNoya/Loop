@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5587277410428296590}
   - component: {fileID: 5587277410428296588}
   - component: {fileID: 5587277410428296589}
-  - component: {fileID: 5587277410428296591}
+  - component: {fileID: -9116718458176269308}
   m_Layer: 9
   m_Name: Ladrillito UwU (7)
   m_TagString: Walls
@@ -104,8 +104,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!58 &5587277410428296591
-CircleCollider2D:
+--- !u!61 &-9116718458176269308
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -113,10 +113,20 @@ CircleCollider2D:
   m_GameObject: {fileID: 5587277410428296305}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f6abef83c2c57ad4c87a3330673a3200, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.030303, y: 1.030303}
+    newSize: {x: 1.7, y: 1.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.64
+  m_Size: {x: 1.030303, y: 1.030303}
+  m_EdgeRadius: 0
