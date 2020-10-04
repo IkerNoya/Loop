@@ -28,42 +28,36 @@ public class PlayerController : Character {
     #endregion
 
     #region BASE_FUNCTIONS
-    void Start()
-    {
+    void Start() {
         weapons = GetComponent<Weapons>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         screenShake = FindObjectOfType<CameraShake>();
         rb = GetComponent<Rigidbody2D>();
         gunSpriteRenderer = gun.GetComponent<SpriteRenderer>();
     }
-    void Update()
-    {
-        if (!ActivateDash)
-        {
+    void Update() {
+        if (!ActivateDash) {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             movement = new Vector2(Input.GetAxis(playerInputHorizontal), Input.GetAxis(playerInputVertical)) * speed;
             Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-            if (mousePosition.x > transform.position.x)
-            {
+            if (mousePosition.x > transform.position.x) {
                 gunSpriteRenderer.flipX = false;
-                gun.transform.right = dir;  
+                gun.transform.right = dir;
             }
-            else if(mousePosition.x < transform.position.x) 
-            {
+            else if (mousePosition.x < transform.position.x) {
                 gunSpriteRenderer.flipX = true;
                 gun.transform.right = -dir;
             }
-            if (gun.transform.position.y > transform.position.y) spriteRenderer.sortingOrder = 3;
-            else spriteRenderer.sortingOrder = 1;
+            if (gun.transform.position.y > transform.position.y) gunSpriteRenderer.sortingOrder = 1;
+            else gunSpriteRenderer.sortingOrder = 3;
+            
             Inputs();
         }
-        
+
     }
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         rb.velocity = new Vector2(movement.x, movement.y);
-        if (ActivateDash)
-        {
+        if (ActivateDash) {
             StartCoroutine(Dash());
             StartCoroutine(DashCooldown());
         }
@@ -73,16 +67,12 @@ public class PlayerController : Character {
 
     #region FUNCTIONS
     void Inputs() {
-        if (weapons != null)
-        {
-            switch (weapons.type)
-            {
+        if (weapons != null) {
+            switch (weapons.type) {
                 case Weapons.WeaponType.subMachineGun:
-                    if (Input.GetMouseButton(0) && !ActivateDash)
-                    {
+                    if (Input.GetMouseButton(0) && !ActivateDash) {
 
-                        if (weapons.GetCanShoot())
-                        {
+                        if (weapons.GetCanShoot()) {
                             lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f) + new Vector3((float)Random.Range(-1.75f, 1.75f), (float)Random.Range(-1.75f, 1.75f), 0f);
                             weapons.ShootSubmachineGun();
                             if (screenShake != null)
@@ -92,11 +82,9 @@ public class PlayerController : Character {
                     }
                     break;
                 case Weapons.WeaponType.Shotgun:
-                    if (Input.GetMouseButtonDown(0) && !ActivateDash)
-                    {
+                    if (Input.GetMouseButtonDown(0) && !ActivateDash) {
 
-                        if (weapons.GetCanShoot())
-                        {
+                        if (weapons.GetCanShoot()) {
                             lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f);
                             weapons.ShootShotgun();
                             if (screenShake != null)
@@ -106,11 +94,9 @@ public class PlayerController : Character {
                     }
                     break;
                 case Weapons.WeaponType.Revolver:
-                    if (Input.GetMouseButton(0) && !ActivateDash)
-                    {
+                    if (Input.GetMouseButton(0) && !ActivateDash) {
 
-                        if (weapons.GetCanShoot())
-                        {
+                        if (weapons.GetCanShoot()) {
                             lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f) + new Vector3((float)Random.Range(-0.5f, 0.5f), (float)Random.Range(-0.5f, 0.5f), 0f);
                             weapons.ShootRevolver();
                             if (screenShake != null)
@@ -138,16 +124,13 @@ public class PlayerController : Character {
             if (hitCollider != null)
                 StartCoroutine(StartCollider(hitCollider));
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
             weapons.type = Weapons.WeaponType.subMachineGun;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
+        if (Input.GetKeyDown(KeyCode.Alpha2)) {
             weapons.type = Weapons.WeaponType.Shotgun;
         }
-        if(Input.GetKey(KeyCode.Alpha3))
-        {
+        if (Input.GetKey(KeyCode.Alpha3)) {
             weapons.type = Weapons.WeaponType.Revolver;
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && canActivateDash) {
@@ -173,8 +156,7 @@ public class PlayerController : Character {
         yield return new WaitForSeconds(2f);
         canActivateDash = true;
     }
-    IEnumerator Dash()
-    {
+    IEnumerator Dash() {
         rb.velocity = movement * dashSpeed;
         yield return new WaitForSeconds(0.05f);
         ActivateDash = false;
@@ -187,13 +169,10 @@ public class PlayerController : Character {
             if (DoorEnter != null)
                 DoorEnter(collision.gameObject);
         }
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
+        if (collision.gameObject.CompareTag("Bullet")) {
             Bullet bullet = collision.GetComponent<Bullet>();
-            if (bullet != null)
-            {
-                if (bullet.GetUser() != Bullet.User.Player)
-                {
+            if (bullet != null) {
+                if (bullet.GetUser() != Bullet.User.Player) {
                     SetHP(GetHP() - bullet.GetDamage());
                     Destroy(bullet.gameObject);
                 }
