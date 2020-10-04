@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using System;
 public class Enemy : Character
 {
     private AIDestinationSetter aiPathDestination;
@@ -27,7 +28,10 @@ public class Enemy : Character
         currentDistanceWhitPlayer = transform.position - targets[0].transform.position;
         aiPathDestination.target = targets[0].transform;
     }
-    protected virtual void Start(){}
+    protected virtual void Start()
+    {
+
+    }
     protected virtual void Update()
     {
         CheckCurrentTarget();

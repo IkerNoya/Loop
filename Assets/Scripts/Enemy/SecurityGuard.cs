@@ -36,9 +36,11 @@ public class SecurityGuard : Enemy
     private void OnEnable()
     {
         SecurityGuard.OnDetectedPlayer += LisentCallAlies;
+        Cientifico.OnDetectedPlayer += LisentCallAlies;
     }
     private void OnDisable()
     {
+        Cientifico.OnDetectedPlayer -= LisentCallAlies;
         SecurityGuard.OnDetectedPlayer -= LisentCallAlies;
     }
     protected override void Start()

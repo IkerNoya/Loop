@@ -15,6 +15,7 @@ public class Cientifico : Enemy
     [SerializeField] private float delayFkazoEnable = 0.05f;
     [SerializeField] bool enableIdleStatePlayerOutRange;
     [SerializeField] Faka faka;
+    private bool called;
     private float auxDelayFakazo;
     private float auxDelayFakazoEnable;
 
@@ -60,6 +61,7 @@ public class Cientifico : Enemy
     protected override void Start()
     {
         base.Start();
+        called = false;
         auxDelayFakazo = delayFakazo;
         auxDelayFakazoEnable = delayFkazoEnable;
         fakaCollider.SetActive(false);
@@ -70,10 +72,12 @@ public class Cientifico : Enemy
     private void OnEnable()
     {
         Cientifico.OnDetectedPlayer += LisentCallAlies;
+        SecurityGuard.OnDetectedPlayer += LisentCallAlies;
     }
     private void OnDisable()
     {
         Cientifico.OnDetectedPlayer -= LisentCallAlies;
+        SecurityGuard.OnDetectedPlayer -= LisentCallAlies;
     }
     // Update is called once per frame
     protected override void Update()
@@ -123,7 +127,8 @@ public class Cientifico : Enemy
            
             currentDistance = transform.position - currentTarget.position;
             //Debug.Log(currentDistance.magnitude);
-            if (currentDistance.magnitude <= distancePlayerInRange && currentDistance.magnitude > distanceInAttackRange)
+            if ((currentDistance.magnitude <= distancePlayerInRange && currentDistance.magnitude > distanceInAttackRange || called) 
+                && fsm.GetCurrentState() != (int)EstadosGuardia.Atacar)
             {
                 fsm.SendEvent((int)EventosGuardia.EnRangoDePersecucion);
                 //Debug.Log("ENTRE");
@@ -185,5 +190,6 @@ public class Cientifico : Enemy
         if (e == null || e == this) return;
 
         fsm.SendEvent(state);
+        called = true;
     }
 }
