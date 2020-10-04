@@ -44,8 +44,11 @@ public class Bullet : MonoBehaviour
         Debug.Log(weaponType.type);
         if (weaponType.type == Weapons.WeaponType.Shotgun)
         {
-            Debug.Log("SOY SHOOTGUN");
-            randomDir = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0) + direction;
+            //Debug.Log("SOY SHOOTGUN");
+            if (user == User.Player)
+                randomDir = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f), 0) + direction;
+            else if (user == User.Enemy)
+                randomDir = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0) + direction;
         }
         else
         {
