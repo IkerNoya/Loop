@@ -13,7 +13,12 @@ public class Weapons : MonoBehaviour
     [SerializeField] float shakeDuration;
     [SerializeField] float shakeMagnitudeShotgun;
     [SerializeField] float shakeMagnitudeSMG;
+    [SerializeField] float damageShootgun;
+    [SerializeField] float damageRevolver;
+    [SerializeField] float damageSMG;
     float shotgunShellsAmmount = 7;
+    
+
     public enum WeaponType
     {
         subMachineGun, Shotgun, Revolver, Count
@@ -30,7 +35,9 @@ public class Weapons : MonoBehaviour
                 bullet = Instantiate(OriginBullet, transform.position, Quaternion.identity);
                 bullet.SetUser(user);
                 bullet.enemyUser = enemyUser;
-                Debug.Log(bullet.GetUser());
+                bullet.SetDamage(damageSMG);
+
+               // Debug.Log(bullet.GetUser());
             }
 
             canShoot = false;
@@ -48,6 +55,7 @@ public class Weapons : MonoBehaviour
                     bullet = Instantiate(OriginBullet, transform.position, Quaternion.identity);
                     bullet.SetUser(user);
                     bullet.enemyUser = enemyUser;
+                    bullet.SetDamage(damageShootgun);
                 }
             }
             canShoot = false;
@@ -63,6 +71,7 @@ public class Weapons : MonoBehaviour
                 bullet = Instantiate(OriginBullet, transform.position, Quaternion.identity);
                 bullet.SetUser(user);
                 bullet.enemyUser = enemyUser;
+                bullet.SetDamage(damageRevolver);
             }
 
             canShoot = false;

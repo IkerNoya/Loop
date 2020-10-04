@@ -39,11 +39,11 @@ public class GenerateCorps : MonoBehaviour
         CheckGenerateCorp();
 
         //ZONA DE TESTEO//
-        if (Input.GetKeyDown(KeyCode.Keypad0))
-        {
-            if (character == null) return;
-            character.SetHP(0);
-        }
+        //if (Input.GetKeyDown(KeyCode.Keypad0))
+        //{
+        //    if (character == null) return;
+        //        character.SetHP(0);
+        //}
         //-------------//
     }
     public void SettingParent() {
@@ -76,6 +76,7 @@ public class GenerateCorps : MonoBehaviour
             OnCorpGenerate(this, go, objectBloodCharacter.recycled);
         }
         //ZONA DE TESTEO//
-        character.SetHP(100);
+        //character.SetHP(100);
+        Destroy(character);
     }
 }
