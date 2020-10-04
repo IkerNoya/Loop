@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 26922541}
   - component: {fileID: 26922543}
   - component: {fileID: 26922542}
+  - component: {fileID: 26922544}
   m_Layer: 9
   m_Name: Ladrillito UwU (2)
   m_TagString: Walls
@@ -229,6 +230,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &26922544
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26922540}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &32171646
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +458,7 @@ GameObject:
   - component: {fileID: 140693710}
   - component: {fileID: 140693712}
   - component: {fileID: 140693711}
+  - component: {fileID: 140693713}
   m_Layer: 9
   m_Name: Ladrillito UwU (1)
   m_TagString: Walls
@@ -533,6 +556,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &140693713
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140693709}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &145414378
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +643,7 @@ GameObject:
   - component: {fileID: 180862799}
   - component: {fileID: 180862801}
   - component: {fileID: 180862800}
+  - component: {fileID: 180862802}
   m_Layer: 9
   m_Name: Ladrillito UwU (9)
   m_TagString: Walls
@@ -696,6 +741,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &180862802
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180862798}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &325428763
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,6 +989,7 @@ GameObject:
   - component: {fileID: 423047718}
   - component: {fileID: 423047720}
   - component: {fileID: 423047719}
+  - component: {fileID: 423047721}
   m_Layer: 9
   m_Name: Ladrillito UwU (5)
   m_TagString: Walls
@@ -1020,6 +1087,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &423047721
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423047717}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &444559803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,6 +1421,7 @@ GameObject:
   - component: {fileID: 536450532}
   - component: {fileID: 536450534}
   - component: {fileID: 536450533}
+  - component: {fileID: 536450535}
   m_Layer: 9
   m_Name: Ladrillito UwU (1)
   m_TagString: Walls
@@ -1430,6 +1519,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &536450535
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536450531}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &560552927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,6 +1659,7 @@ GameObject:
   - component: {fileID: 570057826}
   - component: {fileID: 570057828}
   - component: {fileID: 570057827}
+  - component: {fileID: 570057829}
   m_Layer: 9
   m_Name: Ladrillito UwU (9)
   m_TagString: Walls
@@ -1646,6 +1757,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &570057829
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570057825}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &601071498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,7 +1952,7 @@ GameObject:
   - component: {fileID: 625720817}
   m_Layer: 0
   m_Name: Levels
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2053,6 +2185,7 @@ GameObject:
   - component: {fileID: 710313883}
   - component: {fileID: 710313885}
   - component: {fileID: 710313884}
+  - component: {fileID: 710313886}
   m_Layer: 9
   m_Name: Ladrillito UwU (3)
   m_TagString: Walls
@@ -2150,6 +2283,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &710313886
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710313882}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &716924604
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,6 +2315,7 @@ GameObject:
   - component: {fileID: 716924605}
   - component: {fileID: 716924607}
   - component: {fileID: 716924606}
+  - component: {fileID: 716924608}
   m_Layer: 9
   m_Name: Ladrillito UwU (11)
   m_TagString: Walls
@@ -2258,6 +2413,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &716924608
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716924604}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &826451556
 GameObject:
   m_ObjectHideFlags: 0
@@ -2273,6 +2449,7 @@ GameObject:
   - component: {fileID: 826451561}
   - component: {fileID: 826451563}
   - component: {fileID: 826451560}
+  - component: {fileID: 826451564}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2298,8 +2475,11 @@ MonoBehaviour:
   speed: 7
   enableCallAlies: 1
   layerEnvarioment: 9
-  distancePlayerInRange: 0
   speedAttack: 0
+  distancePlayerInRange: 0
+  distanceInAttackRange: 0
+  generateWeaponRandom: 1
+  weapons: {fileID: 826451564}
   test: 0
 --- !u!212 &826451558
 SpriteRenderer:
@@ -2458,7 +2638,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 1538901016033069164}
+  target: {fileID: 0}
+--- !u!114 &826451564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826451556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f44724511a70b74b84d35b9c7627982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  user: 0
+  enemyUser: {fileID: 0}
+  OriginBullet: {fileID: 7843187418377519882, guid: d2144be0dd6279742b1ba7a3004503af,
+    type: 3}
+  timeToShoot: 0.5
+  shakeDuration: 0
+  shakeMagnitudeShotgun: 0
+  shakeMagnitudeSMG: 0
+  type: 0
 --- !u!1 &847272657
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,6 +2671,7 @@ GameObject:
   - component: {fileID: 847272658}
   - component: {fileID: 847272660}
   - component: {fileID: 847272659}
+  - component: {fileID: 847272661}
   m_Layer: 9
   m_Name: Ladrillito UwU (11)
   m_TagString: Walls
@@ -2567,6 +2769,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &847272661
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847272657}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &860364741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2902,6 +3125,7 @@ GameObject:
   - component: {fileID: 1124471653}
   - component: {fileID: 1124471655}
   - component: {fileID: 1124471654}
+  - component: {fileID: 1124471656}
   m_Layer: 9
   m_Name: Ladrillito UwU (4)
   m_TagString: Walls
@@ -2999,6 +3223,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1124471656
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124471652}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1163375479
 GameObject:
   m_ObjectHideFlags: 0
@@ -3130,6 +3375,7 @@ GameObject:
   - component: {fileID: 1210836513}
   - component: {fileID: 1210836515}
   - component: {fileID: 1210836514}
+  - component: {fileID: 1210836516}
   m_Layer: 9
   m_Name: Ladrillito UwU (15)
   m_TagString: Walls
@@ -3227,6 +3473,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1210836516
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210836512}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1226941182
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,6 +3505,7 @@ GameObject:
   - component: {fileID: 1226941183}
   - component: {fileID: 1226941185}
   - component: {fileID: 1226941184}
+  - component: {fileID: 1226941186}
   m_Layer: 9
   m_Name: Ladrillito UwU (15)
   m_TagString: Walls
@@ -3335,6 +3603,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1226941186
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226941182}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1315020052
 GameObject:
   m_ObjectHideFlags: 0
@@ -3562,6 +3851,7 @@ GameObject:
   - component: {fileID: 1381309350}
   - component: {fileID: 1381309352}
   - component: {fileID: 1381309351}
+  - component: {fileID: 1381309353}
   m_Layer: 9
   m_Name: Ladrillito UwU (12)
   m_TagString: Walls
@@ -3659,6 +3949,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1381309353
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381309349}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1437484865
 GameObject:
   m_ObjectHideFlags: 0
@@ -3670,6 +3981,7 @@ GameObject:
   - component: {fileID: 1437484866}
   - component: {fileID: 1437484868}
   - component: {fileID: 1437484867}
+  - component: {fileID: 1437484869}
   m_Layer: 9
   m_Name: Ladrillito UwU (4)
   m_TagString: Walls
@@ -3767,6 +4079,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1437484869
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437484865}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1458945857
 GameObject:
   m_ObjectHideFlags: 0
@@ -3778,6 +4111,7 @@ GameObject:
   - component: {fileID: 1458945858}
   - component: {fileID: 1458945860}
   - component: {fileID: 1458945859}
+  - component: {fileID: 1458945861}
   m_Layer: 9
   m_Name: Ladrillito UwU (14)
   m_TagString: Walls
@@ -3875,6 +4209,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1458945861
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458945857}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1477696488
 GameObject:
   m_ObjectHideFlags: 0
@@ -4157,6 +4512,7 @@ GameObject:
   - component: {fileID: 1526283379}
   - component: {fileID: 1526283381}
   - component: {fileID: 1526283380}
+  - component: {fileID: 1526283382}
   m_Layer: 9
   m_Name: Ladrillito UwU (13)
   m_TagString: Walls
@@ -4254,6 +4610,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1526283382
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526283378}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1557777263
 GameObject:
   m_ObjectHideFlags: 0
@@ -4265,6 +4642,7 @@ GameObject:
   - component: {fileID: 1557777264}
   - component: {fileID: 1557777266}
   - component: {fileID: 1557777265}
+  - component: {fileID: 1557777267}
   m_Layer: 9
   m_Name: Ladrillito UwU (14)
   m_TagString: Walls
@@ -4362,6 +4740,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1557777267
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557777263}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1597098612
 GameObject:
   m_ObjectHideFlags: 0
@@ -4373,6 +4772,7 @@ GameObject:
   - component: {fileID: 1597098613}
   - component: {fileID: 1597098615}
   - component: {fileID: 1597098614}
+  - component: {fileID: 1597098616}
   m_Layer: 9
   m_Name: Ladrillito UwU (3)
   m_TagString: Walls
@@ -4470,6 +4870,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1597098616
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597098612}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1626105022
 GameObject:
   m_ObjectHideFlags: 0
@@ -4589,6 +5010,7 @@ GameObject:
   - component: {fileID: 1658465394}
   - component: {fileID: 1658465396}
   - component: {fileID: 1658465395}
+  - component: {fileID: 1658465397}
   m_Layer: 9
   m_Name: Ladrillito UwU (6)
   m_TagString: Walls
@@ -4686,6 +5108,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1658465397
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658465393}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1688693933
 GameObject:
   m_ObjectHideFlags: 0
@@ -4697,6 +5140,7 @@ GameObject:
   - component: {fileID: 1688693934}
   - component: {fileID: 1688693936}
   - component: {fileID: 1688693935}
+  - component: {fileID: 1688693937}
   m_Layer: 9
   m_Name: Ladrillito UwU (5)
   m_TagString: Walls
@@ -4794,6 +5238,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1688693937
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688693933}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1704858801
 GameObject:
   m_ObjectHideFlags: 0
@@ -4805,6 +5270,7 @@ GameObject:
   - component: {fileID: 1704858802}
   - component: {fileID: 1704858804}
   - component: {fileID: 1704858803}
+  - component: {fileID: 1704858805}
   m_Layer: 9
   m_Name: Ladrillito UwU (12)
   m_TagString: Walls
@@ -4902,6 +5368,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1704858805
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704858801}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1781155667
 GameObject:
   m_ObjectHideFlags: 0
@@ -4913,6 +5400,7 @@ GameObject:
   - component: {fileID: 1781155668}
   - component: {fileID: 1781155670}
   - component: {fileID: 1781155669}
+  - component: {fileID: 1781155671}
   m_Layer: 9
   m_Name: Ladrillito UwU (13)
   m_TagString: Walls
@@ -5010,6 +5498,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &1781155671
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781155667}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &2125902121
 GameObject:
   m_ObjectHideFlags: 0
@@ -5021,6 +5530,7 @@ GameObject:
   - component: {fileID: 2125902122}
   - component: {fileID: 2125902124}
   - component: {fileID: 2125902123}
+  - component: {fileID: 2125902125}
   m_Layer: 9
   m_Name: Ladrillito UwU (6)
   m_TagString: Walls
@@ -5118,6 +5628,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2125902125
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125902121}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &2142944640
 GameObject:
   m_ObjectHideFlags: 0
@@ -5129,6 +5660,7 @@ GameObject:
   - component: {fileID: 2142944641}
   - component: {fileID: 2142944643}
   - component: {fileID: 2142944642}
+  - component: {fileID: 2142944644}
   m_Layer: 9
   m_Name: Ladrillito UwU (2)
   m_TagString: Walls
@@ -5226,6 +5758,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2142944644
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142944640}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!4 &1059381663189240416
 Transform:
   m_ObjectHideFlags: 0
@@ -5247,6 +5800,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 299851007590218319, guid: 6c2d2c79795e61544b364d121fe833cd,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 299851007590218320, guid: 6c2d2c79795e61544b364d121fe833cd,
         type: 3}
       propertyPath: m_Name
@@ -5368,6 +5926,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4554933302140683626, guid: d2144be0dd6279742b1ba7a3004503af,
         type: 3}
+    - target: {fileID: 4897278352941076900, guid: 6c2d2c79795e61544b364d121fe833cd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6107118178563707473, guid: 6c2d2c79795e61544b364d121fe833cd,
         type: 3}
       propertyPath: parents.Array.data[1]
@@ -5395,12 +5958,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c2d2c79795e61544b364d121fe833cd, type: 3}
---- !u!224 &1538901016033069164 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 299851007590218323, guid: 6c2d2c79795e61544b364d121fe833cd,
-    type: 3}
-  m_PrefabInstance: {fileID: 1257083416773833279}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3182974515709949648
 GameObject:
   m_ObjectHideFlags: 0

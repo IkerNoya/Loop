@@ -139,8 +139,6 @@ public class PlayerController : Character {
 
     public void ReceiveDamage(float d) {
         hp -= d;
-        if (hp <= 0) 
-            Destroy(this.gameObject);   
     }
 
     #endregion
