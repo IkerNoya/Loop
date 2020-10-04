@@ -55,17 +55,18 @@ public class Enemy : Character
         aiPath.maxSpeed = speed;
         //aiPath.enabled = true;
     }
-    public void CheckLife()
-    {
-        if (GetHP() <= 0)
-        {
-            Destroy(this);
-        }
-    }
     protected virtual void Attack() { }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Bullet") { }
+        if (collision.tag == "Bullet")
+        { 
+            Bullet b = collision.GetComponent<Bullet>();
+            if (b.enemyUser != this && b.GetUser() != Bullet.User.Enemy)
+            {
+                SetHP(GetHP() - b.GetDamage());
+                Destroy(b);
+            }
+        }
     }
 }
