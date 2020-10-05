@@ -6,29 +6,38 @@ public class BossLaserSphere : MonoBehaviour
 {
     [SerializeField] float damage;
     [SerializeField] float speed;
-    [SerializeField] Vector3 objective;
-    private void Start() {
+    Boss boss;
+    Vector3 direction;
+    private void Start()
+    {
         StartCoroutine(LateStart());
+        boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>();
+        direction = boss.target.position - transform.position;
     }
-
-    public void SetObjective(Vector3 o) {
-        objective = o;
+    private void Update()
+    {
+        transform.position += direction.normalized * speed * Time.deltaTime;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Player")) {
-            if (!collision.gameObject.GetComponent<PlayerController>().GetDash()) {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (!collision.gameObject.GetComponent<PlayerController>().GetDash())
+            {
                 collision.gameObject.GetComponent<PlayerController>().ReceiveDamage(damage);
-                StopCoroutine(MoveToObjective());
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
+        }
+        if (collision.gameObject.CompareTag("Walls"))
+        {
+            Destroy(gameObject);
         }
     }
 
-    IEnumerator LateStart() {
+    IEnumerator LateStart()
+    {
         yield return new WaitForEndOfFrame();
         StopCoroutine(LateStart());
-        StartCoroutine(MoveToObjective());
     }
 
     IEnumerator MoveToObjective() {
@@ -37,10 +46,5 @@ public class BossLaserSphere : MonoBehaviour
             transform.position += objective.normalized * speed * Time.deltaTime;
             yield return null;
         }
-
-        StopCoroutine(MoveToObjective());
-        Destroy(this.gameObject);
-        yield return null;
-    }
 
 }
