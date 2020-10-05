@@ -224,6 +224,7 @@ public class PlayerController : Character {
     public void CheckDie() {
         if (GetHP() <= 0) {
             SetHP(1);
+            source.PlayOneShot(soundDead);
             if (OnDiePlayer != null)
                 OnDiePlayer(this);
             SetHP(0);
@@ -236,7 +237,7 @@ public class PlayerController : Character {
                 case Weapons.WeaponType.subMachineGun:
                     if (Input.GetMouseButton(0) && !ActivateDash) {
                         if (weapons.GetCanShoot()) {
-                            source.PlayOneShot(soundShootSMG);
+                            source.PlayOneShot(soundShootSMG,0.15f);
                             lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f) + new Vector3((float)UnityEngine.Random.Range(-1.75f, 1.75f), (float)UnityEngine.Random.Range(-1.75f, 1.75f), 0f);
 
                             if (aimingRight) {
@@ -343,6 +344,8 @@ public class PlayerController : Character {
             selection = WeaponSelected.Revolver;
         }
         if (Input.GetKeyDown(KeyCode.Space) && canActivateDash && movement != Vector3.zero) {
+            source.PlayOneShot(soundDash);
+
             playerAnims.StartDashAnim();
             ActivateDash = true;
             canActivateDash = false;
@@ -351,6 +354,8 @@ public class PlayerController : Character {
 
     public void ReceiveDamage(float d) {
         hp -= d;
+        if (hp <= 0)
+            source.PlayOneShot(soundDead);
     }
 
     public bool GetDash() {
