@@ -9,12 +9,15 @@ public class Boss : MonoBehaviour {
     bool attacking = false;
     [SerializeField] PlayerController player;
     [SerializeField] float timeStopped;
+    
     [SerializeField] Vector3 posToAttack;
 
     [SerializeField] float damageLaser;
     [SerializeField] float damageHit;
     [SerializeField] BossLaserSphere laserSphere;
     [SerializeField] int maxLaserSpheresToShoot;
+
+    public Transform target;
 
     void Start() {
         player = FindObjectOfType<PlayerController>();
@@ -84,8 +87,6 @@ public class Boss : MonoBehaviour {
             for(int i = 0; i < maxLaserSpheresToShoot; i++) {
 
                 BossLaserSphere bls = Instantiate(laserSphere, transform.position, Quaternion.identity);
-                if (player != null)
-                    bls.SetObjective(player.transform.position);
 
                 yield return new WaitForSeconds(timeBetweenAttacks);
             }
