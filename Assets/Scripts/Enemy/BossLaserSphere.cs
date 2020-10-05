@@ -2,49 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossLaserSphere : MonoBehaviour
-{
+public class BossLaserSphere : MonoBehaviour {
     [SerializeField] float damage;
     [SerializeField] float speed;
     Boss boss;
     Vector3 direction;
-    private void Start()
-    {
+    private void Start() {
         StartCoroutine(LateStart());
         boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>();
         direction = boss.target.position - transform.position;
     }
-    private void Update()
-    {
+    private void Update() {
         transform.position += direction.normalized * speed * Time.deltaTime;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            if (!collision.gameObject.GetComponent<PlayerController>().GetDash())
-            {
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.CompareTag("Player")) {
+            if (!collision.gameObject.GetComponent<PlayerController>().GetDash()) {
                 collision.gameObject.GetComponent<PlayerController>().ReceiveDamage(damage);
                 Destroy(gameObject);
             }
         }
-        if (collision.gameObject.CompareTag("Walls"))
-        {
+        if (collision.gameObject.CompareTag("Walls")) {
             Destroy(gameObject);
         }
     }
 
-    IEnumerator LateStart()
-    {
+    IEnumerator LateStart() {
         yield return new WaitForEndOfFrame();
         StopCoroutine(LateStart());
     }
-
-    IEnumerator MoveToObjective() {
-        Destroy(this.gameObject, 1.5f);
-        while(true) {
-            transform.position += objective.normalized * speed * Time.deltaTime;
-            yield return null;
-        }
 
 }
