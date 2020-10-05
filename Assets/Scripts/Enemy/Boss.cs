@@ -28,6 +28,9 @@ public class Boss : MonoBehaviour {
 
     void Start() {
         player = FindObjectOfType<PlayerController>();
+        target = player.transform;
+        enemyParent = GameObject.FindGameObjectWithTag("EnemiesParent").transform;
+        doorsToUse = GameObject.FindGameObjectsWithTag("XDoor");
     }
 
     private void OnEnable() {
@@ -103,27 +106,37 @@ public class Boss : MonoBehaviour {
             int rand = Random.Range(0, 2);
             Debug.Log(rand);
             if (rand == 0) {
-                SecurityGuard e1 = Instantiate(sg, doorsToUse[0].transform.position, Quaternion.identity, enemyParent);
+                SecurityGuard e1 = Instantiate(sg, 
+                    doorsToUse[0].transform.position, 
+                    Quaternion.identity,
+                    enemyParent);
                 e1.distancePlayerInRange = 1000;
                 e1.fsm.SendEvent((int)SecurityGuard.EventosGuardia.EnRangoDeAtaque);
             }
             else {
-
-                Cientifico e1 = Instantiate(cfc, doorsToUse[0].transform.position, Quaternion.identity, enemyParent);
+                Cientifico e1 = Instantiate(cfc, 
+                    doorsToUse[0].transform.position, 
+                    Quaternion.identity, 
+                    enemyParent);
                 e1.distanceInAttackRange = 1000;
                 e1.fsm.SendEvent((int)Cientifico.EventosGuardia.EnRangoDeAtaque);
             }
             rand = Random.Range(0, 2);
-            Enemy e2 = Instantiate(enemies[rand], doorsToUse[1].transform.position, Quaternion.identity, enemyParent);
 
             if (rand == 0) {
-                SecurityGuard e1 = Instantiate(sg, doorsToUse[0].transform.position, Quaternion.identity, enemyParent);
+                SecurityGuard e1 = Instantiate(sg, 
+                    doorsToUse[0].transform.position, 
+                    Quaternion.identity, 
+                    enemyParent);
                 e1.distancePlayerInRange = 1000;
                 e1.fsm.SendEvent((int)SecurityGuard.EventosGuardia.EnRangoDeAtaque);
             }
             else {
 
-                Cientifico e1 = Instantiate(cfc, doorsToUse[0].transform.position, Quaternion.identity, enemyParent);
+                Cientifico e1 = Instantiate(cfc, 
+                    doorsToUse[0].transform.position,
+                    Quaternion.identity,
+                    enemyParent);
                 e1.distanceInAttackRange = 1000;
                 e1.fsm.SendEvent((int)Cientifico.EventosGuardia.EnRangoDeAtaque);
 

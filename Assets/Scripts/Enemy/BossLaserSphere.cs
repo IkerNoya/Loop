@@ -12,6 +12,9 @@ public class BossLaserSphere : MonoBehaviour {
         boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>();
         direction = boss.target.position - transform.position;
     }
+    private void OnDisable() {
+        Destroy(this.gameObject);
+    }
     private void Update() {
         transform.position += direction.normalized * speed * Time.deltaTime;
     }

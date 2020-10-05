@@ -15,6 +15,8 @@ public class LevelManager : MonoBehaviour {
 
     [SerializeField] AstarPath paths;
 
+    [SerializeField] Boss boss;
+
     private void OnEnable()
     {
         CleanLevel.OnClearLevel += CheckNextLevel;
@@ -87,12 +89,28 @@ public class LevelManager : MonoBehaviour {
 
         
 
-        for (int i = 0; i < doors.Length; i++)
-            if (doors[i] != null)
-                doors[i].SetActive(false);
+       for (int i = 0; i < doors.Length; i++)
+           if (doors[i] != null)
+               doors[i].SetActive(false);
 
         if (doors.Length > 0)
             Array.Clear(doors, 0, doors.Length);
+
+        StartCoroutine(Change());
+       
+
+        // int doorToOpen = Random.Range(0, doors.Length);
+        // while (doors[doorToOpen] == door.gameObject)
+        //     doorToOpen = Random.Range(0, doors.Length);
+        //
+        // if (doors[doorToOpen] != null)
+        //     doors[doorToOpen].SetActive(true);
+
+    }
+    IEnumerator Change() {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+
 
         for (int i = 0; i < levels.Length; i++)
             if (levels[i] != null)
@@ -108,13 +126,15 @@ public class LevelManager : MonoBehaviour {
         if (ChangedLevel != null)
             ChangedLevel(this);
 
-        // int doorToOpen = Random.Range(0, doors.Length);
-        // while (doors[doorToOpen] == door.gameObject)
-        //     doorToOpen = Random.Range(0, doors.Length);
-        //
-        // if (doors[doorToOpen] != null)
-        //     doors[doorToOpen].SetActive(true);
+        if(actualLevel == 3) {
+            SpawnBoss();
+        }
 
+        StopCoroutine(Change());
+    }
+
+    void SpawnBoss() {
+        Boss b = Instantiate(boss, new Vector3(0, 0, 0), Quaternion.identity, levels[actualLevel].transform);
     }
 
     public int GetCurrentLevel()

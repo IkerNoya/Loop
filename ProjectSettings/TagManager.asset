@@ -13,6 +13,8 @@ TagManager:
   - Enviroment
   - WallUp
   - WallDown
+  - EnemiesParent
+  - XDoor
   layers:
   - Default
   - TransparentFX

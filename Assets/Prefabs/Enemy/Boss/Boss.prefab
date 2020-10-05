@@ -61,15 +61,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5ccab44bb338d4089dea0d9f28b231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 500
-  speed: 25
+  hp: 2000
+  speed: 45
   player: {fileID: 0}
   timeStopped: 0.25
   posToAttack: {x: 0, y: 0, z: 0}
   damageLaser: 5
-  damageHit: 20
-  laserSphere: {fileID: 0}
-  maxLaserSpheresToShoot: 0
+  damageHit: 15
+  laserSphere: {fileID: 3910175740858409822, guid: 317cbdf3f57eb1747a98b059e8bea175,
+    type: 3}
+  maxLaserSpheresToShoot: 20
+  target: {fileID: 0}
+  doorsToUse:
+  - {fileID: 0}
+  - {fileID: 0}
+  enemies:
+  - {fileID: 8853489992321274287, guid: 77e46090f2bd1e044a1480f782464651, type: 3}
+  - {fileID: 6512081092837014540, guid: 479ff76e8a13ded49b95f99a9b4e7da5, type: 3}
+  sg: {fileID: 8853489992321274287, guid: 77e46090f2bd1e044a1480f782464651, type: 3}
+  cfc: {fileID: 6512081092837014540, guid: 479ff76e8a13ded49b95f99a9b4e7da5, type: 3}
+  enemiesToCreate: 3
+  enemyParent: {fileID: 0}
 --- !u!1 &7586742691925511348
 GameObject:
   m_ObjectHideFlags: 0
