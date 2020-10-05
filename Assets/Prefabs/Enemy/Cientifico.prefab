@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2342546344682205864}
   - component: {fileID: 3694435097970602009}
   - component: {fileID: 6512081092837014540}
+  - component: {fileID: -8550690153696870639}
   m_Layer: 0
   m_Name: Cientifico
   m_TagString: Untagged
@@ -222,7 +223,7 @@ MonoBehaviour:
       type: 3}
     recycled: 1
   objectCorpCharacter:
-    objectOnDieCharacter: {fileID: 5713534235791246420, guid: 50191cdb32675d44f85ae21cf6784028,
+    objectOnDieCharacter: {fileID: 3832382098068511716, guid: d5320fd0a6022084a8b19f615e4e957c,
       type: 3}
     recycled: 0
   parents:
@@ -266,6 +267,25 @@ MonoBehaviour:
   delayFkazoEnable: 0.05
   enableIdleStatePlayerOutRange: 1
   faka: {fileID: 6512081092665429709}
+--- !u!95 &-8550690153696870639
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2342546344682205856}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 21d5dae6a62ff424e9989a2212ae1934, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6512081092665429711
 GameObject:
   m_ObjectHideFlags: 0
