@@ -19,6 +19,9 @@ public class Cientifico : Enemy
     private float auxDelayFakazo;
     private float auxDelayFakazoEnable;
 
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip soundHit;
+
     public enum EstadosGuardia
     {
         Idle,
@@ -164,15 +167,15 @@ public class Cientifico : Enemy
     }
     protected override void Attack()
     {
-        if (delayFakazo > 0 && !fakaCollider.activeSelf)
-        {
+        if (delayFakazo > 0 && !fakaCollider.activeSelf) {
             delayFakazo = delayFakazo - Time.deltaTime;
-           
+
         }
-        else if (delayFakazo <= 0 && !fakaCollider.activeSelf)
-        {
+        else if (delayFakazo <= 0 && !fakaCollider.activeSelf) {
             delayFkazoEnable = auxDelayFakazoEnable;
             fakaCollider.SetActive(true);
+            if (!source.isPlaying)
+                source.PlayOneShot(soundHit);
         }
 
         if (delayFkazoEnable > 0 && fakaCollider.activeSelf)

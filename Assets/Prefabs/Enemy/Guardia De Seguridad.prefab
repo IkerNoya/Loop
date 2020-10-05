@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8853489992321274278}
   - component: {fileID: -7878162965046718608}
   - component: {fileID: 7573588260834824983}
+  - component: {fileID: -8119414016729627154}
   m_Layer: 0
   m_Name: Guardia De Seguridad
   m_TagString: Untagged
@@ -105,13 +106,25 @@ MonoBehaviour:
   stamina: 0
   damageAmmount: 0
   speed: 5
+  dieOnPlayerDead: 1
+  fsm: {fileID: 0}
   enableCallAlies: 1
   layerEnvarioment: 9
+  targets: []
+  lowWallGO: {fileID: 0}
+  lowWallRend: {fileID: 0}
+  upWallGO: {fileID: 0}
+  upWallRend: {fileID: 0}
+  rend: {fileID: 0}
   speedAttack: 0
   distancePlayerInRange: 15
   distanceInAttackRange: 9
   generateWeaponRandom: 1
   weapons: {fileID: -7878162965046718608}
+  source: {fileID: -8119414016729627154}
+  soundSmg: {fileID: 8300000, guid: 08879d6e53e57544eb08992f4b84568e, type: 3}
+  soundShotgun: {fileID: 8300000, guid: 9f6c0a9cc9000904cb7e2e9ce56db0cd, type: 3}
+  soundRevolver: {fileID: 8300000, guid: e0d3903780ee405498898c7cabc3e7d9, type: 3}
   test: 0
 --- !u!114 &8853489992321274272
 MonoBehaviour:
@@ -245,7 +258,7 @@ MonoBehaviour:
   playerGun: {fileID: 0}
   OriginBullet: {fileID: 5179017900267201866, guid: d2144be0dd6279742b1ba7a3004503af,
     type: 3}
-  timeToShoot: 0.08
+  timeToShoot: 0.5
   shakeDuration: 0.2
   shakeMagnitudeShotgun: 0.1
   shakeMagnitudeSMG: 0.05
@@ -282,3 +295,99 @@ MonoBehaviour:
   - {fileID: 0}
   levelManager: {fileID: 0}
   inLevel: 0
+--- !u!82 &-8119414016729627154
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8853489992321274286}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

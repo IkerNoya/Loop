@@ -28,6 +28,11 @@ public class Boss : MonoBehaviour {
     [SerializeField] int enemiesToCreate;
     [SerializeField] Transform enemyParent;
 
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip soundLaser;
+    [SerializeField] AudioClip soundDash;
+    [SerializeField] AudioClip soundDead;
+
 
     public delegate void BossDead();
     public static event BossDead DeadBoss;
@@ -105,6 +110,7 @@ public class Boss : MonoBehaviour {
         int attackPosibilities = UnityEngine.Random.Range(0, 100);
 
         if (attackPosibilities <= 25) {
+            source.PlayOneShot(soundDash);
             while (transform.position != posToAttack) {
                 transform.position = Vector2.MoveTowards(transform.position, posToAttack, speed * Time.deltaTime);
                 yield return null;
@@ -114,7 +120,7 @@ public class Boss : MonoBehaviour {
         else {
             float timeBetweenAttacks = 0.05f;
             for (int i = 0; i < maxLaserSpheresToShoot; i++) {
-
+                source.PlayOneShot(soundLaser, 0.125f);
                 BossLaserSphere bls = Instantiate(laserSphere, transform.position, Quaternion.identity);
 
                 yield return new WaitForSeconds(timeBetweenAttacks);
@@ -166,7 +172,9 @@ public class Boss : MonoBehaviour {
             if (DeadBoss != null)
                 DeadBoss();
 
-            Destroy(this.gameObject);
+            source.PlayOneShot(soundDead);
+            Destroy(this);
+            Destroy(this.gameObject, 0.1f);
         }
     }
 }
