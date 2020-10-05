@@ -80,7 +80,7 @@ public class Boss : MonoBehaviour {
     IEnumerator Attack() {
         attacking = true;
 
-        int attackPosibilities = Random.Range(0, 100);
+        int attackPosibilities = Random.Range(95, 100);
 
         if (attackPosibilities <= 25) {
             while (transform.position != posToAttack) {
@@ -132,7 +132,7 @@ public class Boss : MonoBehaviour {
 
             Debug.Log(rand);
 
-            yield return new WaitForSeconds(timeToSpawn);
+            yield return new WaitForSeconds(10);
         }
 
         StopCoroutine(Attack());
