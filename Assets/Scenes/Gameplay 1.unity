@@ -325,7 +325,7 @@ PrefabInstance:
     - target: {fileID: 1426324610281451349, guid: c482453e444b46f41b628db8e1185c87,
         type: 3}
       propertyPath: hp
-      value: 500
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1426324610281451351, guid: c482453e444b46f41b628db8e1185c87,
         type: 3}
@@ -1402,7 +1402,7 @@ PrefabInstance:
     - target: {fileID: 8422971463612318815, guid: 7fd9b8cb99ec5ae4fb06276d8c737805,
         type: 3}
       propertyPath: fullScreen
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8422971463612318815, guid: 7fd9b8cb99ec5ae4fb06276d8c737805,
         type: 3}
