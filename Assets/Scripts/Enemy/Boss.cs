@@ -128,7 +128,7 @@ public class Boss : MonoBehaviour {
             }
             yield return new WaitForSeconds(0.1f);
         }
-        else if (attackPosibilities > 25 && attackPosibilities <= 95) {
+        else {
             float timeBetweenAttacks = 0.05f;
             for (int i = 0; i < maxLaserSpheresToShoot; i++) {
 

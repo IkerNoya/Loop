@@ -20,12 +20,16 @@ public class LevelManager : MonoBehaviour {
     [SerializeField] List<GameObject> doorsLvl2;
     [SerializeField] List<GameObject> doorsLvl3;
 
+    bool bossDead = false;
+
     private void OnEnable() {
         CleanLevel.OnClearLevel += CheckNextLevel;
         PlayerController.DoorEnter += ChangeLevel;
         Boss.DeadBoss += OpenDoors;
+        Boss.DeadBoss += DeadBoss;
     }
     private void OnDisable() {
+        Boss.DeadBoss -= DeadBoss;
         Boss.DeadBoss -= OpenDoors;
         CleanLevel.OnClearLevel -= CheckNextLevel;
         PlayerController.DoorEnter -= ChangeLevel;
@@ -87,11 +91,15 @@ public class LevelManager : MonoBehaviour {
         if (cleanLevel != null) {
             if (gm != null) {
                 if (gm.GetCurrentCountEnemy() <= 0 && gm.GetEnableCheckNextLevel()) {
-                    OpenDoors();
+                    if (actualLevel != 3 || (actualLevel == 3 && bossDead))
+                        OpenDoors();
                     gm.SetEnableCheckNextLevel(false);
                 }
             }
         }
+    }
+    void DeadBoss() {
+        bossDead = true;
     }
     void OpenDoors() {
         if (gm.GetCurrentCountEnemy() <= 0) {
@@ -135,7 +143,7 @@ public class LevelManager : MonoBehaviour {
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
 
-
+        bossDead = false;
         for (int i = 0; i < levels.Length; i++)
             if (levels[i] != null)
                 levels[i].SetActive(false);

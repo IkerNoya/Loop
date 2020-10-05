@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.8
+  radius: 0.75
   height: 2
   repathRate: 0.5
   canSearch: 1
@@ -248,8 +248,16 @@ MonoBehaviour:
   stamina: 0
   damageAmmount: 0
   speed: 7
+  dieOnPlayerDead: 1
+  fsm: {fileID: 0}
   enableCallAlies: 0
   layerEnvarioment: 9
+  targets: []
+  lowWallGO: {fileID: 0}
+  lowWallRend: {fileID: 0}
+  upWallGO: {fileID: 0}
+  upWallRend: {fileID: 0}
+  rend: {fileID: 0}
   distancePlayerInRange: 12
   distanceInAttackRange: 3
   damageFakazo: 25

@@ -25,12 +25,20 @@ public class Enemy : Character
     private Vector3 auxCurrentDistanceWhitPlayer;
     protected Transform currentTarget;
     [SerializeField] protected PlayerController[] targets;
+
+    [SerializeField] GameObject lowWallGO;
+    [SerializeField] SpriteRenderer lowWallRend;
+    [SerializeField] GameObject upWallGO;
+    [SerializeField] SpriteRenderer upWallRend;
+    [SerializeField] SpriteRenderer rend;
     protected virtual void Awake()
     {
         aiPathDestination = GetComponent<AIDestinationSetter>();
         targets = FindObjectsOfType<PlayerController>();
         aiPath = GetComponent<AIPath>();
 
+        rend = GetComponent<SpriteRenderer>();
+        SearchUpDownWall();
         aiPath.maxSpeed = speed;
         currentDistanceWhitPlayer = transform.position - targets[0].transform.position;
         aiPathDestination.target = targets[0].transform;
@@ -39,6 +47,18 @@ public class Enemy : Character
     {
         if (OnStartEnemy != null)
             OnStartEnemy(this);
+    }
+    void SearchUpDownWall() {
+        upWallGO = null;
+        lowWallGO = null;
+
+        upWallGO = GameObject.FindGameObjectWithTag("WallUp");
+        lowWallGO = GameObject.FindGameObjectWithTag("WallDown");
+
+        if (upWallGO != null)
+            upWallRend = upWallGO.GetComponent<SpriteRenderer>();
+        if (lowWallGO != null)
+            lowWallRend = lowWallGO.GetComponent<SpriteRenderer>();
     }
     private void OnEnable()
     {
@@ -50,6 +70,19 @@ public class Enemy : Character
     }
     protected virtual void Update()
     {
+
+        if (upWallGO != null && lowWallGO != null) {
+            if (lowWallGO.transform.position.y < transform.position.y + 0.5f)
+                rend.sortingOrder = lowWallRend.sortingOrder - 1;
+            else
+                rend.sortingOrder = lowWallRend.sortingOrder + 1;
+
+            if (upWallGO.transform.position.y < transform.position.y + 0.5f)
+                rend.sortingOrder = upWallRend.sortingOrder - 1;
+            else
+                rend.sortingOrder = upWallRend.sortingOrder + 1;
+        }
+
         CheckCurrentTarget();
     }
     public void CheckCurrentTarget()
