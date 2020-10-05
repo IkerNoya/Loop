@@ -69,6 +69,7 @@ public class PlayerController : Character
     }
     void Update()
     {
+        Debug.Log(transform.position.normalized);
         if (!ActivateDash)
         {
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

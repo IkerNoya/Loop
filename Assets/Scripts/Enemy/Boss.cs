@@ -47,11 +47,13 @@ public class Boss : MonoBehaviour {
             return;
 
         if (collision.gameObject.CompareTag("Player")) {
-            player.ReceiveDamage(damageHit);
-            attacking = false;
-            if (player == null) {
-                StopCoroutine(PrepareAttack());
-                StopCoroutine(Attack());
+            if (!player.GetDash()) {
+                player.ReceiveDamage(damageHit);
+                attacking = false;
+                if (player == null) {
+                    StopCoroutine(PrepareAttack());
+                    StopCoroutine(Attack());
+                }
             }
         }
     }
@@ -70,7 +72,7 @@ public class Boss : MonoBehaviour {
 
         int attackPosibilities = Random.Range(0, 100);
 
-        if (attackPosibilities <= 0) {
+        if (attackPosibilities <= 25) {
             while (transform.position != posToAttack) {
                 transform.position = Vector2.MoveTowards(transform.position, posToAttack, speed * Time.deltaTime);
                 yield return null;
@@ -78,7 +80,7 @@ public class Boss : MonoBehaviour {
             yield return new WaitForSeconds(0.1f);
         }
         else {
-            float timeBetweenAttacks = 0.1f;
+            float timeBetweenAttacks = 0.05f;
             for(int i = 0; i < maxLaserSpheresToShoot; i++) {
 
                 BossLaserSphere bls = Instantiate(laserSphere, transform.position, Quaternion.identity);

@@ -32,8 +32,10 @@ public class BossLaserSphere : MonoBehaviour
     }
 
     IEnumerator MoveToObjective() {
-        while(transform.position != objective) {
-            transform.position = Vector3.MoveTowards(transform.position, objective, speed * Time.deltaTime);
+        Destroy(this.gameObject, 1.5f);
+        Debug.Log(objective.normalized);
+        while(true) {
+            transform.position += objective.normalized * speed * Time.deltaTime;
             yield return null;
         }
 

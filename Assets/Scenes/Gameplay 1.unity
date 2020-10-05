@@ -266,6 +266,11 @@ PrefabInstance:
     - target: {fileID: 2480960038617234107, guid: 645fcd97a67a01447af8fe79f372444e,
         type: 3}
       propertyPath: maxLaserSpheresToShoot
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480960038617234107, guid: 645fcd97a67a01447af8fe79f372444e,
+        type: 3}
+      propertyPath: damageHit
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3667376772791677561, guid: 645fcd97a67a01447af8fe79f372444e,
