@@ -128,9 +128,7 @@ public class GeneradorEnemys : MonoBehaviour
                     case TypeEnemysGenerates.GenerateAll:
                         if (optionGeneration <= porcentageGenerationCientifico && optionGeneration >= 0)
                         {
-                            //go = Instantiate(cientifico_GO, (transform.position + relativePosition), Quaternion.identity, parentEnemys.transform);
-                            //e = go.GetComponent<Enemy>();
-                            //e.
+                            Instantiate(cientifico_GO, (transform.position + relativePosition), Quaternion.identity, parentEnemys.transform);
                         }
                         else if(optionGeneration > porcentageGenerationCientifico 
                             && optionGeneration <= porcentageGenerationSecurityGuard + porcentageGenerationCientifico)

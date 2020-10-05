@@ -249,7 +249,7 @@ MonoBehaviour:
   shakeDuration: 0.2
   shakeMagnitudeShotgun: 0.1
   shakeMagnitudeSMG: 0.05
-  shakeMagnitudeRevolver: 0
+  shakeMagnitudeRevolver: 0.075
   damageShootgun: 15
   damageRevolver: 10
   damageSMG: 8

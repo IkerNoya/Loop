@@ -231,6 +231,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   levelManager: {fileID: 0}
+  inLevel: 0
 --- !u!114 &6512081092837014540
 MonoBehaviour:
   m_ObjectHideFlags: 0

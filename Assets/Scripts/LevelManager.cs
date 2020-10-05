@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour {
     private void OnEnable()
     {
         CleanLevel.OnClearLevel += CheckNextLevel;
+        PlayerController.DoorEnter += ChangeLevel;
     }
     private void OnDisable()
     {
