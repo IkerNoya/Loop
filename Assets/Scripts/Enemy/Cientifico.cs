@@ -19,6 +19,8 @@ public class Cientifico : Enemy
     private float auxDelayFakazo;
     private float auxDelayFakazoEnable;
 
+    [SerializeField] Animator animator;
+
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip soundHit;
 
@@ -93,10 +95,12 @@ public class Cientifico : Enemy
         {
             case (int)EstadosGuardia.Idle:
                 StopAIPathDestination();
+                StartIdle();
                 callAlies = true;
                 break;
             case (int)EstadosGuardia.Perseguir:
                 StartAIPathDestination();
+                StartRun();
                 if (callAlies && enableCallAlies)
                 {
                     if (OnDetectedPlayer != null)
@@ -105,6 +109,7 @@ public class Cientifico : Enemy
                 }
                 break;
             case (int)EstadosGuardia.Atacar:
+                StartAttack();
                 if (currentTarget != null)
                 {
                     //Debug.Log("ATAQUE");
@@ -122,6 +127,24 @@ public class Cientifico : Enemy
         CheckPlayerInRangePerseguir();
         CheckPlayerInRangeAttack();
     }
+
+
+    void StartIdle() {
+        animator.SetBool("Moving", false);
+        animator.SetBool("Idle", true);
+        animator.SetBool("Attacking", false);
+    }
+    void StartRun() {
+        animator.SetBool("Moving", true);
+        animator.SetBool("Idle", false);
+        animator.SetBool("Attacking", false);
+    }
+    void StartAttack() {
+        animator.SetBool("Moving", false);
+        animator.SetBool("Idle", false);
+        animator.SetBool("Attacking", true);
+    }
+
     public void CheckPlayerInRangePerseguir()
     {
         Vector3 currentDistance = Vector3.zero;

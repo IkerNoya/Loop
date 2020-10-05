@@ -15,6 +15,8 @@ public class SecurityGuard : Enemy {
     [SerializeField] AudioClip soundShotgun;
     [SerializeField] AudioClip soundRevolver;
 
+    [SerializeField] Animator animator;
+
     public enum EstadosGuardia {
         Idle,
         Perseguir,
@@ -76,9 +78,20 @@ public class SecurityGuard : Enemy {
             case (int)EstadosGuardia.Idle:
                 StopAIPathDestination();
                 callAlies = true;
+                if (weapons.type == Weapons.WeaponType.subMachineGun || weapons.type == Weapons.WeaponType.Shotgun)
+                    StartIdleSMG();
+                else
+                    StartIdlePistol();
+
                 break;
             case (int)EstadosGuardia.Perseguir:
                 StartAIPathDestination();
+
+                if (weapons.type == Weapons.WeaponType.subMachineGun || weapons.type == Weapons.WeaponType.Shotgun)
+                    StartRunSMG ();
+                else
+                    StartRunPistol();
+
                 if (callAlies && enableCallAlies) {
                     if (OnDetectedPlayer != null)
                         OnDetectedPlayer(this, (int)EstadosGuardia.Perseguir);
@@ -86,6 +99,12 @@ public class SecurityGuard : Enemy {
                 }
                 break;
             case (int)EstadosGuardia.Atacar:
+
+                if (weapons.type == Weapons.WeaponType.subMachineGun || weapons.type == Weapons.WeaponType.Shotgun)
+                    StartAttackSMG();
+                else
+                    StartAttackPistol();
+
                 if (currentTarget != null) {
                     callAlies = true;
                     aiPath.maxSpeed = speedAttack;
@@ -103,6 +122,65 @@ public class SecurityGuard : Enemy {
         CheckPlayerInRangeAttack();
         test = (EstadosGuardia)fsm.GetCurrentState();
     }
+
+    void StartIdleSMG() {
+        animator.SetBool("Idle_SMG", true);
+        animator.SetBool("Attack_SMG", false);
+        animator.SetBool("Run_SMG", false);
+        animator.SetBool("Attack_Pistol", false);
+        animator.SetBool("Idle_Pistol", false);
+        animator.SetBool("Run_Pistol", false);
+    }
+    void StartIdlePistol() {
+        animator.SetBool("Idle_SMG", false);
+        animator.SetBool("Attack_SMG", false);
+        animator.SetBool("Run_SMG", false);
+        animator.SetBool("Attack_Pistol", false);
+        animator.SetBool("Idle_Pistol", true);
+        animator.SetBool("Run_Pistol", false);
+    }
+    void StartAttackSMG() {
+        animator.SetBool("Idle_SMG", false);
+        animator.SetBool("Attack_SMG", true);
+        animator.SetBool("Run_SMG", false);
+        animator.SetBool("Attack_Pistol", false);
+        animator.SetBool("Idle_Pistol", false);
+        animator.SetBool("Run_Pistol", false);
+    }
+    void StartAttackPistol() {
+        animator.SetBool("Idle_SMG", false);
+        animator.SetBool("Attack_SMG", false);
+        animator.SetBool("Run_SMG", false);
+        animator.SetBool("Attack_Pistol", true);
+        animator.SetBool("Idle_Pistol", false);
+        animator.SetBool("Run_Pistol", false);
+    }
+    void StartRunSMG() {
+        animator.SetBool("Idle_SMG", false);
+        animator.SetBool("Attack_SMG", false);
+        animator.SetBool("Run_SMG", true);
+        animator.SetBool("Attack_Pistol", false);
+        animator.SetBool("Idle_Pistol", false);
+        animator.SetBool("Run_Pistol", false);
+    }
+    void StartRunPistol() {
+        animator.SetBool("Idle_SMG", false);
+        animator.SetBool("Attack_SMG", false);
+        animator.SetBool("Run_SMG", false);
+        animator.SetBool("Attack_Pistol", false);
+        animator.SetBool("Idle_Pistol", false);
+        animator.SetBool("Run_Pistol", true);
+    }
+
+
+
+
+
+
+
+
+
+
     public void CheckPlayerInRangePerseguir() {
         Vector3 currentDistance = Vector3.zero;
         if (currentTarget != null) {
