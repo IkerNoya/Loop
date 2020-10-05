@@ -15,6 +15,8 @@ public class PlayerController : Character
     [SerializeField] float shakeDuration = 0.2f;
     [SerializeField] string playerInputHorizontal;
     [SerializeField] string playerInputVertical;
+    [SerializeField] GameObject upperWall;
+    [SerializeField] GameObject lowerWall;
     [HideInInspector] public Vector3 lastMousePosition;
     public static event Action<PlayerController> OnDiePlayer;
     Vector3 mousePosition;
@@ -23,6 +25,8 @@ public class PlayerController : Character
     SpriteRenderer shotgunSpriteRenderer;
     SpriteRenderer smgSpriteRenderer;
     SpriteRenderer revolverSpriteRenderer;
+    SpriteRenderer upperWallRenderer;
+    SpriteRenderer lowerWallRenderer;
     Weapons weapons;
     Rigidbody2D rb;
 
@@ -55,7 +59,8 @@ public class PlayerController : Character
         shotgunSpriteRenderer = shotgun.GetComponent<SpriteRenderer>();
         smgSpriteRenderer = smg.GetComponent<SpriteRenderer>();
         revolverSpriteRenderer = revolver.GetComponent<SpriteRenderer>();
-
+        upperWallRenderer = upperWall.GetComponent<SpriteRenderer>();
+        lowerWallRenderer = lowerWall.GetComponent<SpriteRenderer>();
     }
     void Update()
     {
@@ -64,7 +69,6 @@ public class PlayerController : Character
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             movement = new Vector2(Input.GetAxis(playerInputHorizontal), Input.GetAxis(playerInputVertical)) * speed;
             Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-
             switch (selection)
             {
                 case WeaponSelected.Shotgun:
@@ -173,17 +177,25 @@ public class PlayerController : Character
                     }
                     break;
             }
-            if (shotgun.transform.position.y > transform.position.y)
+            if (shotgun.transform.position.y > transform.position.y || smg.transform.position.y > transform.position.y || revolver.transform.position.y > transform.position.y)
             {
-                shotgunSpriteRenderer.sortingOrder = 1;
-                smgSpriteRenderer.sortingOrder = 1;
-                revolverSpriteRenderer.sortingOrder = 1;
+                shotgunSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder -1;
+                smgSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder - 1;
+                revolverSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder - 1;
             }
-            else
+            else if(shotgun.transform.position.y < transform.position.y || smg.transform.position.y < transform.position.y || revolver.transform.position.y < transform.position.y)
             {
-                shotgunSpriteRenderer.sortingOrder = 3;
-                smgSpriteRenderer.sortingOrder = 3;
-                revolverSpriteRenderer.sortingOrder = 3;
+                shotgunSpriteRenderer.sortingOrder = 1 + spriteRenderer.sortingOrder;
+                smgSpriteRenderer.sortingOrder = 1 + spriteRenderer.sortingOrder;
+                revolverSpriteRenderer.sortingOrder = 1 + spriteRenderer.sortingOrder;
+            }
+            if(upperWall!=null && lowerWall != null)
+            {
+                if (lowerWall.transform.position.y < transform.position.y) lowerWallRenderer.sortingOrder = spriteRenderer.sortingOrder + 2;
+                else lowerWallRenderer.sortingOrder = spriteRenderer.sortingOrder - 1;
+
+                if (upperWall.transform.position.y < transform.position.y) upperWallRenderer.sortingOrder = spriteRenderer.sortingOrder + 1;
+                else upperWallRenderer.sortingOrder = spriteRenderer.sortingOrder - 1;
             }
             Inputs();
         }
@@ -312,7 +324,10 @@ public class PlayerController : Character
         }
 
         if (Input.GetKey(KeyCode.A))
+        {
             playerAnims.StartAnimMoveSide();
+        }
+           
 
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -320,7 +335,10 @@ public class PlayerController : Character
         }
 
         if (Input.GetKey(KeyCode.D))
+        {
             playerAnims.StartAnimMoveSide();
+        }
+            
 
         if (Input.GetMouseButton(1))
         {

@@ -705,6 +705,9 @@ MonoBehaviour:
   shakeDuration: 0.2
   playerInputHorizontal: Horizontal
   playerInputVertical: Vertical
+  upperWall: {fileID: 0}
+  lowerWall: {fileID: 0}
+  movementParticles: {fileID: 0}
   lastMousePosition: {x: 0, y: 0, z: 0}
   cannonPos:
   - {fileID: 8468597519667731859}
@@ -754,6 +757,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   levelManager: {fileID: 0}
+  inLevel: 0
 --- !u!114 &2330985499436395642
 MonoBehaviour:
   m_ObjectHideFlags: 0
