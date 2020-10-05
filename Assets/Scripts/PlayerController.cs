@@ -28,7 +28,6 @@ public class PlayerController : Character
     SpriteRenderer lowerWallRenderer;
     Weapons weapons;
     Rigidbody2D rb;
-    int originalSortingOrder;
 
     [SerializeField] GameObject[] cannonPos;
 
@@ -61,7 +60,6 @@ public class PlayerController : Character
         revolverSpriteRenderer = revolver.GetComponent<SpriteRenderer>();
         upperWallRenderer = upperWall.GetComponent<SpriteRenderer>();
         lowerWallRenderer = lowerWall.GetComponent<SpriteRenderer>();
-        originalSortingOrder = spriteRenderer.sortingOrder;
     }
     void Update()
     {
@@ -70,7 +68,6 @@ public class PlayerController : Character
             mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             movement = new Vector2(Input.GetAxis(playerInputHorizontal), Input.GetAxis(playerInputVertical)) * speed;
             Vector2 dir = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-
             switch (selection)
             {
                 case WeaponSelected.Shotgun:
@@ -315,7 +312,10 @@ public class PlayerController : Character
         }
 
         if (Input.GetKey(KeyCode.A))
+        {
             playerAnims.StartAnimMoveSide();
+        }
+           
 
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -323,7 +323,10 @@ public class PlayerController : Character
         }
 
         if (Input.GetKey(KeyCode.D))
+        {
             playerAnims.StartAnimMoveSide();
+        }
+            
 
         if (Input.GetMouseButton(1))
         {
