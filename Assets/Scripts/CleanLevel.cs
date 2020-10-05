@@ -21,7 +21,7 @@ public class CleanLevel : MonoBehaviour
     {
         GenerateCorps.OnCorpGenerateBlood += AddListClean;
         GenerateCorps.OnCorpGenerateCorpse += AddListClean;
-        
+        SettingDestroyObjects();
     }
     public void AddListClean(GenerateCorps gc, GameObject go, bool recycled)
     {

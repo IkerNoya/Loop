@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Boss : MonoBehaviour {
     [SerializeField] float hp;
@@ -9,7 +10,7 @@ public class Boss : MonoBehaviour {
     bool attacking = false;
     [SerializeField] PlayerController player;
     [SerializeField] float timeStopped;
-    
+
     [SerializeField] Vector3 posToAttack;
 
     [SerializeField] float damageLaser;
@@ -18,6 +19,7 @@ public class Boss : MonoBehaviour {
     [SerializeField] int maxLaserSpheresToShoot;
 
     public Transform target;
+    float timer;
 
     [SerializeField] GameObject[] doorsToUse;
     [SerializeField] Enemy[] enemies;
@@ -25,6 +27,10 @@ public class Boss : MonoBehaviour {
     [SerializeField] Cientifico cfc;
     [SerializeField] int enemiesToCreate;
     [SerializeField] Transform enemyParent;
+
+
+    public delegate void BossDead();
+    public static event BossDead DeadBoss;
 
     void Start() {
         player = FindObjectOfType<PlayerController>();
@@ -36,7 +42,35 @@ public class Boss : MonoBehaviour {
     private void OnEnable() {
         StartCoroutine(LateStart());
     }
-
+    void SpawnEnemies(float timeLimit, ref float time) {
+        if (time >= timeLimit) {
+            int rand = UnityEngine.Random.Range(0, 2);
+            Debug.Log(rand);
+             if (rand == 0) {
+                 SecurityGuard e1 = Instantiate(sg,doorsToUse[0].transform.position,Quaternion.identity,enemyParent);
+                 e1.distancePlayerInRange = 1000;
+                 e1.fsm.SendEvent((int)SecurityGuard.EventosGuardia.EnRangoDeAtaque);
+             }
+             else {
+                 Cientifico e1 = Instantiate(cfc,doorsToUse[0].transform.position,Quaternion.identity,enemyParent);
+                 e1.distanceInAttackRange = 1000;
+                 e1.fsm.SendEvent((int)Cientifico.EventosGuardia.EnRangoDeAtaque);
+             }
+             rand = UnityEngine.Random.Range(0, 2);
+            
+             if (rand == 0) {
+                 SecurityGuard e1 = Instantiate(sg,doorsToUse[1].transform.position,Quaternion.identity,enemyParent);
+                 e1.distancePlayerInRange = 1000;
+                 e1.fsm.SendEvent((int)SecurityGuard.EventosGuardia.EnRangoDeAtaque);
+             }
+             else {
+                 Cientifico e1 = Instantiate(cfc,doorsToUse[1].transform.position,Quaternion.identity,enemyParent);
+                 e1.distanceInAttackRange = 1000;
+                e1.fsm.SendEvent((int)Cientifico.EventosGuardia.EnRangoDeAtaque);
+            }
+            timer = 0;
+        }
+    }
     IEnumerator LateStart() {
         yield return new WaitForSeconds(3.0f);
         StartCoroutine(PrepareAttack());
@@ -53,6 +87,8 @@ public class Boss : MonoBehaviour {
         if (player == null) {
             transform.Rotate(Vector3.forward * 180f * Time.deltaTime, Space.Self);
         }
+        timer += Time.deltaTime;
+        SpawnEnemies(10f, ref timer);
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
@@ -83,7 +119,7 @@ public class Boss : MonoBehaviour {
     IEnumerator Attack() {
         attacking = true;
 
-        int attackPosibilities = Random.Range(95, 100);
+        int attackPosibilities = UnityEngine.Random.Range(0, 100);
 
         if (attackPosibilities <= 25) {
             while (transform.position != posToAttack) {
@@ -100,53 +136,40 @@ public class Boss : MonoBehaviour {
 
                 yield return new WaitForSeconds(timeBetweenAttacks);
             }
+
         }
-        else {
-            float timeToSpawn = 3f;
-            int rand = Random.Range(0, 2);
-            Debug.Log(rand);
-            if (rand == 0) {
-                SecurityGuard e1 = Instantiate(sg, 
-                    doorsToUse[0].transform.position, 
-                    Quaternion.identity,
-                    enemyParent);
-                e1.distancePlayerInRange = 1000;
-                e1.fsm.SendEvent((int)SecurityGuard.EventosGuardia.EnRangoDeAtaque);
-            }
-            else {
-                Cientifico e1 = Instantiate(cfc, 
-                    doorsToUse[0].transform.position, 
-                    Quaternion.identity, 
-                    enemyParent);
-                e1.distanceInAttackRange = 1000;
-                e1.fsm.SendEvent((int)Cientifico.EventosGuardia.EnRangoDeAtaque);
-            }
-            rand = Random.Range(0, 2);
+        //else {
+        //    float timeToSpawn = 3f;
+        //    int rand = Random.Range(0, 2);
+        //    Debug.Log(rand);
+        //    if (rand == 0) {
+        //        SecurityGuard e1 = Instantiate(sg,doorsToUse[0].transform.position,Quaternion.identity,enemyParent);
+        //        e1.distancePlayerInRange = 1000;
+        //        e1.fsm.SendEvent((int)SecurityGuard.EventosGuardia.EnRangoDeAtaque);
+        //    }
+        //    else {
+        //        Cientifico e1 = Instantiate(cfc,doorsToUse[0].transform.position,Quaternion.identity,enemyParent);
+        //        e1.distanceInAttackRange = 1000;
+        //        e1.fsm.SendEvent((int)Cientifico.EventosGuardia.EnRangoDeAtaque);
+        //    }
+        //    rand = Random.Range(0, 2);
 
-            if (rand == 0) {
-                SecurityGuard e1 = Instantiate(sg, 
-                    doorsToUse[0].transform.position, 
-                    Quaternion.identity, 
-                    enemyParent);
-                e1.distancePlayerInRange = 1000;
-                e1.fsm.SendEvent((int)SecurityGuard.EventosGuardia.EnRangoDeAtaque);
-            }
-            else {
-
-                Cientifico e1 = Instantiate(cfc, 
-                    doorsToUse[0].transform.position,
-                    Quaternion.identity,
-                    enemyParent);
-                e1.distanceInAttackRange = 1000;
-                e1.fsm.SendEvent((int)Cientifico.EventosGuardia.EnRangoDeAtaque);
-
-            }
+        //    if (rand == 0) {
+        //        SecurityGuard e1 = Instantiate(sg,doorsToUse[1].transform.position,Quaternion.identity,enemyParent);
+        //        e1.distancePlayerInRange = 1000;
+        //        e1.fsm.SendEvent((int)SecurityGuard.EventosGuardia.EnRangoDeAtaque);
+        //    }
+        //    else {
+        //        Cientifico e1 = Instantiate(cfc,doorsToUse[1].transform.position,Quaternion.identity,enemyParent);
+        //        e1.distanceInAttackRange = 1000;
+        //        e1.fsm.SendEvent((int)Cientifico.EventosGuardia.EnRangoDeAtaque);
+        //    }
 
 
-            Debug.Log(rand);
+        //    Debug.Log(rand);
 
-            yield return new WaitForSeconds(10);
-        }
+        //    yield return new WaitForSeconds(10);
+        //}
 
         StopCoroutine(Attack());
         if (player != null)
@@ -157,6 +180,9 @@ public class Boss : MonoBehaviour {
     public void ReceiveDamage(float d) {
         hp -= d;
         if (hp <= 0) {
+            if (DeadBoss != null)
+                DeadBoss();
+
             Destroy(this.gameObject);
         }
     }
