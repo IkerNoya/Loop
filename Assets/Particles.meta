@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Particles.meta
 guid: 5fab4edb193358e46ae0e6249d84f104
+=======
+<<<<<<< HEAD:Assets/Package.meta
+guid: 7716841771ed3674390365e4173ba609
+=======
+guid: 8d6ae9cc2499ff442b67bc2d5c82ce92
+>>>>>>> 4052f12a1ed7611d23591b998735c72a68f4ac47:Assets/Sfx.meta
+>>>>>>> Stashed changes:Assets/Sfx.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

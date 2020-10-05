@@ -51,6 +51,8 @@ public class PlayerController : Character
     #region BASE_FUNCTIONS
     void Start()
     {
+        ChangedLevel(null);
+        LevelManager.ChangedLevel += ChangedLevel;
         weapons = GetComponent<Weapons>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         screenShake = FindObjectOfType<CameraShake>();
@@ -58,10 +60,10 @@ public class PlayerController : Character
         shotgunSpriteRenderer = shotgun.GetComponent<SpriteRenderer>();
         smgSpriteRenderer = smg.GetComponent<SpriteRenderer>();
         revolverSpriteRenderer = revolver.GetComponent<SpriteRenderer>();
-        if(upperWall != null)
-            upperWallRenderer = upperWall.GetComponent<SpriteRenderer>();
-        if(lowerWall != null)
-            lowerWallRenderer = lowerWall.GetComponent<SpriteRenderer>();
+       
+    }
+    private void OnDisable() {
+        LevelManager.ChangedLevel -= ChangedLevel;
     }
     void Update()
     {
@@ -210,6 +212,18 @@ public class PlayerController : Character
             StartCoroutine(Dash());
             StartCoroutine(DashCooldown());
         }
+    }
+
+    void ChangedLevel(LevelManager lm) {
+
+        upperWall = null;
+        lowerWall = null;
+
+        upperWall = GameObject.FindGameObjectWithTag("WallUp");
+        lowerWall = GameObject.FindGameObjectWithTag("WallDown");
+
+        upperWallRenderer = upperWall.GetComponent<SpriteRenderer>();
+        lowerWallRenderer = lowerWall.GetComponent<SpriteRenderer>();
     }
 
     #endregion
