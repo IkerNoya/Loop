@@ -38,6 +38,6 @@ public class MainMenuController : MonoBehaviour
     public void DisableMenu()
     {
         Time.timeScale = 1;
-        gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
