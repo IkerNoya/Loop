@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SocialPlatforms.GameCenter;
 
 public class Bullet : MonoBehaviour
@@ -17,7 +18,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float lifeTime;
     [SerializeField] GameObject bullet;
-    [SerializeField] ParticleSystem particles;
+    [SerializeField] GameObject particles;
     float damage;
     GameObject player;
     Weapons weaponType;
@@ -95,6 +96,7 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject, lifeTime + revolverLifetimeOffset);
                 break;
         }
+        transform.rotation = Quaternion.Euler(0, 0, 90);
     }
 
     private void Update()
@@ -106,18 +108,26 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Boss"))
         {
             collision.gameObject.GetComponent<Boss>().ReceiveDamage(GetDamage());
-            movement *= -1 / 2;
-            Destroy(bullet);
-            particles.Play();
-            Destroy(gameObject, 1.0f);
+            float x;
+            if ((movement.normalized.x > 0.5f && movement.normalized.x < 0.9f) || (movement.normalized.x < -0.5f && movement.normalized.x > -0.9f))
+                x = movement.x;
+            else
+                x = 0;
+            GameObject go = Instantiate(particles, transform.position, Quaternion.LookRotation(new Vector3(x, -movement.y, 0)));
+            Destroy(gameObject);
+            Destroy(go, 1.0f);
             return;
         }
         if (collision.gameObject.CompareTag("Walls") || collision.gameObject.CompareTag("WallUp") || collision.gameObject.CompareTag("WallDown"))
         {
-            movement *= -1 / 2;
-            Destroy(bullet);
-            particles.Play();
-            Destroy(gameObject, 1.0f);
+            float x;
+            if ((movement.normalized.x > 0.5f && movement.normalized.x < 0.9f) || (movement.normalized.x < -0.5f && movement.normalized.x > -0.9f))
+                x = movement.x;
+            else
+                x = 0;
+            GameObject go = Instantiate(particles, transform.position, Quaternion.LookRotation(new Vector3(x, -movement.y, 0)));
+            Destroy(gameObject);
+            Destroy(go, 1.0f);
         }
     }
     public void SetUser(User _user)
