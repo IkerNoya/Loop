@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour {
     [SerializeField] float hp;
-    [SerializeField] float damage;
     [SerializeField] float speed;
     bool attacking = false;
     [SerializeField] PlayerController player;
     [SerializeField] float timeStopped;
     [SerializeField] Vector3 posToAttack;
+
+    [SerializeField] float damageLaser;
+    [SerializeField] float damageHit;
+    [SerializeField] BossLaserSphere laserSphere;
+    [SerializeField] int maxLaserSpheresToShoot;
+
     void Start() {
         player = FindObjectOfType<PlayerController>();
     }
@@ -34,7 +39,7 @@ public class Boss : MonoBehaviour {
             return;
 
         if (collision.gameObject.CompareTag("Player")) {
-            player.ReceiveDamage(damage);
+            player.ReceiveDamage(damageHit);
             attacking = false;
             if (player == null) {
                 StopCoroutine(PrepareAttack());
@@ -54,13 +59,28 @@ public class Boss : MonoBehaviour {
     }
     IEnumerator Attack() {
         attacking = true;
-        Vector2 dir = new Vector2(posToAttack.x - transform.position.x, posToAttack.y - transform.position.y);
-        transform.up = dir;
-        while (transform.position != posToAttack) {
-            transform.position = Vector2.MoveTowards(transform.position, posToAttack, speed * Time.deltaTime);
-            yield return null;
+
+        int attackPosibilities = Random.Range(0, 100);
+
+        if (attackPosibilities <= 25) {
+            while (transform.position != posToAttack) {
+                transform.position = Vector2.MoveTowards(transform.position, posToAttack, speed * Time.deltaTime);
+                yield return null;
+            }
+            yield return new WaitForSeconds(0.1f);
         }
-        yield return new WaitForSeconds(0.1f);
+        else {
+            float timeBetweenAttacks = 0.1f;
+            for(int i = 0; i < maxLaserSpheresToShoot; i++) {
+
+                BossLaserSphere bls = Instantiate(laserSphere, transform.position, Quaternion.identity);
+                if (player != null)
+                    bls.SetObjective(player.transform.position);
+
+                yield return new WaitForSeconds(timeBetweenAttacks);
+            }
+        }
+
         StopCoroutine(Attack());
         if (player != null) 
             StartCoroutine(PrepareAttack());

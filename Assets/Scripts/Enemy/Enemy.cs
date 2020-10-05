@@ -86,7 +86,7 @@ public class Enemy : Character
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Bullet")
+        if (collision.CompareTag("Bullet"))
         {
             //Debug.Log("OUCH");
             Bullet b = collision.GetComponent<Bullet>();

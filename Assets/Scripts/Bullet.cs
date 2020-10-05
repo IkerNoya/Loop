@@ -105,7 +105,11 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Boss"))
         {
-            collision.gameObject.GetComponent<Boss>().ReceiveDamage(1f);
+            collision.gameObject.GetComponent<Boss>().ReceiveDamage(GetDamage());
+            movement *= -1 / 2;
+            Destroy(bullet);
+            particles.Play();
+            Destroy(gameObject, 1.0f);
             return;
         }
         if (collision.gameObject.CompareTag("Walls") || collision.gameObject.CompareTag("WallUp") || collision.gameObject.CompareTag("WallDown"))
