@@ -59,8 +59,10 @@ public class PlayerController : Character
         shotgunSpriteRenderer = shotgun.GetComponent<SpriteRenderer>();
         smgSpriteRenderer = smg.GetComponent<SpriteRenderer>();
         revolverSpriteRenderer = revolver.GetComponent<SpriteRenderer>();
-        upperWallRenderer = upperWall.GetComponent<SpriteRenderer>();
-        lowerWallRenderer = lowerWall.GetComponent<SpriteRenderer>();
+        if(upperWall != null)
+            upperWallRenderer = upperWall.GetComponent<SpriteRenderer>();
+        if(lowerWall != null)
+            lowerWallRenderer = lowerWall.GetComponent<SpriteRenderer>();
     }
     void Update()
     {
