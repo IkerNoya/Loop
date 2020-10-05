@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class PlayerController : Character
 {
     #region VARIABLES
@@ -16,6 +16,7 @@ public class PlayerController : Character
     [SerializeField] string playerInputHorizontal;
     [SerializeField] string playerInputVertical;
     [HideInInspector] public Vector3 lastMousePosition;
+    public static event Action<PlayerController> OnDiePlayer;
     Vector3 mousePosition;
     Vector3 movement;
     SpriteRenderer spriteRenderer;
@@ -201,6 +202,17 @@ public class PlayerController : Character
     #endregion
 
     #region FUNCTIONS
+    public void CheckDie()
+    {
+        if (GetHP() <= 0)
+        {
+            SetHP(1);
+            if (OnDiePlayer != null)
+                OnDiePlayer(this);
+            SetHP(0);
+        }
+    }
+
     void Inputs()
     {
         if (weapons != null)
@@ -213,7 +225,7 @@ public class PlayerController : Character
 
                         if (weapons.GetCanShoot())
                         {
-                            lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f) + new Vector3((float)Random.Range(-1.75f, 1.75f), (float)Random.Range(-1.75f, 1.75f), 0f);
+                            lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f) + new Vector3((float)UnityEngine.Random.Range(-1.75f, 1.75f), (float)UnityEngine.Random.Range(-1.75f, 1.75f), 0f);
 
                             if (aimingRight)
                             {
@@ -263,7 +275,7 @@ public class PlayerController : Character
 
                         if (weapons.GetCanShoot())
                         {
-                            lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f) + new Vector3((float)Random.Range(-0.5f, 0.5f), (float)Random.Range(-0.5f, 0.5f), 0f);
+                            lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f) + new Vector3((float)UnityEngine.Random.Range(-0.5f, 0.5f), (float)UnityEngine.Random.Range(-0.5f, 0.5f), 0f);
 
                             if (aimingRight)
                             {
@@ -381,6 +393,7 @@ public class PlayerController : Character
                 if (bullet.GetUser() != Bullet.User.Player)
                 {
                     SetHP(GetHP() - bullet.GetDamage());
+                    CheckDie();
                     Destroy(bullet.gameObject);
                 }
             }

@@ -12,6 +12,7 @@ public class Faka : MonoBehaviour
         {
             PlayerController player = collision.GetComponent<PlayerController>();
             player.SetHP(player.GetHP() - damage);
+            player.CheckDie();
         }
     }
 

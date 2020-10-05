@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Theo Leyenda/TL_Menu.unity
+    guid: 08e1cee7721ab0a4390b2b324695a6d0
+  - enabled: 1
+    path: Assets/Scenes/Theo Leyenda/TL_Test.unity
+    guid: 5ab7230e094e29d4f95ab103d39cc4ed
+  - enabled: 1
+    path: Assets/Scenes/Gameplay.unity
+    guid: efcdc0357f49b264b8cd116a505b1c9c
   m_configObjects: {}

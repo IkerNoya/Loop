@@ -9,6 +9,8 @@ public class Enemy : Character
     public static event Action<Enemy> OnStartEnemy;
     public static event Action<Enemy> OnDieEnemy;
 
+    [SerializeField]
+    private bool dieOnPlayerDead = true;
     private AIDestinationSetter aiPathDestination;
     protected AIPath aiPath;
     protected FSM fsm;
@@ -38,6 +40,14 @@ public class Enemy : Character
         if (OnStartEnemy != null)
             OnStartEnemy(this);
     }
+    private void OnEnable()
+    {
+        PlayerController.OnDiePlayer += DeadForFinishGame;
+    }
+    private void OnDisable()
+    {
+        PlayerController.OnDiePlayer -= DeadForFinishGame;
+    }
     protected virtual void Update()
     {
         CheckCurrentTarget();
@@ -57,6 +67,10 @@ public class Enemy : Character
                 }
             }
         }
+    }
+    public void DeadForFinishGame(PlayerController p)
+    {
+        Destroy(gameObject);
     }
     public void StopAIPathDestination()
     {
