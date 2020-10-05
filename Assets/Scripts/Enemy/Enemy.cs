@@ -31,6 +31,7 @@ public class Enemy : Character
     [SerializeField] GameObject upWallGO;
     [SerializeField] SpriteRenderer upWallRend;
     [SerializeField] SpriteRenderer rend;
+
     protected virtual void Awake()
     {
         aiPathDestination = GetComponent<AIDestinationSetter>();
@@ -68,8 +69,11 @@ public class Enemy : Character
     {
         PlayerController.OnDiePlayer -= DeadForFinishGame;
     }
-    protected virtual void Update()
-    {
+    protected virtual void Update() {
+        if (targets[0].transform.position.x < transform.position.x)
+            rend.flipX = true;
+        else
+            rend.flipX = false;
 
         if (upWallGO != null && lowWallGO != null) {
             if (lowWallGO.transform.position.y < transform.position.y + 0.5f)
@@ -100,6 +104,11 @@ public class Enemy : Character
                 }
             }
         }
+    }
+
+    private void LateUpdate() {
+        transform.rotation = Quaternion.identity;
+
     }
     public void DeadForFinishGame(PlayerController p)
     {

@@ -8,10 +8,12 @@ public class MainMenuController : MonoBehaviour
     public GameObject camvasMainMenu;
     public GameObject camvasCredits;
     public GameObject camvasControls;
-
+    public GameObject gameplay;
+    public Music m;
     private void Start()
     {
         Time.timeScale = 0;
+        m.StartMusicMenu();
     }
     private void OnEnable()
     {
@@ -37,7 +39,9 @@ public class MainMenuController : MonoBehaviour
     }
     public void DisableMenu()
     {
+        m.StartMusicGameplay();
         Time.timeScale = 1;
         gameObject.SetActive(false);
+        gameplay.SetActive(true);
     }
 }

@@ -109,7 +109,7 @@ namespace Pathfinding {
 		/// If true, the AI will rotate to face the movement direction.
 		/// See: <see cref="orientation"/>
 		/// </summary>
-		public bool enableRotation = true;
+		public bool enableRotation = false;
 
 		/// <summary>
 		/// Position of the agent.
@@ -202,7 +202,7 @@ namespace Pathfinding {
 		/// See: <see cref="updatePosition"/>
 		/// </summary>
 		[System.NonSerialized]
-		public bool updateRotation = true;
+		public bool updateRotation = false;
 
 		/// <summary>Indicates if gravity is used during this frame</summary>
 		protected bool usingGravity { get; set; }

@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
         }
     }
     private void Start() {
-        m.StartMusicGameplay();
     }
     private void OnEnable()
     {
