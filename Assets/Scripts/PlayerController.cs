@@ -18,7 +18,6 @@ public class PlayerController : Character
     [SerializeField] GameObject upperWall;
     [SerializeField] GameObject lowerWall;
     [HideInInspector] public Vector3 lastMousePosition;
-    public static event Action<PlayerController> OnDiePlayer;
     Vector3 mousePosition;
     Vector3 movement;
     SpriteRenderer spriteRenderer;
@@ -28,7 +27,7 @@ public class PlayerController : Character
     SpriteRenderer upperWallRenderer;
     SpriteRenderer lowerWallRenderer;
     Weapons weapons;
-    Rigidbody2D rb;
+    Rigidbody2D rb; 
 
     [SerializeField] GameObject[] cannonPos;
 
@@ -413,7 +412,6 @@ public class PlayerController : Character
                 if (bullet.GetUser() != Bullet.User.Player)
                 {
                     SetHP(GetHP() - bullet.GetDamage());
-                    CheckDie();
                     Destroy(bullet.gameObject);
                 }
             }
