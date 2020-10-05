@@ -124,49 +124,31 @@ public class SecurityGuard : Enemy {
     }
 
     void StartIdleSMG() {
-        animator.SetBool("Idle_SMG", true);
-        animator.SetBool("Attack_SMG", false);
-        animator.SetBool("Run_SMG", false);
         animator.SetBool("Attack_Pistol", false);
-        animator.SetBool("Idle_Pistol", false);
+        animator.SetBool("Idle_Pistol", true);
         animator.SetBool("Run_Pistol", false);
     }
     void StartIdlePistol() {
-        animator.SetBool("Idle_SMG", false);
-        animator.SetBool("Attack_SMG", false);
-        animator.SetBool("Run_SMG", false);
         animator.SetBool("Attack_Pistol", false);
         animator.SetBool("Idle_Pistol", true);
         animator.SetBool("Run_Pistol", false);
     }
     void StartAttackSMG() {
-        animator.SetBool("Idle_SMG", false);
-        animator.SetBool("Attack_SMG", true);
-        animator.SetBool("Run_SMG", false);
-        animator.SetBool("Attack_Pistol", false);
+        animator.SetBool("Attack_Pistol", true);
         animator.SetBool("Idle_Pistol", false);
         animator.SetBool("Run_Pistol", false);
     }
     void StartAttackPistol() {
-        animator.SetBool("Idle_SMG", false);
-        animator.SetBool("Attack_SMG", false);
-        animator.SetBool("Run_SMG", false);
         animator.SetBool("Attack_Pistol", true);
         animator.SetBool("Idle_Pistol", false);
         animator.SetBool("Run_Pistol", false);
     }
     void StartRunSMG() {
-        animator.SetBool("Idle_SMG", false);
-        animator.SetBool("Attack_SMG", false);
-        animator.SetBool("Run_SMG", true);
         animator.SetBool("Attack_Pistol", false);
         animator.SetBool("Idle_Pistol", false);
-        animator.SetBool("Run_Pistol", false);
+        animator.SetBool("Run_Pistol", true);
     }
     void StartRunPistol() {
-        animator.SetBool("Idle_SMG", false);
-        animator.SetBool("Attack_SMG", false);
-        animator.SetBool("Run_SMG", false);
         animator.SetBool("Attack_Pistol", false);
         animator.SetBool("Idle_Pistol", false);
         animator.SetBool("Run_Pistol", true);
