@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     bool enableCheckNextLevel = false;
     public static GameManager instanceGM;
     [SerializeField] Music m;
+    [SerializeField] GameObject camvasGameOver;
     private void Awake()
     {
         if (instanceGM == null)
@@ -28,11 +29,13 @@ public class GameManager : MonoBehaviour
     {
         Enemy.OnStartEnemy += AddedEnemy;
         Enemy.OnDieEnemy += SubstractEnemy;
+        PlayerController.OnDiePlayer += EnableCamvasGameOver;
     }
     private void OnDisable()
     {
         Enemy.OnStartEnemy -= AddedEnemy;
         Enemy.OnDieEnemy -= SubstractEnemy;
+        PlayerController.OnDiePlayer -= EnableCamvasGameOver;
     }
 
     public int GetCurrentCountEnemy()
@@ -66,5 +69,9 @@ public class GameManager : MonoBehaviour
     public bool GetEnableCheckNextLevel()
     {
         return enableCheckNextLevel;
+    }
+    public void EnableCamvasGameOver(PlayerController p)
+    {
+        camvasGameOver.SetActive(true);
     }
 }
