@@ -44,30 +44,13 @@ public class Boss : MonoBehaviour {
     }
     void SpawnEnemies(float timeLimit, ref float time) {
         if (time >= timeLimit) {
-            int rand = UnityEngine.Random.Range(0, 2);
-            Debug.Log(rand);
-             if (rand == 0) {
-                 SecurityGuard e1 = Instantiate(sg,doorsToUse[0].transform.position,Quaternion.identity,enemyParent);
-                 e1.distancePlayerInRange = 1000;
-                 e1.fsm.SendEvent((int)SecurityGuard.EventosGuardia.EnRangoDeAtaque);
-             }
-             else {
-                 Cientifico e1 = Instantiate(cfc,doorsToUse[0].transform.position,Quaternion.identity,enemyParent);
-                 e1.distanceInAttackRange = 1000;
-                 e1.fsm.SendEvent((int)Cientifico.EventosGuardia.EnRangoDeAtaque);
-             }
-             rand = UnityEngine.Random.Range(0, 2);
-            
-             if (rand == 0) {
-                 SecurityGuard e1 = Instantiate(sg,doorsToUse[1].transform.position,Quaternion.identity,enemyParent);
-                 e1.distancePlayerInRange = 1000;
-                 e1.fsm.SendEvent((int)SecurityGuard.EventosGuardia.EnRangoDeAtaque);
-             }
-             else {
-                 Cientifico e1 = Instantiate(cfc,doorsToUse[1].transform.position,Quaternion.identity,enemyParent);
-                 e1.distanceInAttackRange = 1000;
-                e1.fsm.SendEvent((int)Cientifico.EventosGuardia.EnRangoDeAtaque);
-            }
+            SecurityGuard e1 = Instantiate(sg, doorsToUse[0].transform.position, Quaternion.identity, enemyParent);
+            e1.distancePlayerInRange = 1000;
+            e1.fsm.SendEvent((int)SecurityGuard.EventosGuardia.EnRangoDeAtaque);
+
+            SecurityGuard e2 = Instantiate(sg, doorsToUse[1].transform.position, Quaternion.identity, enemyParent);
+            e1.distancePlayerInRange = 1000;
+            e1.fsm.SendEvent((int)SecurityGuard.EventosGuardia.EnRangoDeAtaque);
             timer = 0;
         }
     }
