@@ -6,8 +6,8 @@ public class Cientifico : Enemy
 {
     // Start is called before the first frame update
     public static event Action<Enemy, int> OnDetectedPlayer;
-    [SerializeField] protected float distancePlayerInRange;
-    [SerializeField] protected float distanceInAttackRange;
+    [SerializeField] public float distancePlayerInRange;
+    [SerializeField] public float distanceInAttackRange;
 
     [SerializeField] protected float damageFakazo;
     [SerializeField] private GameObject fakaCollider;
@@ -84,7 +84,7 @@ public class Cientifico : Enemy
     {
         //Debug.Log((EstadosGuardia)fsm.GetCurrentState());
         //if (currentTarget == null) return;
-
+       
         base.Update();
         switch (fsm.GetCurrentState())
         {

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class LevelManager : MonoBehaviour {
     [SerializeField] GameObject[] levels;
@@ -11,6 +12,7 @@ public class LevelManager : MonoBehaviour {
     GameManager gm;
     int actualLevel = 1;
     public static event Action<LevelManager> ChangedLevel;
+
     private void OnEnable()
     {
         CleanLevel.OnClearLevel += CheckNextLevel;
@@ -77,6 +79,8 @@ public class LevelManager : MonoBehaviour {
         actualLevel++;
         if (actualLevel > 3)
             actualLevel = 1;
+
+
 
         for (int i = 0; i < doors.Length; i++)
             if (doors[i] != null)

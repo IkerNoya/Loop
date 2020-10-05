@@ -6,8 +6,8 @@ public class SecurityGuard : Enemy
 {
     public static event Action<Enemy, int> OnDetectedPlayer;
     [SerializeField] protected float speedAttack;
-    [SerializeField] protected float distancePlayerInRange;
-    [SerializeField] protected float distanceInAttackRange;
+    [SerializeField] public float distancePlayerInRange;
+    [SerializeField] public float distanceInAttackRange;
     [SerializeField] protected bool generateWeaponRandom = true; 
     public Weapons weapons;
     

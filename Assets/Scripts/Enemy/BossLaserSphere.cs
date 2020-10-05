@@ -33,7 +33,6 @@ public class BossLaserSphere : MonoBehaviour
 
     IEnumerator MoveToObjective() {
         Destroy(this.gameObject, 1.5f);
-        Debug.Log(objective.normalized);
         while(true) {
             transform.position += objective.normalized * speed * Time.deltaTime;
             yield return null;

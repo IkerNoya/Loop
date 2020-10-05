@@ -13,7 +13,7 @@ public class Enemy : Character
     private bool dieOnPlayerDead = true;
     private AIDestinationSetter aiPathDestination;
     protected AIPath aiPath;
-    protected FSM fsm;
+   [HideInInspector] public FSM fsm;
     bool IDead;
 
     [SerializeField] protected bool enableCallAlies = true;

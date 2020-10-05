@@ -16,6 +16,13 @@ public class Boss : MonoBehaviour {
     [SerializeField] BossLaserSphere laserSphere;
     [SerializeField] int maxLaserSpheresToShoot;
 
+    [SerializeField] GameObject[] doorsToUse;
+    [SerializeField] Enemy[] enemies;
+    [SerializeField] SecurityGuard sg;
+    [SerializeField] Cientifico cfc;
+    [SerializeField] int enemiesToCreate;
+    [SerializeField] Transform enemyParent;
+
     void Start() {
         player = FindObjectOfType<PlayerController>();
     }
@@ -37,7 +44,7 @@ public class Boss : MonoBehaviour {
     }
 
     private void Update() {
-        if(player == null) {
+        if (player == null) {
             transform.Rotate(Vector3.forward * 180f * Time.deltaTime, Space.Self);
         }
     }
@@ -79,9 +86,9 @@ public class Boss : MonoBehaviour {
             }
             yield return new WaitForSeconds(0.1f);
         }
-        else {
+        else if (attackPosibilities > 25 && attackPosibilities <= 95) {
             float timeBetweenAttacks = 0.05f;
-            for(int i = 0; i < maxLaserSpheresToShoot; i++) {
+            for (int i = 0; i < maxLaserSpheresToShoot; i++) {
 
                 BossLaserSphere bls = Instantiate(laserSphere, transform.position, Quaternion.identity);
                 if (player != null)
@@ -90,16 +97,52 @@ public class Boss : MonoBehaviour {
                 yield return new WaitForSeconds(timeBetweenAttacks);
             }
         }
+        else {
+            float timeToSpawn = 3f;
+            int rand = Random.Range(0, 2);
+            Debug.Log(rand);
+            if (rand == 0) {
+                SecurityGuard e1 = Instantiate(sg, doorsToUse[0].transform.position, Quaternion.identity, enemyParent);
+                e1.distancePlayerInRange = 1000;
+                e1.fsm.SendEvent((int)SecurityGuard.EventosGuardia.EnRangoDeAtaque);
+            }
+            else {
+
+                Cientifico e1 = Instantiate(cfc, doorsToUse[0].transform.position, Quaternion.identity, enemyParent);
+                e1.distanceInAttackRange = 1000;
+                e1.fsm.SendEvent((int)Cientifico.EventosGuardia.EnRangoDeAtaque);
+            }
+            rand = Random.Range(0, 2);
+            Enemy e2 = Instantiate(enemies[rand], doorsToUse[1].transform.position, Quaternion.identity, enemyParent);
+
+            if (rand == 0) {
+                SecurityGuard e1 = Instantiate(sg, doorsToUse[0].transform.position, Quaternion.identity, enemyParent);
+                e1.distancePlayerInRange = 1000;
+                e1.fsm.SendEvent((int)SecurityGuard.EventosGuardia.EnRangoDeAtaque);
+            }
+            else {
+
+                Cientifico e1 = Instantiate(cfc, doorsToUse[0].transform.position, Quaternion.identity, enemyParent);
+                e1.distanceInAttackRange = 1000;
+                e1.fsm.SendEvent((int)Cientifico.EventosGuardia.EnRangoDeAtaque);
+
+            }
+
+
+            Debug.Log(rand);
+
+            yield return new WaitForSeconds(timeToSpawn);
+        }
 
         StopCoroutine(Attack());
-        if (player != null) 
+        if (player != null)
             StartCoroutine(PrepareAttack());
-        
+
         yield return null;
     }
     public void ReceiveDamage(float d) {
         hp -= d;
-        if(hp <= 0) {
+        if (hp <= 0) {
             Destroy(this.gameObject);
         }
     }
