@@ -24,7 +24,7 @@ public class Enemy : Character
     private Vector3 currentDistanceWhitPlayer;
     private Vector3 auxCurrentDistanceWhitPlayer;
     protected Transform currentTarget;
-    protected PlayerController[] targets;
+    [SerializeField] protected PlayerController[] targets;
     protected virtual void Awake()
     {
         aiPathDestination = GetComponent<AIDestinationSetter>();

@@ -13,6 +13,8 @@ public class LevelManager : MonoBehaviour {
     int actualLevel = 1;
     public static event Action<LevelManager> ChangedLevel;
 
+    [SerializeField] AstarPath paths;
+
     private void OnEnable()
     {
         CleanLevel.OnClearLevel += CheckNextLevel;
@@ -42,6 +44,9 @@ public class LevelManager : MonoBehaviour {
         if (levels[actualLevel] != null) {
             levels[actualLevel].SetActive(true);
         }
+
+        paths.Scan();
+
 
         doors = GameObject.FindGameObjectsWithTag("Door");
         
@@ -80,7 +85,7 @@ public class LevelManager : MonoBehaviour {
         if (actualLevel > 3)
             actualLevel = 1;
 
-
+        
 
         for (int i = 0; i < doors.Length; i++)
             if (doors[i] != null)
@@ -97,6 +102,8 @@ public class LevelManager : MonoBehaviour {
             levels[actualLevel].SetActive(true);
 
         doors = GameObject.FindGameObjectsWithTag("Door");
+
+        paths.Scan();
 
         if (ChangedLevel != null)
             ChangedLevel(this);
