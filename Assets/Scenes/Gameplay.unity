@@ -496,6 +496,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 618028620}
+--- !u!1 &792512127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 792512127, guid: 9ee814ef34981ef489409bf2e45044df,
+    type: 3}
+  m_PrefabInstance: {fileID: 8221548983562883370}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &840173023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -570,6 +576,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3485785595014474399, guid: 8875260c99f7d7640bdfc3125b3dcadd,
     type: 3}
   m_PrefabInstance: {fileID: 840173023}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1060499470 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1060499470, guid: 9ee814ef34981ef489409bf2e45044df,
+    type: 3}
+  m_PrefabInstance: {fileID: 8221548983562883370}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1157607074 stripped
 GameObject:
@@ -753,6 +765,39 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 992199808, guid: 4df39cd6367f47647a2c0393bc582802, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194156129, guid: 4df39cd6367f47647a2c0393bc582802, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286807087772411428, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: UpperWall
+      value: 
+      objectReference: {fileID: 792512127}
+    - target: {fileID: 3286807087772411428, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: LowerWall
+      value: 
+      objectReference: {fileID: 1060499470}
+    - target: {fileID: 3286807087772411428, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: lowerWall
+      value: 
+      objectReference: {fileID: 1060499470}
+    - target: {fileID: 3286807087772411428, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: upperWall
+      value: 
+      objectReference: {fileID: 792512127}
+    - target: {fileID: 3286807087772411428, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: middleBetweenWalls
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3286807087772411429, guid: 4df39cd6367f47647a2c0393bc582802,
         type: 3}
       propertyPath: m_Name
@@ -877,6 +922,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286807087772411431, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333490735728670265, guid: 4df39cd6367f47647a2c0393bc582802,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 449789050, guid: 4df39cd6367f47647a2c0393bc582802, type: 3}
