@@ -27,13 +27,14 @@ public class GenerateCorps : MonoBehaviour
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private int inLevel;
 
-    private void Start()
-    {
+    private void Start() {
         levelManager = FindObjectOfType<LevelManager>();
         parentClasses = new ParentClass();
         SettingParent();
-        inLevel = levelManager.GetCurrentLevel();
-        parents = levelManager.GetLevels();
+        if (levelManager != null) {
+            inLevel = levelManager.GetCurrentLevel();
+            parents = levelManager.GetLevels();
+        }
     }
     void Update()
     {
@@ -48,6 +49,7 @@ public class GenerateCorps : MonoBehaviour
         //-------------//
     }
     public void SettingParent() {
+        if(levelManager!=null)
         if (parents[levelManager.GetCurrentLevel()] != null) {
             parentClasses.parentObject = parents[levelManager.GetCurrentLevel()];
             parentClasses.nameLevel = "Level" + levelManager.GetCurrentLevel();

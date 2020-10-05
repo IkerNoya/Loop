@@ -225,7 +225,9 @@ public class PlayerController : Character
         upperWall = GameObject.FindGameObjectWithTag("WallUp");
         lowerWall = GameObject.FindGameObjectWithTag("WallDown");
 
+        if(upperWall!=null)
         upperWallRenderer = upperWall.GetComponent<SpriteRenderer>();
+        if(lowerWall!=null)
         lowerWallRenderer = lowerWall.GetComponent<SpriteRenderer>();
     }
 
