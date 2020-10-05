@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     bool gameStarted;
     bool enableCheckNextLevel = false;
     public static GameManager instanceGM;
-
+    [SerializeField] Music m;
     private void Awake()
     {
         if (instanceGM == null)
@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
         {
             Destroy(instanceGM.gameObject);
         }
+    }
+    private void Start() {
+        m.StartMusicGameplay();
     }
     private void OnEnable()
     {
