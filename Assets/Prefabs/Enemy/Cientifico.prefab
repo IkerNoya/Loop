@@ -267,6 +267,8 @@ MonoBehaviour:
   delayFkazoEnable: 0.05
   enableIdleStatePlayerOutRange: 1
   faka: {fileID: 6512081092665429709}
+  source: {fileID: 0}
+  soundHit: {fileID: 0}
 --- !u!95 &-8550690153696870639
 Animator:
   serializedVersion: 3
@@ -277,7 +279,7 @@ Animator:
   m_GameObject: {fileID: 2342546344682205856}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 21d5dae6a62ff424e9989a2212ae1934, type: 2}
+  m_Controller: {fileID: 9100000, guid: fd7af51c4cea4574981fe52aca54570b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
