@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 1
+  radius: 0.75
   height: 2
   repathRate: 0.5
   canSearch: 1
@@ -206,7 +206,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.975
+  m_Radius: 0.8
 --- !u!50 &8853489992321274278
 Rigidbody2D:
   serializedVersion: 4
