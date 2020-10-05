@@ -79,7 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 44654d2f0336d3f40a983bc54edd7a83, type: 3}
+  m_Sprite: {fileID: 3216489542319263519, guid: c86e23249e4b36443ba0bbfea51d7d7b,
+    type: 3}
   m_Color: {r: 0, g: 0.8982549, b: 1, a: 0.7019608}
   m_FlipX: 0
   m_FlipY: 0
@@ -204,7 +205,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3694435097970602009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +268,7 @@ MonoBehaviour:
   delayFkazoEnable: 0.05
   enableIdleStatePlayerOutRange: 1
   faka: {fileID: 6512081092665429709}
+  animator: {fileID: -8550690153696870639}
   source: {fileID: 0}
   soundHit: {fileID: 0}
 --- !u!95 &-8550690153696870639
