@@ -380,6 +380,7 @@ public class PlayerController : Character
         }
         if (Input.GetKeyDown(KeyCode.LeftShift) && canActivateDash)
         {
+            playerAnims.StartDashAnim();
             ActivateDash = true;
             canActivateDash = false;
         }
