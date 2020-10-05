@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     }
     private void OnDisable()
     {
-        Enemy.OnStartEnemy += AddedEnemy;
+        Enemy.OnStartEnemy -= AddedEnemy;
         Enemy.OnDieEnemy -= SubstractEnemy;
     }
 

@@ -11,6 +11,8 @@ TagManager:
   - Boss
   - HitCollider
   - Enviroment
+  - WallUp
+  - WallDown
   layers:
   - Default
   - TransparentFX

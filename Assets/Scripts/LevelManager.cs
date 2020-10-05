@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour {
 
     GameManager gm;
     int actualLevel = 1;
-
+    public static event Action<LevelManager> ChangedLevel;
     private void OnEnable()
     {
         CleanLevel.OnClearLevel += CheckNextLevel;
@@ -32,7 +32,6 @@ public class LevelManager : MonoBehaviour {
        //if (doors[doorToOpen] != null)
        //    doors[doorToOpen].SetActive(true);
        //
-        PlayerController.DoorEnter += ChangeLevel;
 
         for (int i = 0; i < levels.Length; i++)
             if (levels[i] != null)
@@ -94,6 +93,9 @@ public class LevelManager : MonoBehaviour {
             levels[actualLevel].SetActive(true);
 
         doors = GameObject.FindGameObjectsWithTag("Door");
+
+        if (ChangedLevel != null)
+            ChangedLevel(this);
 
         // int doorToOpen = Random.Range(0, doors.Length);
         // while (doors[doorToOpen] == door.gameObject)
