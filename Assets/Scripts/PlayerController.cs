@@ -18,6 +18,7 @@ public class PlayerController : Character
     [SerializeField] GameObject upperWall;
     [SerializeField] GameObject lowerWall;
     [HideInInspector] public Vector3 lastMousePosition;
+    public static event Action<PlayerController> OnDiePlayer;
     Vector3 mousePosition;
     Vector3 movement;
     SpriteRenderer spriteRenderer;
@@ -27,7 +28,7 @@ public class PlayerController : Character
     SpriteRenderer upperWallRenderer;
     SpriteRenderer lowerWallRenderer;
     Weapons weapons;
-    Rigidbody2D rb; 
+    Rigidbody2D rb;
 
     [SerializeField] GameObject[] cannonPos;
 
@@ -60,9 +61,10 @@ public class PlayerController : Character
         shotgunSpriteRenderer = shotgun.GetComponent<SpriteRenderer>();
         smgSpriteRenderer = smg.GetComponent<SpriteRenderer>();
         revolverSpriteRenderer = revolver.GetComponent<SpriteRenderer>();
-       
+
     }
-    private void OnDisable() {
+    private void OnDisable()
+    {
         LevelManager.ChangedLevel -= ChangedLevel;
     }
     void Update()
@@ -182,17 +184,17 @@ public class PlayerController : Character
             }
             if (shotgun.transform.position.y > transform.position.y || smg.transform.position.y > transform.position.y || revolver.transform.position.y > transform.position.y)
             {
-                shotgunSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder -1;
+                shotgunSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder - 1;
                 smgSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder - 1;
                 revolverSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder - 1;
             }
-            else if(shotgun.transform.position.y < transform.position.y || smg.transform.position.y < transform.position.y || revolver.transform.position.y < transform.position.y)
+            else if (shotgun.transform.position.y < transform.position.y || smg.transform.position.y < transform.position.y || revolver.transform.position.y < transform.position.y)
             {
                 shotgunSpriteRenderer.sortingOrder = 1 + spriteRenderer.sortingOrder;
                 smgSpriteRenderer.sortingOrder = 1 + spriteRenderer.sortingOrder;
                 revolverSpriteRenderer.sortingOrder = 1 + spriteRenderer.sortingOrder;
             }
-            if(upperWall!=null && lowerWall != null)
+            if (upperWall != null && lowerWall != null)
             {
                 if (lowerWall.transform.position.y < transform.position.y) lowerWallRenderer.sortingOrder = spriteRenderer.sortingOrder + 2;
                 else lowerWallRenderer.sortingOrder = spriteRenderer.sortingOrder - 1;
@@ -214,7 +216,8 @@ public class PlayerController : Character
         }
     }
 
-    void ChangedLevel(LevelManager lm) {
+    void ChangedLevel(LevelManager lm)
+    {
 
         upperWall = null;
         lowerWall = null;
@@ -274,7 +277,7 @@ public class PlayerController : Character
                 case Weapons.WeaponType.Shotgun:
                     if (Input.GetMouseButtonDown(0) && !ActivateDash)
                     {
-                        
+
                         if (weapons.GetCanShoot())
                         {
                             lastMousePosition = new Vector3(mousePosition.x, mousePosition.y, 0f);
@@ -342,7 +345,7 @@ public class PlayerController : Character
         {
             playerAnims.StartAnimMoveSide();
         }
-           
+
 
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -353,7 +356,7 @@ public class PlayerController : Character
         {
             playerAnims.StartAnimMoveSide();
         }
-            
+
 
         if (Input.GetMouseButton(1))
         {
