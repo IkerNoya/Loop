@@ -190,6 +190,7 @@ public class Cientifico : Enemy
     }
     protected override void Attack()
     {
+        Debug.Log("XD");
         if (delayFakazo > 0 && !fakaCollider.activeSelf) {
             delayFakazo = delayFakazo - Time.deltaTime;
 

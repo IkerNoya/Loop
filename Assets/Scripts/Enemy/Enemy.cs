@@ -70,6 +70,7 @@ public class Enemy : Character
         PlayerController.OnDiePlayer -= DeadForFinishGame;
     }
     protected virtual void Update() {
+        if(targets[0]!=null)
         if (targets[0].transform.position.x < transform.position.x)
             rend.flipX = true;
         else

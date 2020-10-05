@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instanceGM;
     [SerializeField] Music m;
     [SerializeField] GameObject camvasGameOver;
+
+    [SerializeField] PlayerController player;
+
     private void Awake()
     {
         if (instanceGM == null)
@@ -35,6 +38,13 @@ public class GameManager : MonoBehaviour
         Enemy.OnStartEnemy -= AddedEnemy;
         Enemy.OnDieEnemy -= SubstractEnemy;
         PlayerController.OnDiePlayer -= EnableCamvasGameOver;
+    }
+    private void Update() {
+        if(player!=null)
+        if (player.GetHP() <= 0) {
+            camvasGameOver.SetActive(true);
+            Time.timeScale = 0f;
+        }
     }
 
     public int GetCurrentCountEnemy()
