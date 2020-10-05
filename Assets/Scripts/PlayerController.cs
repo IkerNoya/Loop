@@ -380,7 +380,7 @@ public class PlayerController : Character
             weapons.type = Weapons.WeaponType.Revolver;
             selection = WeaponSelected.Revolver;
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canActivateDash)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canActivateDash && movement != Vector3.zero)
         {
             playerAnims.StartDashAnim();
             ActivateDash = true;

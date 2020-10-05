@@ -17,9 +17,11 @@ public class BossLaserSphere : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
-            collision.gameObject.GetComponent<PlayerController>().ReceiveDamage(damage);
-            StopCoroutine(MoveToObjective());
-            Destroy(this.gameObject);
+            if (!collision.gameObject.GetComponent<PlayerController>().GetDash()) {
+                collision.gameObject.GetComponent<PlayerController>().ReceiveDamage(damage);
+                StopCoroutine(MoveToObjective());
+                Destroy(this.gameObject);
+            }
         }
     }
 

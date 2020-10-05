@@ -21,8 +21,16 @@ public class Boss : MonoBehaviour {
     }
 
     private void OnEnable() {
-        StartCoroutine(PrepareAttack());
+        StartCoroutine(LateStart());
     }
+
+    IEnumerator LateStart() {
+        yield return new WaitForSeconds(3.0f);
+        StartCoroutine(PrepareAttack());
+        StopCoroutine(LateStart());
+        yield return null;
+    }
+
     private void OnDisable() {
         StopCoroutine(PrepareAttack());
         StopCoroutine(Attack());
@@ -62,7 +70,7 @@ public class Boss : MonoBehaviour {
 
         int attackPosibilities = Random.Range(0, 100);
 
-        if (attackPosibilities <= 25) {
+        if (attackPosibilities <= 0) {
             while (transform.position != posToAttack) {
                 transform.position = Vector2.MoveTowards(transform.position, posToAttack, speed * Time.deltaTime);
                 yield return null;
