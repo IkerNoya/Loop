@@ -66,12 +66,12 @@ public class GenerateCorps : MonoBehaviour
         //Debug.Log(levelManager.GetCurrentLevel());
 
         GameObject go = null;
-        go = Instantiate(objectCorpCharacter.objectOnDieCharacter, transform.position, Quaternion.identity, parentClasses.parentObject.transform);
+        go = Instantiate(objectBloodCharacter.objectOnDieCharacter, transform.position, Quaternion.identity, parentClasses.parentObject.transform);
         if (OnCorpGenerateBlood != null)
         {
             OnCorpGenerateBlood(this, go, objectBloodCharacter.recycled);
         }
-        go = Instantiate(objectBloodCharacter.objectOnDieCharacter, transform.position, Quaternion.identity, parentClasses.parentObject.transform);
+        go = Instantiate(objectCorpCharacter.objectOnDieCharacter, transform.position, Quaternion.identity, parentClasses.parentObject.transform);
         if (OnCorpGenerateCorpse != null)
         {
             //Debug.Log(objectCorpCharacter.recycled);

@@ -26,17 +26,18 @@ public class GeneratorEnemysManager : MonoBehaviour
     private void OnEnable()
     {
         upgrade = true;
-        Enable();
+        //Enable();
     }
     private void OnDisable()
     {
         upgrade = true;
+        Enable();
     }
     public void AddMaxRandomGenerate()
     {
-        Debug.Log("ENTRE");
+        //Debug.Log("ENTRE");
         int resultRandom = UnityEngine.Random.Range(minAddedRandomGenerate, maxAddedRandomGenerate+1);
-        Debug.Log(resultRandom);
+        //Debug.Log(resultRandom);
         minRandomGenerateEnemys = maxRandomGenerateEnemys;
         maxRandomGenerateEnemys = maxRandomGenerateEnemys + resultRandom;
 
