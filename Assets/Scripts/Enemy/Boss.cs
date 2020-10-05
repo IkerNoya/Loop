@@ -125,8 +125,8 @@ public class Boss : MonoBehaviour {
 
                 yield return new WaitForSeconds(timeBetweenAttacks);
             }
-
         }
+
         //else {
         //    float timeToSpawn = 3f;
         //    int rand = Random.Range(0, 2);
