@@ -391,6 +391,11 @@ public class PlayerController : Character
         hp -= d;
     }
 
+    public bool GetDash()
+    {
+        return ActivateDash;
+    }
+
     #endregion
 
     #region COROUTINES
@@ -408,8 +413,8 @@ public class PlayerController : Character
     }
     IEnumerator Dash()
     {
-        rb.velocity = movement * dashSpeed;
-        yield return new WaitForSeconds(0.05f);
+        rb.velocity = movement.normalized * dashSpeed;
+        yield return new WaitForSeconds(0.3f);
         ActivateDash = false;
     }
     #endregion
@@ -422,16 +427,21 @@ public class PlayerController : Character
             if (DoorEnter != null)
                 DoorEnter();
         }
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet") && !ActivateDash)
         {
             Bullet bullet = collision.GetComponent<Bullet>();
             if (bullet != null)
             {
                 if (bullet.GetUser() != Bullet.User.Player)
                 {
+                    Debug.Log("OUCH");
                     SetHP(GetHP() - bullet.GetDamage());
                     Destroy(bullet.gameObject);
                 }
+            }
+            if (collision.gameObject.CompareTag("Bullet") && ActivateDash)
+            {
+                Debug.Log("Esquivado");
             }
         }
     }
